@@ -1,0 +1,245 @@
+{
+  "main": {
+    "id": "19f6a1e06966fc89",
+    "type": "split",
+    "children": [
+      {
+        "id": "eddf9f48f5a5f626",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "41106f8e070febd8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "仓库管理系统/使用QSS和QPalette管理样式.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "使用QSS和QPalette管理样式"
+            }
+          },
+          {
+            "id": "6dab999687103737",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "仓库管理系统/QT连接MySQL.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "QT连接MySQL"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "45ae1458e4b2276d",
+    "type": "split",
+    "children": [
+      {
+        "id": "a49e086243acbebe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a70c3795ffc330fe",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byModifiedTime",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "ff2cef3ce1da1909",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "24e0c5cd694fa8ad",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 261.5
+  },
+  "right": {
+    "id": "32a6421c5c0f1c0c",
+    "type": "split",
+    "children": [
+      {
+        "id": "0c5037c9b750489b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9ed6fd2099209544",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "fb2d57f87ba80450",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "1ce66a29a07ee5bd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "f81115d75d73e487",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "85c0bc0b87513477",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
+          {
+            "id": "585e0a0c0d69a130",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "workspaces:管理工作区布局": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-git:Open Git source control": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
+    }
+  },
+  "active": "41106f8e070febd8",
+  "lastOpenFiles": [
+    "仓库管理系统/QT连接MySQL.md",
+    "仓库管理系统/使用QSS和QPalette管理样式.md",
+    "未命名.canvas",
+    "MySQL数据库/存储过程.md",
+    "仓库管理系统",
+    "MySQL数据库/图片/锁_img2.png",
+    "MySQL数据库/图片/视图_img2.png",
+    "MySQL数据库/索引优化.md",
+    "MySQL数据库/图片/视图_img1.png",
+    "MySQL数据库/视图.md",
+    "MySQL数据库/图片/SQL优化_img1.png",
+    "MySQL数据库/图片/InnoDB_img7.png",
+    "MySQL数据库/图片/Pasted image 20260708021739.png",
+    "MySQL数据库/图片",
+    "MySQL数据库/SQL优化.md",
+    "MySQL数据库/图片/Pasted image 20260708021911.png",
+    "MySQL数据库/图片/Pasted image 20260708021831.png",
+    "MySQL数据库/锁.md",
+    "MySQL数据库/InnoDB.md",
+    "MySQL数据库/为什么使用B+树而不使用其他数据结构.md",
+    "Pasted image 20260708021922.png",
+    "MySQL数据库/图片/Pasted image 20260708021902.png",
+    "MySQL数据库/打开笔记本.onetoc2",
+    "MySQL数据库",
+    "OneNote/打开笔记本.onetoc2",
+    "未命名.base",
+    "未命名 1.base",
+    "OneNote"
+  ]
+}
