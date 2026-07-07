@@ -11,10 +11,14 @@
             "id": "eaf37211d19f0ac9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "仓库管理系统/使用QSS和QPalette管理样式.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "使用QSS和QPalette管理样式"
             }
           }
         ]
