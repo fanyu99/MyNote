@@ -197,8 +197,17 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "eaf37211d19f0ac9",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
+    "onenote/学习知识.one",
+    "onenote/锁.one",
+    "onenote/算法.one",
+    "onenote/数据结构.one",
+    "onenote/打开笔记本.onetoc2",
+    "onenote/MySQL.one",
+    "onenote/innodB引擎.one",
+    "onenote",
+    "新建文件夹",
     "未命名.canvas",
     "仓库管理系统/QT连接MySQL.md",
     "仓库管理系统/使用QSS和QPalette管理样式.md",
@@ -220,12 +229,6 @@
     "MySQL数据库/InnoDB.md",
     "MySQL数据库/为什么使用B+树而不使用其他数据结构.md",
     "Pasted image 20260708021922.png",
-    "MySQL数据库/图片/Pasted image 20260708021902.png",
-    "MySQL数据库/打开笔记本.onetoc2",
-    "MySQL数据库",
-    "OneNote/打开笔记本.onetoc2",
-    "未命名.base",
-    "未命名 1.base",
-    "OneNote"
+    "MySQL数据库/图片/Pasted image 20260708021902.png"
   ]
 }
