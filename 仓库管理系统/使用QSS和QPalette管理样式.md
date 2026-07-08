@@ -77,4 +77,6 @@ QString path = (theme == Theme::Light) ? "../theme/light.json" : "../theme/dark.
     p.setColor(QPalette::Window, QColor(obj["window"].toString()));//设置窗口背景颜色
     p.setColor(QPalette::WindowText, QColor(obj["windowText"].toString()));
     p.setColor(QPalette::Base, QColor(obj["base"].toString()));
+	qApp->setPalette(p);// 设置palette同步刷新
+    qApp->setStyleSheet(qApp->styleSheet()); // 同步刷新
 ```
