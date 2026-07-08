@@ -1,4 +1,238 @@
 {
-  "workspaces": {},
-  "active": "仓库管理系统相关知识"
+  "workspaces": {
+    "项目学习": {
+      "main": {
+        "id": "19f6a1e06966fc89",
+        "type": "split",
+        "children": [
+          {
+            "id": "cecdff30dcf545c1",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "ae53d04a65c59460",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "仓库管理系统/QT相关/QT多窗口导航架构.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "QT多窗口导航架构"
+                }
+              }
+            ]
+          },
+          {
+            "id": "46980e054ada1381",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "df0dc659e438cb80",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "C++_Qt_MySQL_仓库管理系统_学习计划"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "45ae1458e4b2276d",
+        "type": "split",
+        "children": [
+          {
+            "id": "a49e086243acbebe",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "a70c3795ffc330fe",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "byModifiedTime",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "ff2cef3ce1da1909",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "24e0c5cd694fa8ad",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 234.5
+      },
+      "right": {
+        "id": "32a6421c5c0f1c0c",
+        "type": "split",
+        "children": [
+          {
+            "id": "0c5037c9b750489b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9ed6fd2099209544",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "反向链接"
+                }
+              },
+              {
+                "id": "fb2d57f87ba80450",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "出链"
+                }
+              },
+              {
+                "id": "1ce66a29a07ee5bd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "f81115d75d73e487",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-archive",
+                  "title": "添加笔记属性"
+                }
+              },
+              {
+                "id": "85c0bc0b87513477",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "仓库管理系统/QT相关/QT多窗口导航架构.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "QT多窗口导航架构 的大纲"
+                }
+              },
+              {
+                "id": "585e0a0c0d69a130",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "2ca7211d3ca7cca6",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              }
+            ],
+            "currentTab": 4
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "markdown-importer:打开 Markdown 格式转换器": false,
+          "workspaces:管理工作区布局": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "bases:新建数据库": false,
+          "obsidian-git:Open Git source control": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false,
+          "realclaudian:Open Claudian": false
+        }
+      },
+      "active": "ae53d04a65c59460",
+      "mtime": "2026-07-08T21:11:37+08:00"
+    }
+  },
+  "active": "项目学习"
 }
