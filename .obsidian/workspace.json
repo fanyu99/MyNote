@@ -171,13 +171,23 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "2ca7211d3ca7cca6",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
           }
         ],
         "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 316.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,15 +200,19 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
-      "obsidian-importer:Open Importer": false,
       "obsidian-git:Open Git source control": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "realclaudian:Open Claudian": false
     }
   },
-  "active": "585e0a0c0d69a130",
+  "active": "eaf37211d19f0ac9",
   "lastOpenFiles": [
+    "仓库管理系统/QT连接MySQL.md",
+    "仓库管理系统/使用QSS和QPalette管理样式.md",
+    "仓库管理系统/使用QSS和QPalette管理样式.md.tmp.39108.41780a0f3d5a",
+    "未命名 1.canvas",
     "onenote/学习知识.one",
     "onenote/锁.one",
     "onenote/算法.one",
@@ -209,10 +223,7 @@
     "onenote",
     "新建文件夹",
     "未命名.canvas",
-    "仓库管理系统/QT连接MySQL.md",
-    "仓库管理系统/使用QSS和QPalette管理样式.md",
     "MySQL数据库/存储过程.md",
-    "仓库管理系统",
     "MySQL数据库/图片/锁_img2.png",
     "MySQL数据库/图片/视图_img2.png",
     "MySQL数据库/索引优化.md",
@@ -221,7 +232,6 @@
     "MySQL数据库/图片/SQL优化_img1.png",
     "MySQL数据库/图片/InnoDB_img7.png",
     "MySQL数据库/图片/Pasted image 20260708021739.png",
-    "MySQL数据库/图片",
     "MySQL数据库/SQL优化.md",
     "MySQL数据库/图片/Pasted image 20260708021911.png",
     "MySQL数据库/图片/Pasted image 20260708021831.png",
