@@ -6,7 +6,7 @@
       {
         "id": "cecdff30dcf545c1",
         "type": "tabs",
-        "dimension": 53.65344467640919,
+        "dimension": 58.35073068893528,
         "children": [
           {
             "id": "ae53d04a65c59460",
@@ -27,7 +27,7 @@
       {
         "id": "46980e054ada1381",
         "type": "tabs",
-        "dimension": 46.34655532359081,
+        "dimension": 41.64926931106472,
         "children": [
           {
             "id": "df0dc659e438cb80",
@@ -100,7 +100,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 234.5
+    "width": 200
   },
   "right": {
     "id": "32a6421c5c0f1c0c",
@@ -224,9 +224,6 @@
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
       "obsidian-git:Open Git source control": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false,
       "realclaudian:Open Claudian": false
     }
   },
@@ -234,6 +231,8 @@
   "lastOpenFiles": [
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
     "仓库管理系统/QT相关/QT多窗口导航架构.md",
+    "未命名.canvas",
+    "未命名 1.canvas",
     "仓库管理系统/QT相关/QT多窗口架构.md",
     "仓库管理系统/QT相关/Model View.md",
     "仓库管理系统/数据库相关/基础知识汇总.md",
@@ -247,13 +246,11 @@
     "conflict-files-obsidian-git.md",
     "仓库管理系统/使用QSS和QPalette管理样式.md.tmp.40704.809c9ea98893",
     "仓库管理系统/使用QSS和QPalette管理样式.md.tmp.39108.41780a0f3d5a",
-    "未命名 1.canvas",
     "onenote/学习知识.one",
     "onenote/锁.one",
     "onenote/算法.one",
     "onenote/数据结构.one",
     "onenote/打开笔记本.onetoc2",
-    "未命名.canvas",
     "MySQL数据库/存储过程.md",
     "MySQL数据库/图片/锁_img2.png",
     "MySQL数据库/图片/视图_img2.png",

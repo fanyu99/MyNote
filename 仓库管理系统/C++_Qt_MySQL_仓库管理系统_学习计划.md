@@ -235,7 +235,7 @@ int main(int argc, char *argv[]) {
 **为什么重要：** 企业级应用不可能是单窗口。正确的导航架构决定代码的可维护性。
 
 **知识点清单：**
-- [ ] `QStackedWidget` 页面切换（比 `QTabWidget` 更灵活）
+- [x] `QStackedWidget` 页面切换（比 `QTabWidget` 更灵活）
 - [ ] 侧边菜单栏 `QListWidget` + `QStackedWidget` 联动
 - [ ] 页面工厂模式：按菜单 key 创建/缓存页面
 - [ ] 页面间通信：信号/槽跨页面通知 (如"修改了物资"→仪表盘刷新)
