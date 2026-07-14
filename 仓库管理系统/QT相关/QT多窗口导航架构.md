@@ -76,3 +76,7 @@ stackedWidget->addWidget(page1);
 |itemClicked(QListWidgetItem *item)|单击|预览商品|
 |itemDoubleClicked(QListWidgetItem *item)|双击|进编辑页|
 |itemChanged(QListWidgetItem *item)|文本/勾选态变|复选框批量选中 → 批量出库|
+
+
+
+[ ]侧边栏和QStackWidget联动
