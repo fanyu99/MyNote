@@ -76,7 +76,9 @@
 1. 访问 [MySQL Connector/ODBC 下载页](https://dev.mysql.com/downloads/connector/odbc/)
 2. 选择 **Windows (x86, 64-bit), MSI Installer** 版本
 3. 安装时选择 **"Unicode"** 驱动（不要选 ANSI）
-4. 验证安装：打开"ODBC 数据源管理器 (64-bit)" → "驱动程序"标签 → 应看到 `MySQL ODBC 8.0 Unicode Driver`
+4. 验证安装：打开"ODBC 数据源管理器 (64-bit)" → "驱动程序"标签 → 应看到 `MySQL ODBC 8.0 Unicode Driver` 或 `MariaDB Unicode`
+
+> **注意：** 本项目连接池代码使用 `MariaDB Unicode` 驱动（WSL2 Ubuntu 环境）。如使用 MySQL 官方 ODBC Connector，需将 `ConnectionPool.cpp` 中 `CreateNewConnection()` 的驱动名改为 `MySQL ODBC 8.0 Unicode Driver`。两种驱动的连接字符串格式一致，仅驱动名不同。
 
 #### Step 2: 启动 MySQL 并创建数据库
 
@@ -110,7 +112,7 @@ int main(int argc, char *argv[]) {
     qDebug() << "Available drivers:" << QSqlDatabase::drivers();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-    db.setDatabaseName("DRIVER={MySQL ODBC 8.0 Unicode Driver};"
+    db.setDatabaseName("DRIVER={MariaDB Unicode};"
                        "SERVER=127.0.0.1;"
                        "PORT=3306;"
                        "DATABASE=wms;"
@@ -136,6 +138,25 @@ int main(int argc, char *argv[]) {
 - Qt SQL 模块架构 (`QSqlDatabase`, `QSqlQuery`, `QSqlError`)
 - ODBC 连接字符串格式
 - 可用驱动列表 (`QSqlDatabase::drivers()`)
+
+**⚠ ODBC 连接字符串格式要点：**
+
+每个参数之间必须以分号 `;` 分隔，包括 `DRIVER={...}` 后面：
+
+```
+✅ "DRIVER={MariaDB Unicode};SERVER=127.0.0.1;PORT=3306;..."
+❌ "DRIVER={MariaDB Unicode}SERVER=127.0.0.1;PORT=3306;..."  // DRIVER 后缺分号！
+```
+
+在 C++ 中，相邻字符串字面量会自动拼接。如果分成多行写，务必确保每行末尾或下行开头有分号：
+
+```cpp
+// ✅ 正确 — 第一行末尾有分号
+db.setDatabaseName(QString(
+    "DRIVER={MariaDB Unicode};"
+    "SERVER=%1;PORT=%2;DATABASE=%3;UID=%4;PWD=%5;")
+    .arg(host).arg(port).arg(dbName).arg(user).arg(pwd));
+```
 
 **学习资源：**
 - 📖 [Qt SQL Database Drivers 官方文档](https://doc.qt.io/qt-6/sql-driver.html)
@@ -236,9 +257,9 @@ int main(int argc, char *argv[]) {
 
 **知识点清单：**
 - [x] `QStackedWidget` 页面切换（比 `QTabWidget` 更灵活）
-- [ ] 侧边菜单栏 `QListWidget` + `QStackedWidget` 联动
-- [ ] 页面工厂模式：按菜单 key 创建/缓存页面
-- [ ] 页面间通信：信号/槽跨页面通知 (如"修改了物资"→仪表盘刷新)
+- [x] 侧边菜单栏 `QListWidget` + `QStackedWidget` 联动
+- [x] 页面工厂模式：按菜单 key 创建/缓存页面
+- [x] 页面间通信：信号/槽跨页面通知 (如"修改了物资"→仪表盘刷新)
 
 **练习任务：** 做一个 3 页的导航 Demo（首页/设置/关于），左侧 `QListWidget` 菜单点击切换右侧 `QStackedWidget`。
 
@@ -259,29 +280,56 @@ int main(int argc, char *argv[]) {
 **为什么重要：** 这是你面试时最大的技术亮点。将线程池的并发经验直接迁移到数据库层。
 
 **知识点清单：**
-- [ ] Qt 的线程-连接约束：**每个线程必须拥有自己的 `QSqlDatabase` 连接**
-- [ ] 连接池核心数据结构：`QQueue<QString>` (存储连接名而非连接对象)
-- [ ] `QMutex` + `QWaitCondition` 实现线程安全的 acquire/release
-- [ ] RAII 包装器 `ScopedConnection`：构造时获取，析构时自动归还
-- [ ] 连接健康检查：定时 `SELECT 1` ping
-- [ ] 空闲连接超时回收
-- [ ] 获取超时机制 (`QWaitCondition::wait(&mutex, timeoutMs)`)
+- [x] Qt 的线程-连接约束：**每个线程必须拥有自己的 `QSqlDatabase` 连接**
+- [x] 连接池核心数据结构：`QQueue<ConnectionMeta>` (存储连接元数据：名称、创建时间、最后使用时间)
+- [x] `QMutex` + `QWaitCondition` 实现线程安全的 acquire/release
+- [x] RAII 包装器 `ScopedConnection`：构造时获取，析构时自动归还，支持移动语义，禁止拷贝
+- [x] 连接健康检查：定时 `SELECT 1` ping（排出-重建模式，避免迭代器失效）
+- [x] 空闲连接超时回收 + 最大生命周期回收
+- [x] 获取超时机制 (`WaitCV.wait(&Mutex, timeoutMs)` + `while` 循环防虚假唤醒)
+- [x] 连接元数据追踪 (`ConnectionMeta`：Name, CreateTime, LastUsed)
+- [x] 两阶段初始化 (`Init(config)` 存配置 → `Instance()` 触发构造)
+- [x] 活跃连接计数 (`QAtomicInt ActiveCount` 追踪当前借出数)
 
 **线程池 → 连接池 迁移对照：**
 
 | 线程池概念 | 连接池对应 |
-|-----------|-----------|
-| `std::deque<std::function<void()>> tasks_` | `QQueue<QString> idleConnections_` |
-| `cv.wait(lock, predicate)` 等任务 | `cv.wait(&mutex, timeout)` 等空闲连接 |
-| `enqueue(task)` 提交任务 | `release(name)` 归还连接 |
-| `std::atomic<int> busynum_` | `QAtomicInt activeCount_` |
-| `~ThreadPool()` stop + join | `shutdown()` 关闭所有连接 |
-| 启动时创建固定数量线程 | 初始化时创建最小连接数 |
+| --- | --- |
+| `std::deque<std::function<void()>> tasks_` | `QQueue<ConnectionMeta> IdleConnections` (含名称+创建时间+最后使用时间) |
+| `cv.wait(lock, predicate)` 等任务 | `WaitCV.wait(&Mutex, timeoutMs)` + `while` 循环防虚假唤醒 |
+| `enqueue(task)` 提交任务 | `ReleaseConnection(meta)` 归还完整元数据 |
+| `std::atomic<int> busynum_` | `QAtomicInt ActiveCount` (追踪当前借出数) |
+| `~ThreadPool()` stop + join | `ShutdownAll()` 关闭空闲连接 + 警告活跃连接 |
+| 启动时创建固定数量线程 | `Init(config)` 创建 `InitConnectionsNumber` 条连接 |
+| *(无对应)* | `ConnectionMeta` 元数据追踪 (创建时间、最后使用时间) |
+| *(无对应)* | 双定时器：`pingTimer` 健康检查 + `shrinkTimer` 空闲/生命周期回收 |
+| *(无对应)* | 两阶段初始化：`Init(config)` 存配置 → `Instance()` 触发构造 |
+
+**两阶段初始化模式：**
+
+连接池采用两阶段初始化，将配置与构造分离：
+
+```cpp
+// 阶段 1: 仅保存配置（可在 main() 最开始调用）
+ConnectionPool::Init(poolConfig);
+
+// 阶段 2: 首次调用 Instance() 时触发构造函数
+// 构造函数中创建初始连接、启动定时器
+ConnectionPool& pool = ConnectionPool::Instance();
+```
+
+这种设计的好处：
+1. `Init()` 可以在程序启动早期、甚至读取配置文件之后立即调用
+2. `Instance()` 使用 Meyer's Singleton (`static ConnectionPool instance`)，线程安全
+3. 构造函数中需要读配置，而配置在 `Init()` 中已保存，时序清晰
+4. 未调用 `Init()` 就调用 `Instance()` 会抛出 `std::runtime_error`
 
 **新增挑战（线程池没有的）：**
 - 连接健康检查（MySQL `wait_timeout` 默认 8 小时断开）
 - 获取超时处理（当所有连接都在用时）
 - 动态扩容/缩容（按需创建，空闲回收）
+- 最大生命周期控制（基于 `CreateTime` 的 `MaxLifetimeSec` 检查）
+- ODBC 连接字符串格式（C++ 相邻字符串拼接时 DRIVER 后不可缺分号）
 
 **学习资源：**
 - 📖 [Qt QSqlDatabase 线程安全说明](https://doc.qt.io/qt-6/threads-modules.html#threads-and-the-sql-module)
@@ -350,7 +398,7 @@ int main(int argc, char *argv[]) {
 ```cpp
 // 独立使用版本 — Service 层非事务调用
 bool InventoryDAO::increaseStock(int productId, int qty) {
-    auto conn = ConnectionPool::instance().acquire();
+    ScopedConnection conn(ConnectionPool::Instance());
     return increaseStock(conn.db(), productId, qty);  // 委托给事务版本
 }
 
@@ -1287,7 +1335,7 @@ Phase 6 ████████████████████████
 | **ODBC 桥接 (本项目选择)** | 5 分钟安装 Connector 即可用; 不依赖 Qt 源码编译 | 多一层桥接，理论性能开销（桌面应用可忽略） |
 | 编译 `qsqlmysql.dll` | 原生连接，少一层桥接 | 需要 Qt 源码 + 重新编译插件，耗时且复杂 |
 
-**结论：** 选 ODBC。你的环境没有 `qsqlmysql.dll` 原生驱动，也没有 Qt 源码。ODBC 桥接对桌面应用性能无影响。
+**结论：** 选 ODBC。你的环境没有 `qsqlmysql.dll` 原生驱动，也没有 Qt 源码。ODBC 桥接对桌面应用性能无影响。当前代码使用 `MariaDB Unicode` 驱动连接 WSL2 Ubuntu 上的 MariaDB/MySQL 数据库。
 
 ### 决策 2: 自定义 Model vs QSqlTableModel
 
@@ -1301,38 +1349,69 @@ Phase 6 ████████████████████████
 ### 决策 3: DAO 双版本方法设计
 
 ```cpp
-// 版本 1: 独立使用（日常查询）
+// 版本 1: 独立使用（日常查询）— 自己获取连接
 Product ProductDAO::findById(int id) {
-    auto conn = ConnectionPool::instance().acquire();
+    ScopedConnection conn(ConnectionPool::Instance());
+    if (!conn) throw std::runtime_error("无法获取数据库连接");
     QSqlQuery query(conn.db());
-    // ...
+    query.prepare("SELECT * FROM products WHERE id = ?");
+    query.addBindValue(id);
+    query.exec();
+    // ... 解析结果
 }  // conn 析构自动归还
 
-// 版本 2: 事务内使用（入库/出库确认）
+// 版本 2: 事务内使用（入库/出库确认）— 接受外部连接引用
 bool InventoryDAO::increaseStock(QSqlDatabase &db, int productId, int qty) {
     QSqlQuery query(db);  // 使用外部传入的连接
-    // ...
+    query.prepare("UPDATE inventory SET quantity = quantity + ? WHERE product_id = ?");
+    query.addBindValue(qty);
+    query.addBindValue(productId);
+    return query.exec();
 }
 ```
 
 **为什么需要双版本：** 事务要求所有操作在同一个连接中进行。独立版方法自己获取连接；事务版方法接受外部连接引用。这是一线 C++ 项目的标准做法。
 
-### 决策 4: 连接池的 RAII 归还
+### 决策 4: 连接池的 RAII 归还与元数据追踪
+
+实际实现的 `ScopedConnection` 比简单版本更完善：
 
 ```cpp
 class ScopedConnection {
-    QString connName_;
 public:
-    ScopedConnection() : connName_(ConnectionPool::instance().acquire()) {}
-    ~ScopedConnection() { if (!connName_.isEmpty()) ConnectionPool::instance().release(connName_); }
-    QSqlDatabase db() { return QSqlDatabase::database(connName_); }
+    explicit ScopedConnection(ConnectionPool& pool);  // 构造时获取
+    ~ScopedConnection();                               // 析构时自动归还
+
     // 禁止拷贝
     ScopedConnection(const ScopedConnection&) = delete;
     ScopedConnection& operator=(const ScopedConnection&) = delete;
+
+    // 支持移动语义
+    ScopedConnection(ScopedConnection&& other) noexcept;
+    ScopedConnection& operator=(ScopedConnection&& other) noexcept;
+
+    QSqlDatabase db() const;                     // 获取 QSqlDatabase
+    void release();                              // 手动提前归还
+    explicit operator bool() const noexcept;     // 检查是否有效
+    std::optional<QString> connectionName() const noexcept;
+
+private:
+    ConnectionPool* pool_;
+    std::optional<ConnectionMeta> meta_;         // 完整元数据，非简单 QString
 };
 ```
 
-**为什么不用 `std::unique_ptr`：** 这里需要的不是堆对象生命周期管理，而是自定义的 `release()` 调用。手写 RAII 类更清晰。
+**设计要点：**
+
+| 特性 | 说明 |
+|------|------|
+| `ConnectionMeta` 元数据 | 持有 `Name`、`CreateTime`、`LastUsed`，归还时保留完整时间信息 |
+| 移动语义 | 支持 `std::move()` 转移所有权，移动后源对象 `pool_=nullptr`, `meta_=nullopt` |
+| `operator bool` | 通过 `meta_.has_value()` 判断是否持有效连接 |
+| 非硬编码单例 | 构造函数接受 `ConnectionPool&`，可测试性更好 |
+| RAII 自动归还 | 析构函数调用 `release()`，内部检查 `meta_` 和 `pool_` 非空 |
+
+**为什么不用 `std::unique_ptr`：** 这里需要的不是堆对象生命周期管理，而是自定义的 `release()` 调用和对 `ConnectionMeta` 完整元数据的追踪。手写 RAII 类更清晰。
 
 ### 决策 5: 信号-槽跨页面同步
 
@@ -1407,37 +1486,90 @@ void DashboardWidget::clearCharts() {
 
 **现象：** 程序运行一段时间后数据库操作失败  
 **原因：** MySQL `wait_timeout` 默认 28800 秒 (8小时)，空闲连接被服务器断开  
-**解决：** 连接池定时健康检查
+**解决：** 连接池双定时器机制
+
+**定时器 1: `pingTimer` — 健康检查**
+
+每隔 `PingIntervalMs` 毫秒遍历空闲队列，对每条连接执行 `SELECT 1`：
 
 ```cpp
-void ConnectionPool::healthCheck() {
-    QMutexLocker locker(&mutex_);
-    for (auto it = idleConnections_.begin(); it != idleConnections_.end();) {
-        QSqlDatabase db = QSqlDatabase::database(*it);
-        QSqlQuery query("SELECT 1", db);
-        if (!query.exec()) {
-            // 连接已失效，移除并新建
-            QSqlDatabase::removeDatabase(*it);
-            it = idleConnections_.erase(it);
+void ConnectionPool::onPingTimer()
+{
+    QMutexLocker locker(&Mutex);
+    QQueue<ConnectionMeta> alive;
+
+    // 排出-重建模式：避免 QQueue 迭代器失效
+    while (!IdleConnections.isEmpty()) {
+        ConnectionMeta meta = IdleConnections.dequeue();
+        QSqlDatabase db = QSqlDatabase::database(meta.Name);
+
+        if (!db.isOpen()) {
+            QSqlDatabase::removeDatabase(meta.Name);
+            emit connectionBroken(meta.Name);
+            continue;
+        }
+
+        QSqlQuery query(db);
+        if (query.exec("SELECT 1")) {
+            alive.enqueue(meta);     // 健康，保留
         } else {
-            ++it;
+            db.close();
+            QSqlDatabase::removeDatabase(meta.Name);
+            emit connectionBroken(meta.Name);  // 失效，移除并通知
         }
     }
+    IdleConnections = alive;
 }
 ```
+
+**定时器 2: `shrinkTimer` — 空闲/生命周期回收**
+
+每隔 `ShrinkIntervalMs` 毫秒检查空闲连接的超时情况：
+- `LastUsed` 距今 > `ShrinkIntervalSec` → 空闲超时，关闭
+- `CreateTime` 距今 > `MaxLifetimeSec` → 生命周期到期，关闭
+- 但至少保留 `InitConnectionsNumber` 条总连接（空闲 + 活跃）
+
+```cpp
+void ConnectionPool::onShrinkTimer()
+{
+    QMutexLocker locker(&Mutex);
+    QDateTime now = QDateTime::currentDateTime();
+    QQueue<ConnectionMeta> kept;
+
+    while (!IdleConnections.isEmpty()) {
+        ConnectionMeta meta = IdleConnections.dequeue();
+        bool expiredLifetime = meta.CreateTime.secsTo(now) > Configs->MaxLifetimeSec;
+        bool expiredIdle     = meta.LastUsed.secsTo(now) > Configs->ShrinkIntervalSec;
+        int totalConnections = kept.size() + IdleConnections.size()
+                             + ActiveCount.loadRelaxed();
+
+        if ((expiredLifetime || expiredIdle)
+            && totalConnections > Configs->InitConnectionsNumber) {
+            QSqlDatabase::database(meta.Name).close();
+            QSqlDatabase::removeDatabase(meta.Name);
+        } else {
+            kept.enqueue(meta);
+        }
+    }
+    IdleConnections = kept;
+}
+```
+
+**关键设计：** 使用"排出-重建"模式（drain-and-rebuild）避免 `QQueue` 迭代器失效问题。将所有空闲连接逐一出队，符合条件的放入 `alive`/`kept` 队列，最后整体替换。
 
 ---
 
 ### 陷阱 5: 事务连接不统一
 
 **现象：** 事务内某个操作使用了不同的连接，导致数据不一致  
-**原因：** 不小心在事务方法中又调用了 `ConnectionPool::acquire()`  
+**原因：** 不小心在事务方法中又调用了 `ConnectionPool::Instance().GetConnection()`  
 **解决：** 确保事务内所有 DAO 调用都传入同一个 `QSqlDatabase &db`
 
 ```cpp
 // ✅ 正确
 bool InboundService::confirmOrder(int orderId) {
-    auto conn = ConnectionPool::instance().acquire();
+    ScopedConnection conn(ConnectionPool::Instance());
+    if (!conn) return false;
     QSqlDatabase &db = conn.db();  // 同一个连接
     db.transaction();
 
@@ -1499,7 +1631,7 @@ QString BaseDAO::activeWhere() { return "WHERE deleted_at IS NULL"; }
 > **企业仓库管理系统 (WMS)** | C++17, Qt 6, MySQL 8.0, CMake  
 > *个人项目 — 2025年暑期*
 > - 设计并实现了基于分层架构（UI-Service-DAO-Core）的物资进销存管理系统，支持多角色权限管理（Admin/Manager/Operator）
-> - 手写数据库连接池（单例 + QMutex + QWaitCondition + RAII），支持连接复用、健康检查和空闲超时回收
+> - 手写数据库连接池（两阶段初始化 + QMutex + QWaitCondition + RAII ScopedConnection），支持连接元数据追踪（ConnectionMeta）、健康检查（双定时器）、空闲超时回收和最大生命周期控制
 > - 使用事务实现入库/出库确认流程，加入行级锁（SELECT FOR UPDATE）防止并发超卖
 > - 自定义 QAbstractTableModel 实现分页数据绑定和解耦，替代 QSqlTableModel 的局限性
 > - 基于 Qt Charts 实现数据仪表盘（柱状图/折线图/饼图），采用深色主题 QSS 样式
