@@ -6,7 +6,6 @@
       {
         "id": "cecdff30dcf545c1",
         "type": "tabs",
-        "dimension": 41.37353433835846,
         "children": [
           {
             "id": "ae53d04a65c59460",
@@ -14,47 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
+                "file": "仓库管理系统/系统核心架构/数据库业务执行架构.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++_Qt_MySQL_仓库管理系统_学习计划"
-            }
-          }
-        ]
-      },
-      {
-        "id": "46980e054ada1381",
-        "type": "tabs",
-        "dimension": 58.62646566164153,
-        "children": [
-          {
-            "id": "df0dc659e438cb80",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "仓库管理系统/系统核心架构/数据库连接池.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "数据库连接池"
-            }
-          },
-          {
-            "id": "36d082e8ccca1f0f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "仓库管理系统/UI页面/QT多窗口导航架构.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "QT多窗口导航架构"
+              "title": "数据库业务执行架构"
             }
           }
         ]
@@ -224,7 +188,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 395.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -241,11 +205,12 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "ae53d04a65c59460",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
+    "仓库管理系统/系统核心架构/数据库业务执行架构.md",
     "仓库管理系统/系统核心架构/数据库连接池.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.75528.f7b4a40bf79b",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.13af7534457f",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.8b056da3a99c",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.8267496a39a3",
