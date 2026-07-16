@@ -46,7 +46,7 @@
 | 简历亮点 | 说明 |
 |----------|------|
 | **分层架构** | UI → Service → DAO → DB，清晰解耦，面试必问 |
-| **数据库连接池** | 手写单例连接池，复用你的线程池设计经验，展示并发编程能力 |
+| **数据库连接池（拓展了解）** | 手写单例连接池，复用线程池设计经验，展示设计模式理解。（注：桌面应用实际无需连接池，实现它是为了学习连接复用、RAII、元数据追踪等思想，作为技术深度的加分项，而非项目必要功能） |
 | **事务处理** | 入库/出库确认涉及多表操作，用事务保证数据一致性 |
 | **自定义 Model/View** | 不依赖 Qt 内置 SQL Model，手写 `QAbstractTableModel` 子类 |
 | **安全实践** | SHA-256 + 随机盐、Prepared Statements 防注入、软删除 |
@@ -277,7 +277,18 @@ db.setDatabaseName(QString(
 
 #### 2.1 数据库连接池设计 (Day 4, ~4h) ⭐
 
-**为什么重要：** 这是你面试时最大的技术亮点。将线程池的并发经验直接迁移到数据库层。
+**⚠ 设计说明：** 数据库连接池在桌面应用中并非必需（桌面程序通常只建立一个连接使用一整天）。此章节作为**拓展学习**，目的是理解连接复用、RAII、元数据追踪等设计模式，而非实际必要功能。面试中作为技术深度加分项提及，而非项目核心技术点。
+
+**为什么连接池不是桌面应用的必需品：**
+
+| 场景 | 连接池 | 一个永久连接 |
+|------|--------|-------------|
+| Web 服务（高并发短连接） | 必须 | 不够用 |
+| 桌面应用（单用户串行操作） | 过度设计 | 完全够用 |
+| 代码复杂度 | 高（400+ 行） | 低（~50 行） |
+| 学习价值 | ⭐ 设计模式、并发控制 | — |
+
+**学习建议：** 理解设计思想、能在面试中讲解即可。实际项目中用一个 `DatabaseManager` 单例持有单条连接即可，不必实现连接池。如果你后续想把这个项目改为后台服务（如 REST API 后端），连接池就变得必要了。
 
 **知识点清单：**
 - [x] Qt 的线程-连接约束：**每个线程必须拥有自己的 `QSqlDatabase` 连接**
@@ -291,7 +302,7 @@ db.setDatabaseName(QString(
 - [x] 两阶段初始化 (`Init(config)` 存配置 → `Instance()` 触发构造)
 - [x] 活跃连接计数 (`QAtomicInt ActiveCount` 追踪当前借出数)
 
-**线程池 → 连接池 迁移对照：**
+**线程池 → 连接池 迁移对照（拓展了解，桌面场景非必需）：**
 
 | 线程池概念 | 连接池对应 |
 | --- | --- |
@@ -1372,46 +1383,37 @@ bool InventoryDAO::increaseStock(QSqlDatabase &db, int productId, int qty) {
 
 **为什么需要双版本：** 事务要求所有操作在同一个连接中进行。独立版方法自己获取连接；事务版方法接受外部连接引用。这是一线 C++ 项目的标准做法。
 
-### 决策 4: 连接池的 RAII 归还与元数据追踪
+### 决策 4: 连接池 vs 单连接（桌面应用）
 
-实际实现的 `ScopedConnection` 比简单版本更完善：
+**坦率的评估：桌面应用不需要连接池。**
+
+| 方案 | 适用场景 | 桌面 WMS 是否必要 |
+|------|---------|------------------|
+| 连接池（多条连接复用） | Web 服务、高并发后台 | ❌ 不必要 |
+| 单连接（`DatabaseManager` 单例） | 桌面应用 | ✅ 完全够用 |
+
+桌面应用是单用户串行操作，程序运行期间只建立一个连接用一整天即可，不存在高并发短连接的痛点。Qt 的 `QSqlDatabase::database()` 本身就能做到全局共享。
+
+**本项目保留连接池作为技术探索，你可以这样写在简历里：**
+
+> "出于学习目的实现了轻量数据库连接池（RAII 自动管理、连接元数据追踪），加深了对连接复用、资源池化、RAII 生命周期控制等设计模式的理解。桌面场景单连接即满足需求，连接池为技术储备。"
+
+**实际项目建议：** 50 行的 `DatabaseManager` 完全够用：
 
 ```cpp
-class ScopedConnection {
+class DatabaseManager {
 public:
-    explicit ScopedConnection(ConnectionPool& pool);  // 构造时获取
-    ~ScopedConnection();                               // 析构时自动归还
-
-    // 禁止拷贝
-    ScopedConnection(const ScopedConnection&) = delete;
-    ScopedConnection& operator=(const ScopedConnection&) = delete;
-
-    // 支持移动语义
-    ScopedConnection(ScopedConnection&& other) noexcept;
-    ScopedConnection& operator=(ScopedConnection&& other) noexcept;
-
-    QSqlDatabase db() const;                     // 获取 QSqlDatabase
-    void release();                              // 手动提前归还
-    explicit operator bool() const noexcept;     // 检查是否有效
-    std::optional<QString> connectionName() const noexcept;
-
+    static DatabaseManager& instance();
+    bool init(const DbConfig& config);
+    QSqlDatabase& db();
+    void close();
 private:
-    ConnectionPool* pool_;
-    std::optional<ConnectionMeta> meta_;         // 完整元数据，非简单 QString
+    QSqlDatabase m_db;
+    DatabaseManager() = default;
 };
 ```
 
-**设计要点：**
-
-| 特性 | 说明 |
-|------|------|
-| `ConnectionMeta` 元数据 | 持有 `Name`、`CreateTime`、`LastUsed`，归还时保留完整时间信息 |
-| 移动语义 | 支持 `std::move()` 转移所有权，移动后源对象 `pool_=nullptr`, `meta_=nullopt` |
-| `operator bool` | 通过 `meta_.has_value()` 判断是否持有效连接 |
-| 非硬编码单例 | 构造函数接受 `ConnectionPool&`，可测试性更好 |
-| RAII 自动归还 | 析构函数调用 `release()`，内部检查 `meta_` 和 `pool_` 非空 |
-
-**为什么不用 `std::unique_ptr`：** 这里需要的不是堆对象生命周期管理，而是自定义的 `release()` 调用和对 `ConnectionMeta` 完整元数据的追踪。手写 RAII 类更清晰。
+**如果你未来做后台服务（REST API 后端）：** 连接池就变得必要了。
 
 ### 决策 5: 信号-槽跨页面同步
 
@@ -1606,7 +1608,7 @@ QString BaseDAO::activeWhere() { return "WHERE deleted_at IS NULL"; }
 |----------|----------------|
 | "介绍一下你的项目" | 先讲系统功能概览，再讲架构分层，重点提连接池和事务设计 |
 | "为什么选择 ODBC 而不是 MySQL 原生驱动？" | Qt 6 默认不编译 MySQL 驱动; ODBC 安装 Connector 即可用; 桌面应用性能无差异 |
-| "数据库连接池是怎么设计的？" | 单例 + QMutex + QWaitCondition + RAII ScopedConnection + 健康检查 |
+| "数据库连接池是怎么设计的？" | 按单例模式实现，包含 RAII 包装器 ScopedConnection，构造函数获取、析构自动归还。支持连接元数据追踪（创建时间、最后使用时间）。**不过我们的桌面场景实际不需要连接池，一个永久连接就够了。我实现它是作为技术探索，也为自己后续做后台服务做技术储备。** |
 | "如何处理并发入库/出库？" | 事务 + SELECT ... FOR UPDATE 行级锁; 每个线程独立 QSqlDatabase 连接 |
 | "为什么要手写 Model 而不是用 QSqlTableModel？" | QSqlTableModel 不支持分页/复杂 JOIN/自定义高亮; 自定义 Model 实现更好的分层解耦 |
 | "密码是怎么存储的？" | SHA-256 + 16字节随机盐; QCryptographicHash; 盐存在数据库单独列 |
@@ -1616,13 +1618,13 @@ QString BaseDAO::activeWhere() { return "WHERE deleted_at IS NULL"; }
 
 ### 9.2 项目中的技术亮点（面试主动提及）
 
-1. **线程池经验迁移到连接池** — "我之前写过 C++ 线程池，在设计数据库连接池时，我把线程池的核心模式（单例、条件变量等待、RAII 生命周期管理）直接复用了。增加的新挑战是连接健康检查和空闲超时回收。"
+1. **分层架构的严格单向依赖** — "UI → Service → DAO → Core，每层只依赖下一层。UI 层不知道数据库的存在，Service 层不知道 UI 如何渲染数据。这让每一层都可以独立测试和替换。"
 
-2. **双版本 DAO 方法** — "我给每个涉及数据库写操作的 DAO 方法提供了两个版本：独立版自己获取连接，事务版接受外部连接引用。这样 Service 层做事务时，可以确保所有操作在同一个连接中完成。"
+2. **事务安全** — "入库确认是一个事务：写主表状态 → 逐一更新库存(UPSERT) → 写操作日志 → 检查是否需要库存预警。任何一步失败就整体回滚。出库还加了 SELECT FOR UPDATE 防止并发超卖。"
 
-3. **分层架构的严格单向依赖** — "UI → Service → DAO → Core，每层只依赖下一层。UI 层不知道数据库的存在，Service 层不知道 UI 如何渲染数据。这让每一层都可以独立测试和替换。"
+3. **自定义 QAbstractTableModel** — "手写 Model 替代 QSqlTableModel，实现了分页、自定义高亮、排序，而且与 Service/DAO 层彻底解耦。"
 
-4. **入库/出库的事务安全** — "入库确认是一个事务：写主表状态 → 逐一更新库存(UPSERT) → 写操作日志 → 检查是否需要库存预警。任何一步失败就整体回滚。出库还加了 SELECT FOR UPDATE 防止并发超卖。"
+4. **连接池（技术探索）** — "手写了一个轻量的连接池，但我也会诚实地说桌面应用不需要这个，做它是为了深入学习连接复用和 RAII 设计模式。"
 
 ### 9.3 写在简历上的建议
 
@@ -1631,10 +1633,9 @@ QString BaseDAO::activeWhere() { return "WHERE deleted_at IS NULL"; }
 > **企业仓库管理系统 (WMS)** | C++17, Qt 6, MySQL 8.0, CMake  
 > *个人项目 — 2025年暑期*
 > - 设计并实现了基于分层架构（UI-Service-DAO-Core）的物资进销存管理系统，支持多角色权限管理（Admin/Manager/Operator）
-> - 手写数据库连接池（两阶段初始化 + QMutex + QWaitCondition + RAII ScopedConnection），支持连接元数据追踪（ConnectionMeta）、健康检查（双定时器）、空闲超时回收和最大生命周期控制
-> - 使用事务实现入库/出库确认流程，加入行级锁（SELECT FOR UPDATE）防止并发超卖
-> - 自定义 QAbstractTableModel 实现分页数据绑定和解耦，替代 QSqlTableModel 的局限性
-> - 基于 Qt Charts 实现数据仪表盘（柱状图/折线图/饼图），采用深色主题 QSS 样式
+> - 基于 Qt Charts + QSS 深色主题构建数据仪表盘与完整 UI 界面，实现自定义 QAbstractTableModel 分页绑定
+> - 使用事务 + 行级锁（SELECT FOR UPDATE）实现入库/出库确认流程，保证数据一致性
+> - 【拓展】实现了轻量数据库连接池（RAII 自动管理、连接元数据追踪），加深对连接复用与资源池化设计模式的理解
 > - SHA-256 + 随机盐密码哈希，Prepared Statements 防 SQL 注入，软删除实现审计追踪
 > - 使用 CMake 管理多目录项目构建，具备跨平台部署能力
 
