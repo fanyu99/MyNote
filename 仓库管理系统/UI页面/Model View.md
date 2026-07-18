@@ -1,3 +1,6 @@
+#相关: 
+[[C++_Qt_MySQL_仓库管理系统_学习计划#阶段 1 Qt 核心技术补齐 (Day 1-4)]]
+[[C++_Qt_MySQL_仓库管理系统_学习计划#1.1 QAbstractTableModel 深入 (Day 1, ~3h)]]
 # QT 中的重要基础
 
 ***QAbstractTableModel深入***

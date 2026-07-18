@@ -4,21 +4,38 @@
     "type": "split",
     "children": [
       {
-        "id": "cecdff30dcf545c1",
+        "id": "4a5f38b3e61abc4f",
         "type": "tabs",
         "children": [
           {
-            "id": "ae53d04a65c59460",
+            "id": "1531296200a35f0d",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "仓库管理系统/日程实施计划/白板/Day2.canvas",
+                "viewState": {
+                  "x": 120,
+                  "y": 190.00000000000003,
+                  "zoom": -0.30562628255826185
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Day2"
+            }
+          },
+          {
+            "id": "02d881b1db666aa7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "仓库管理系统/系统核心架构/数据库业务执行架构.md",
+                "file": "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "数据库业务执行架构"
+              "title": "C++_Qt_MySQL_仓库管理系统_优化版详细实施计划"
             }
           }
         ]
@@ -207,30 +224,39 @@
   },
   "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
+    "仓库管理系统/日程实施计划/白板/Day2.canvas.tmp.54268.b8999f6ba846",
+    "仓库管理系统/日程实施计划/日记",
+    "仓库管理系统/日程实施计划/白板",
+    "仓库管理系统/日程实施计划/日记/2026-07-18 仓库管理系统Day2.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
+    "仓库管理系统/日程实施计划/白板/Day2.canvas",
+    "仓库管理系统/C++_Qt_MySQL_WMS_优化计划_v2.md",
+    "[C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
+    "仓库管理系统/日程实施计划",
     "仓库管理系统/系统核心架构/数据库业务执行架构.md",
+    "C++_Qt_MySQL_仓库管理系统_优化版计划.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md.tmp.50248.e319d6994e47",
+    "未命名.base",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版计划.md",
+    "仓库管理系统/系统核心架构/数据库密码安全.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.40060.834c76b922b3",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md.tmp.40060.147706c91b0d",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版计划.md.tmp.40060.6dc8914c2012",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md.tmp.40060.c2ff729ebf1d",
+    "仓库管理系统/数据库相关/MySQL数据库基础知识汇总.md",
+    "README.md",
     "仓库管理系统/系统核心架构/数据库连接池.md",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.75528.f7b4a40bf79b",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.13af7534457f",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.8b056da3a99c",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.8267496a39a3",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.08b8c1ce7ff7",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.370a91216e3a",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.0541a796e4a2",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.3b90eb0ca764",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.9d81987e3c78",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.59500.280ac64f9600",
     "仓库管理系统/UI页面/QT多窗口导航架构.md",
+    "仓库管理系统/UI页面/使用QSS和QPalette管理样式.md",
+    "仓库管理系统/UI页面/Model View.md",
+    "仓库管理系统/UI页面/QT连接MySQL.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md.tmp.75528.f7b4a40bf79b",
     "仓库管理系统/未命名.md",
-    "未命名.canvas",
     "未命名 1.canvas",
     "仓库管理系统/QT相关/QT多窗口架构.md",
-    "仓库管理系统/UI页面/Model View.md",
-    "仓库管理系统/数据库相关/基础知识汇总.md",
     "MySQL数据库/索引优化.md",
-    "仓库管理系统/UI页面/QT连接MySQL.md",
-    "仓库管理系统/UI页面/使用QSS和QPalette管理样式.md",
-    "README.md",
     "conflict-files-obsidian-git.md",
     "MySQL数据库/存储过程.md",
     "MySQL数据库/图片/锁_img2.png",
@@ -244,8 +270,6 @@
     "MySQL数据库/图片/Pasted image 20260708021911.png",
     "MySQL数据库/图片/Pasted image 20260708021831.png",
     "MySQL数据库/锁.md",
-    "MySQL数据库/InnoDB.md",
-    "MySQL数据库/为什么使用B+树而不使用其他数据结构.md",
     "Pasted image 20260708021922.png",
     "MySQL数据库/图片/Pasted image 20260708021902.png"
   ]

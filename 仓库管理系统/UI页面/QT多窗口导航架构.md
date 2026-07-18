@@ -1,3 +1,4 @@
+#相关:[[C++_Qt_MySQL_仓库管理系统_学习计划#阶段 1 Qt 核心技术补齐 (Day 1-4)]]
 ## ***1.QStackedWidget页面切换***
 1.基础概念:
 	 一叠卡片,同一时刻只显示最上方的那张,需要自行配置导航ComboBox/List/Button(与QTabWidget最大的区别)
