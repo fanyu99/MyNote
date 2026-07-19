@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"f19c31e1e1294246","type":"file","file":"仓库管理系统/日程实施计划/日记/2026-07-19 仓库管理系统 Day3.md","x":-360,"y":-80,"width":400,"height":480},
+		{"id":"fe96837240fa820a","type":"text","text":"# 了解到的\"测试\"相关概念\n## 单元测试:\n\t不依赖外部系统的,仅对最小可测单元(通常为函数/方法/类)的一个验证,无外部依赖(数据库,文件,HTTP等)\n## 集成测试:\n\t用来检验多个模块组合起来是否能够正常工作,重点在接口和交互,往往需要引入外部的依赖(第三方接口,数据库等)\n\t常见的形态有:1.模块集成 2.API集成 3.第三方集成(例如支付宝沙箱等)\n\t\n\t\n\n\n","x":140,"y":-240,"width":420,"height":256},
+		{"id":"9031eb6df6333708","type":"text","text":"# 完整的 Qt 测试程序的标准结构\n\n```mermaid\nflowchart TD\n    A[\"📦 1. 头文件包含<br/>━━━━━━━━━━━━━━<br/>• QtTest 头文件<br/>• 被测试类的头文件\"]\n    \n    B[\"🔧 2. 测试类定义<br/>━━━━━━━━━━━━━━<br/>• 继承自 QObject<br/>• Q_OBJECT 宏\"]\n    \n    C[\"⚙️ 3. private slots<br/>(测试槽函数)<br/>━━━━━━━━━━━━━━<br/>• initTestCase()<br/>  所有测试前执行<br/>• cleanupTestCase()<br/>  所有测试后执行<br/>• init()<br/>  每个测试前执行<br/>• cleanup()<br/>  每个测试后执行<br/>• testXXX()<br/>  具体测试用例\"]\n    \n    D[\"🛠️ 4. private<br/>(辅助函数/数据)<br/>━━━━━━━━━━━━━━<br/>• 静态辅助函数<br/>• 测试数据工厂\"]\n    \n    E[\"▶️ 5. 主函数入口<br/>━━━━━━━━━━━━━━<br/>• QTEST_MAIN() 宏<br/>• moc 文件包含\"]\n    \n    A --> B\n    B --> C\n    C --> D\n    D --> E\n```\n","x":140,"y":60,"width":420,"height":540}
+	],
+	"edges":[
+		{"id":"29251e2755ba3cd8","fromNode":"f19c31e1e1294246","fromSide":"right","toNode":"fe96837240fa820a","toSide":"left"},
+		{"id":"a4fcd694e4a54956","fromNode":"f19c31e1e1294246","fromSide":"right","toNode":"9031eb6df6333708","toSide":"left"}
+	]
+}
