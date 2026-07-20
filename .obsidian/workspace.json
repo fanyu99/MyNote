@@ -8,27 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d1537e5ff5a7121f",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
-            }
-          },
-          {
             "id": "bc1b0cf581db8a08",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
-                "mode": "preview",
-                "source": false
+                "file": "仓库管理系统/日程实施计划/白板/Day5.canvas",
+                "viewState": {
+                  "x": -260,
+                  "y": 239.9999999999999,
+                  "zoom": -0.2818204240498526
+                }
               },
-              "icon": "lucide-file",
-              "title": "C++_Qt_MySQL_仓库管理系统_优化版详细实施计划"
+              "icon": "lucide-layout-dashboard",
+              "title": "Day5"
             }
           }
         ]
@@ -215,15 +208,19 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "d1537e5ff5a7121f",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "仓库管理系统/系统核心架构/数据库密码安全.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
-    "仓库管理系统/日程实施计划/白板/Day3.canvas",
+    "MySQL数据库/MySQL数据库 MOC.md",
+    "仓库管理系统/数据库相关/MySQL数据库基础知识汇总.md",
+    "仓库管理系统/日程实施计划/白板/Day5.canvas",
+    "仓库管理系统/日程实施计划/日记/2026-07-20 Day5.md",
     "仓库管理系统/日程实施计划/日记/2026-07-19 Day4.md",
+    "仓库管理系统/日程实施计划/日记/未命名.md",
+    "仓库管理系统/系统核心架构/数据库密码安全.md",
+    "仓库管理系统/日程实施计划/白板/Day3.canvas",
     "仓库管理系统/日程实施计划/白板/Day4.canvas",
     "仓库管理系统/日程实施计划/日记/2026-07-19 Day4.md.tmp.33228.667ccc5d5903",
-    "仓库管理系统/日程实施计划/日记/未命名.md",
     "未命名.canvas.tmp.33228.ead666d4755f",
     "未命名.canvas.tmp.33228.9f884d832166",
     "未命名.canvas.tmp.33228.579d8684317a",
@@ -244,7 +241,6 @@
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md.tmp.50248.e319d6994e47",
     "未命名.base",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版计划.md",
-    "仓库管理系统/数据库相关/MySQL数据库基础知识汇总.md",
     "README.md",
     "仓库管理系统/系统核心架构/数据库连接池.md",
     "仓库管理系统/UI页面/QT多窗口导航架构.md",
@@ -256,7 +252,6 @@
     "仓库管理系统/QT相关/QT多窗口架构.md",
     "MySQL数据库/索引优化.md",
     "conflict-files-obsidian-git.md",
-    "MySQL数据库/存储过程.md",
     "MySQL数据库/图片/锁_img2.png",
     "MySQL数据库/图片/视图_img2.png",
     "MySQL数据库/图片/视图_img1.png",
