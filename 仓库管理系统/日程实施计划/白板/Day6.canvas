@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"24602c66a41a89ce","type":"file","file":"仓库管理系统/日程实施计划/日记/2026-07-21 Day6.md","x":-240,"y":-140,"width":400,"height":640},
+		{"id":"39aa845a811dc32b","type":"text","text":"# IniHelper的用处:\n\t将QSettings的细节封装起来,使读取配置可控,不会出现类似缺失配置时会得到空字符串/0","x":230,"y":-140,"width":250,"height":220},
+		{"id":"9b8bd23d42ec0cae","type":"text","text":"# ConfigManager的职责:\n\t作为统一调配器,负责配置和强类型转换,对DatabaseConfig,LoggerConfig,ExecutorConfig等强类型配置进行调控,使读取配置变得可复用且稳定\n","x":-620,"y":-160,"width":250,"height":300},
+		{"id":"bd4e8381dcaec5f2","type":"text","text":"# IniHelper的具体职责:\n1. 读取字符串,整数,bool等\n2. 检查配置中的key是否存在\n3. 返回清晰的错误进行汇报\n","x":230,"y":176,"width":250,"height":244,"color":"6"},
+		{"id":"e2dd62d2d5e8e0ac","x":-620,"y":200,"width":263,"height":300,"color":"5","type":"text","text":"# ConfigManager具体架构:\n-- 主要职责:作为调配器,仅作为统一分发的接口,不做具体的加载配置\n-- 内嵌如DatabaseConfigLoader等加载器,用于加载不同的配置,实现统一配置"}
+	],
+	"edges":[
+		{"id":"32979486506641b7","fromNode":"24602c66a41a89ce","fromSide":"right","toNode":"39aa845a811dc32b","toSide":"left"},
+		{"id":"70a649ea40dce8c2","fromNode":"24602c66a41a89ce","fromSide":"right","toNode":"bd4e8381dcaec5f2","toSide":"left"},
+		{"id":"2f12cc8776cf91de","fromNode":"24602c66a41a89ce","fromSide":"left","toNode":"9b8bd23d42ec0cae","toSide":"right"},
+		{"id":"deb39701b0fa8d73","fromNode":"24602c66a41a89ce","fromSide":"left","toNode":"e2dd62d2d5e8e0ac","toSide":"right"}
+	]
+}
