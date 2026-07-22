@@ -643,17 +643,84 @@ D:\Desktop\仓库管理系统\WMS\
 
 ### E.1 ER 关系概览（优化版）
 
-```
-users ──1:N── audit_logs
-categories ──1:N── products
-units ──1:N── products
-warehouses ──1:N── stock_movements
-warehouses ──1:N── stock_balance
-products ──1:N── inbound_details / outbound_details
-products ──1:N── stock_movements / stock_balance
-inbound_orders ──1:N── inbound_details
-outbound_orders ──1:N── outbound_details
-(stock_movements.source_type/source_id/source_line_id 指向入库/出库明细)
+```mermaid
+erDiagram
+    users ||--o{ audit_logs : "记录操作日志"
+    categories ||--o{ products : "包含产品"
+    units ||--o{ products : "使用单位"
+    warehouses ||--o{ stock_movements : "发生库存变动"
+    warehouses ||--o{ stock_balance : "持有库存余额"
+    products ||--o{ inbound_details : "入库明细"
+    products ||--o{ outbound_details : "出库明细"
+    products ||--o{ stock_movements : "库存变动"
+    products ||--o{ stock_balance : "库存余额"
+    inbound_orders ||--o{ inbound_details : "包含明细"
+    outbound_orders ||--o{ outbound_details : "包含明细"
+    stock_movements }o--|| inbound_details : "来源入库明细"
+    stock_movements }o--|| outbound_details : "来源出库明细"
+
+    users {
+        int id PK
+        varchar username
+    }
+    categories {
+        int id PK
+        varchar name
+    }
+    units {
+        int id PK
+        varchar name
+    }
+    warehouses {
+        int id PK
+        varchar name
+    }
+    products {
+        int id PK
+        varchar name
+        int category_id FK
+        int unit_id FK
+    }
+    inbound_orders {
+        int id PK
+        varchar order_no
+    }
+    outbound_orders {
+        int id PK
+        varchar order_no
+    }
+    inbound_details {
+        int id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+    }
+    outbound_details {
+        int id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+    }
+    stock_movements {
+        int id PK
+        int warehouse_id FK
+        int product_id FK
+        varchar source_type
+        int source_id
+        int source_line_id
+        int quantity
+    }
+    stock_balance {
+        int id PK
+        int warehouse_id FK
+        int product_id FK
+        int quantity
+    }
+    audit_logs {
+        int id PK
+        int user_id FK
+        text action
+    }
 ```
 
 ### E.2 版本化迁移交付格式

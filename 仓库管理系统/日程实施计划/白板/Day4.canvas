@@ -1,9 +1,0 @@
-{
-	"nodes":[
-		{"id":"7267968699691da5","x":-386,"y":-187,"width":446,"height":567,"type":"file","file":"仓库管理系统/日程实施计划/日记/2026-07-19 Day4.md"},
-		{"id":"083cda9a0f801c3c","x":160,"y":-187,"width":417,"height":567,"type":"text","text":"# DatabaseExecutor调度器测试\n## 测试思路:\n1. **单元测试**:对Executor的基础调度行为进行测试\n\t\t1-空任务/非法任务的拒绝\n\t\t2-无requestId的任务自动生成QUuid作为requestId\n\t\t3-Executor关闭后拒绝所有提交\n\t\t4-任务队列满了返回QueueFull错误信息\n\t\t5-确认结果中的requestId与提交的任务一致\n2. **集成测试**:\n\t\t1-读取ini文件中数据库的配置\n\t\t2-Executor能够正常得Ready\n\t\t3-任务按FIFO(先进先出)顺序执行\n\t\t4-成功与失败的结果都能够与提交时的requestId对上\n\t\t5-关闭时能够正常排空和取消未派发的任务\n\n"}
-	],
-	"edges":[
-		{"id":"c095e681f31e292c","fromNode":"7267968699691da5","fromSide":"right","toNode":"083cda9a0f801c3c","toSide":"left"}
-	]
-}
