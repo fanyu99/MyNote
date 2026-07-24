@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"9b0175113b53c8d8","type":"file","file":"仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-20 Day5.md","x":-500,"y":-140,"width":460,"height":720,"color":"1"},
+		{"id":"cf641d51ef01090a","type":"text","text":"# 事务任务的执行顺序\n-> 开启事务\n-> 执行SQL\n-> 检查SQL是否成功\n-> 检查affectedRows是否符合预期\n-> 任意失败进行rollback\n-> 提交事务\n-> 提交事务失败,进行rollback","x":122,"y":-280,"width":278,"height":214,"color":"4"},
+		{"id":"e94dbc7a51b39692","type":"text","text":"# 软超时机制\n## 机制:\n\t调用方等待一定时间后认为该任务超时,但是底层的数据库SQL并不一定就停止\n## 应用:\n\t在超时时,标记任务为timeout,但是并不强制关闭,等待任务完成后进行申请关闭\n# 异步关闭shutdown\n\t在执行器进行关闭的时候,先申请关闭requestShutdown,通过信号使用异步形式(Qt::QueueConnection)进行执行","x":-920,"y":-280,"width":300,"height":400,"color":"2"},
+		{"id":"62a864a168a6ff6f","type":"text","text":"# 任务队列关闭时的排队取消\n\n\t1.将状态改为shuttingdown\n\t2.不再接收新任务,当前的执行任务完成\n\t3.未派发的任务标记为取消并发出taskFinished,错误码为taskCanceled\n\t4.等待当前执行的任务完成\n\t5.最后进入stopped关闭阶段\n","x":-920,"y":200,"width":300,"height":340,"color":"7"},
+		{"id":"b182d2cf1d18b2a7","type":"text","text":"# 事务任务重中之重\n\n***业务层如何判断一个在worker中执行的事务任务的结果是否符合预期?***\n\n**注意点:\n\t在MySQL中commit后会使事务永久生效,rollback仅能取消未commit的事务\n\n\n***使用affectedRows与expectedAffectedRows进行比较:***\n\t如果双方不同,直接回滚事务,并返回结果,使用枚举类型提示调用方事务不符合预期\n\n\n\n  ","x":122,"y":-40,"width":278,"height":680,"color":"3"},
+		{"id":"3f70a17471f7b6bf","type":"text","text":"# affectedRows守卫\n## 意义:\n\t当SQL本身并无错误时,但是事务的结果并不符合预期,这时候affectedRows就用来进行判断是否业务成功\n## 项目中的应用:\n\t使用StatementResult中的affectedRows字段用来判断业务的结果是否能够满足预期\n\t","x":-500,"y":640,"width":460,"height":360,"color":"5"}
+	],
+	"edges":[
+		{"id":"98e7ee59de0c8eed","fromNode":"9b0175113b53c8d8","fromSide":"right","toNode":"cf641d51ef01090a","toSide":"left"},
+		{"id":"52e449d05fdc1af3","fromNode":"9b0175113b53c8d8","fromSide":"left","toNode":"e94dbc7a51b39692","toSide":"right"},
+		{"id":"f32831cf64071070","fromNode":"9b0175113b53c8d8","fromSide":"left","toNode":"62a864a168a6ff6f","toSide":"right"},
+		{"id":"89a225508b57cb70","fromNode":"9b0175113b53c8d8","fromSide":"right","toNode":"b182d2cf1d18b2a7","toSide":"left"},
+		{"id":"c52ff705518f8d6a","fromNode":"9b0175113b53c8d8","fromSide":"bottom","toNode":"3f70a17471f7b6bf","toSide":"top"}
+	]
+}
