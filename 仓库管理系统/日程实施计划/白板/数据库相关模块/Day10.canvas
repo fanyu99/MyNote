@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"e891db3427f52756","type":"file","file":"仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-25 Day10.md","x":-300,"y":-220,"width":500,"height":860,"color":"1"},
+		{"id":"525d258797dd63a1","type":"text","text":"# DTO 与 Entity 的区别\n\nDTO 是数据传输层的轻量对象，不含相关逻辑；Entity 直接映射数据库表，包含业务逻辑。\n\n| 维度 | Entity | DTO |\n|:---|:---|:---|\n| **主要目的** | 表示业务核心，承载业务逻辑 | 高效传输数据，解耦各层 |\n| **是否包含行为** | 是（如 `addStock()`、`validate()`） | 否（仅有 getter/setter） |\n| **生命周期** | 贯穿业务过程，可被修改并保存 | 短暂，通常在一次调用后销毁 |\n| **与数据库关系** | 直接映射表结构 | 无直接映射，可由查询组装 |\n| **典型使用位置** | 数据访问层（DAO）、业务逻辑层 | 视图层、服务层接口、网络通信 |","x":280,"y":-220,"width":500,"height":457,"color":"3"},
+		{"id":"46f6193f5c311452","x":280,"y":237,"width":280,"height":403,"color":"4","type":"text","text":"# IProductRepository职责\n1. 确定查找相关产品及回调函数接口\n2. 确定创建相关产品及回调函数接口\n3. 确定更新相关产品和回调函数接口\n4. 确定设置相关产品及回调函数接口\n主要功能:用于定义productrepository相关的功能接口"}
+	],
+	"edges":[
+		{"id":"d2357721b2256cc3","fromNode":"e891db3427f52756","fromSide":"right","toNode":"525d258797dd63a1","toSide":"left"},
+		{"id":"2ff725518ea67a91","fromNode":"e891db3427f52756","fromSide":"right","toNode":"46f6193f5c311452","toSide":"left"}
+	]
+}
