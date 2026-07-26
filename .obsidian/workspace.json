@@ -39,17 +39,14 @@
             "id": "29093e0d142ced39",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "仓库管理系统/日程实施计划/白板/数据库相关模块/Day10.canvas",
-                "viewState": {
-                  "x": 240,
-                  "y": 364.9999905395508,
-                  "zoom": -1
-                }
+                "file": "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-25 Day10.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Day10"
+              "icon": "lucide-file",
+              "title": "2026-07-25 Day10"
             }
           }
         ],
@@ -211,8 +208,8 @@
             "state": {
               "type": "claudian-view",
               "state": {},
-              "icon": "bot",
-              "title": "Claudian"
+              "icon": "lucide-ghost",
+              "title": "claudian-view"
             }
           }
         ],
@@ -233,18 +230,17 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
-      "obsidian-git:Open Git source control": false,
-      "realclaudian:Open Claudian": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "29093e0d142ced39",
   "lastOpenFiles": [
+    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-25 Day10.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md",
+    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day10.canvas",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day10.canvas.tmp.40888.1d7de02634a0",
     "仓库管理系统/系统核心架构/数据库密码安全.md",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day10.canvas",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-25 Day10.md",
     "仓库管理系统/日程实施计划/白板/系统基础模块/Day9.canvas",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md",
     "仓库管理系统/系统核心架构/CMake各模块依赖关系.canvas",
     "仓库管理系统/系统核心架构/各模块依赖关系.md",
     "仓库管理系统/系统核心架构/模块依赖关系(CMake).canvas",
@@ -267,7 +263,6 @@
     "仓库管理系统/日程实施计划/白板/系统基础模块/Day5.canvas",
     "仓库管理系统/日程实施计划/白板/系统基础模块/Day6.canvas.tmp.63296.e14947b3c439",
     "仓库管理系统/日程实施计划/白板/系统基础模块/Day6.canvas.tmp.63296.330698aca222",
-    "仓库管理系统/日程实施计划/白板/系统基础模块/Day5.canvas.tmp.63296.bcae240325e6",
     "仓库管理系统/C++_Qt_MySQL_WMS_优化计划_v2.md",
     "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-22 Day7.md",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-18 仓库管理系统Day2.md",
