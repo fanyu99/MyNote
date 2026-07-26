@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
+                "file": "MySQL数据库（lxj）/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++_Qt_MySQL_仓库管理系统_优化版详细实施计划"
+              "title": "未命名"
             }
           }
         ],
@@ -221,6 +221,12 @@
   },
   "active": "05aed76bd1c37c15",
   "lastOpenFiles": [
+    "MySQL数据库/图片/视图_img2.png",
+    "MySQL数据库/图片/锁_img1.png",
+    "MySQL数据库/图片/锁_img2.png",
+    "MySQL数据库/图片/SQL优化_img5.png",
+    "MySQL数据库（lxj）/未命名.md",
+    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md",
     "C++_Qt_MySQL_仓库管理系统_优化版计划.md",
     "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-25 Day10.md",
@@ -234,7 +240,6 @@
     "仓库管理系统/系统核心架构/模块依赖关系(CMake).canvas",
     "仓库管理系统/系统核心架构/各模块依赖关系.md.tmp.14224.6c1f685d1015",
     "仓库管理系统/系统核心架构/各模块依赖关系.md.tmp.14224.7e1a5eb3a62c",
-    "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-24 Day9.md",
     "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-23 Day8.md",
     "停车场管理系统/停车场管理系统.c",
@@ -266,15 +271,11 @@
     "仓库管理系统/系统核心架构/数据库业务执行架构.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版计划.md",
     "README.md",
-    "仓库管理系统/系统核心架构/数据库连接池.md",
-    "MySQL数据库/图片/锁_img2.png",
-    "MySQL数据库/图片/视图_img2.png",
     "MySQL数据库/图片/视图_img1.png",
     "MySQL数据库/图片/SQL优化_img1.png",
     "MySQL数据库/图片/InnoDB_img7.png",
     "MySQL数据库/图片/Pasted image 20260708021739.png",
     "MySQL数据库/图片/Pasted image 20260708021911.png",
-    "MySQL数据库/图片/Pasted image 20260708021831.png",
-    "Pasted image 20260708021922.png"
+    "MySQL数据库/图片/Pasted image 20260708021831.png"
   ]
 }
