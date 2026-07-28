@@ -30,7 +30,7 @@
                 "file": "仓库管理系统/日程实施计划/白板/UI相关模块/Day12.canvas",
                 "viewState": {
                   "x": 306.5,
-                  "y": 306,
+                  "y": 460.9999905395508,
                   "zoom": 0
                 }
               },
@@ -206,7 +206,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 226.5
+    "width": 226.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {

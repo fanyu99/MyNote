@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"id":"cecea8f9d72d5aaa","x":-227,"y":-108,"width":587,"height":848,"color":"4","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-07-28 Day12.md"},
-		{"id":"e96c8f961656224e","x":540,"y":134,"width":311,"height":364,"type":"text","text":"# ProductTableModel作用\n1. 保存当前页面的分页数据DTO\n2. "}
+		{"id":"e96c8f961656224e","x":540,"y":134,"width":311,"height":226,"type":"text","text":"# ProductTableModel作用\n1. 保存当前页面的分页数据DTO\n2. 对ProductListItemDto数据进行构建模型\n3. 控制视图的刷新边界\n4. 使UI通过ProductService进行查询分页数据"}
 	],
 	"edges":[
 		{"id":"324d8afe639ff69e","fromNode":"cecea8f9d72d5aaa","fromSide":"right","toNode":"e96c8f961656224e","toSide":"left"}
