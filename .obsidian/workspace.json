@@ -35,7 +35,8 @@
               "title": "2026-07-28 Day12"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -219,10 +220,10 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "7b6371a7e67f9b4c",
+  "active": "05aed76bd1c37c15",
   "lastOpenFiles": [
-    "2026-07-28 Day12.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
+    "2026-07-28 Day12.md",
     "仓库管理系统/日程实施计划/白板/UI相关模块/Day12.canvas",
     "仓库管理系统/日程实施计划/日记/UI模块",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md",
