@@ -25,14 +25,17 @@
             "id": "05aed76bd1c37c15",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "2026-07-28 Day12.md",
-                "mode": "source",
-                "source": false
+                "file": "仓库管理系统/日程实施计划/白板/UI相关模块/Day12.canvas",
+                "viewState": {
+                  "x": 306.5,
+                  "y": 306,
+                  "zoom": 0
+                }
               },
-              "icon": "lucide-file",
-              "title": "2026-07-28 Day12"
+              "icon": "lucide-layout-dashboard",
+              "title": "Day12"
             }
           }
         ],
@@ -222,8 +225,8 @@
   },
   "active": "05aed76bd1c37c15",
   "lastOpenFiles": [
+    "仓库管理系统/日程实施计划/日记/UI模块/2026-07-28 Day12.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
-    "2026-07-28 Day12.md",
     "仓库管理系统/日程实施计划/白板/UI相关模块/Day12.canvas",
     "仓库管理系统/日程实施计划/日记/UI模块",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md",
