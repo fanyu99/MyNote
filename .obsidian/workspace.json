@@ -29,9 +29,9 @@
               "state": {
                 "file": "仓库管理系统/日程实施计划/白板/UI相关模块/Day12.canvas",
                 "viewState": {
-                  "x": -134.5,
+                  "x": -140,
                   "y": 342,
-                  "zoom": -0.4142170491208932
+                  "zoom": -0.4061429270799776
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -206,8 +206,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 226.5,
-    "collapsed": true
+    "width": 226.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,7 +223,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "05aed76bd1c37c15",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
     "仓库管理系统/日程实施计划/日记/UI模块/2026-07-28 Day12.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
