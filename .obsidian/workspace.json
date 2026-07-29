@@ -8,20 +8,38 @@
         "type": "tabs",
         "children": [
           {
-            "id": "415063127801012e",
+            "id": "7b6371a7e67f9b4c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MySQL数据库（lxj）/01 mysql课程介绍（导航栏）.md",
+                "file": "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 mysql课程介绍（导航栏）"
+              "title": "C++_Qt_MySQL_仓库管理系统_优化版详细实施计划"
+            }
+          },
+          {
+            "id": "05aed76bd1c37c15",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "仓库管理系统/日程实施计划/白板/UI相关模块/Day12.canvas",
+                "viewState": {
+                  "x": -140,
+                  "y": 342,
+                  "zoom": -0.4061429270799776
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Day12"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -179,8 +197,8 @@
             "state": {
               "type": "claudian-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "claudian-view"
+              "icon": "bot",
+              "title": "Claudian"
             }
           }
         ],
@@ -201,37 +219,39 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "realclaudian:Open Claudian": false
     }
   },
-  "active": "415063127801012e",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "MySQL数据库（lxj）/基础篇/00 基础篇概览.md",
-    "MySQL数据库（lxj）/01 mysql课程介绍（导航栏）.md",
-    "MySQL数据库（lxj）/运维篇/00 运维篇概览.md",
-    "MySQL数据库（lxj）/进阶篇/00 进阶篇概览.md",
+    "仓库管理系统/日程实施计划/日记/UI模块/2026-07-28 Day12.md",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
-    "MySQL数据库（lxj）/运维篇",
-    "MySQL数据库（lxj）/进阶篇",
-    "MySQL数据库（lxj）/基础篇",
-    "MySQL数据库（lxj）/未命名.md",
-    "MySQL数据库（lxj）/图片/Pasted image 20260726193107.png",
-    "C++_Qt_MySQL_仓库管理系统_优化版计划.md",
-    "MySQL数据库/图片/锁_img2.png",
-    "MySQL数据库/图片/SQL优化_img5.png",
-    "MySQL数据库/图片/锁_img1.png",
-    "MySQL数据库/图片/视图_img2.png",
-    "MySQL数据库/图片/视图_img1.png",
-    "MySQL数据库/图片/SQL优化_img7.png",
-    "MySQL数据库（lxj）/图片",
-    "MySQL数据库（lxj）/未命名.canvas",
+    "仓库管理系统/日程实施计划/白板/UI相关模块/Day12.canvas",
+    "仓库管理系统/日程实施计划/日记/UI模块",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_原版计划.md",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-25 Day10.md",
+    "仓库管理系统/日程实施计划/白板/UI相关模块",
+    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day11.canvas",
+    "conflict-files-obsidian-git.md",
+    "MySQL数据库（lxj）/进阶篇/00 进阶篇概览.md",
+    "MySQL数据库（lxj）/基础篇/00 基础篇概览.md",
+    "MySQL数据库（lxj）/图片/Pasted image 20260726193107.png",
+    "MySQL数据库（lxj）/运维篇/00 运维篇概览.md",
+    "MySQL数据库（lxj）/进阶篇",
+    "MySQL数据库（lxj）/图片",
+    "MySQL数据库（lxj）/运维篇",
+    "MySQL数据库（lxj）/基础篇",
+    "MySQL数据库（lxj）/01 mysql课程介绍（导航栏）.md",
     "MySQL数据库（lxj）",
+    "C++_Qt_MySQL_仓库管理系统_优化版计划.md",
+    "仓库管理系统/日程实施计划/白板/系统基础模块/Day4.canvas",
+    "仓库管理系统/日程实施计划/白板/系统基础模块/Day9.canvas",
+    "仓库管理系统/系统核心架构/异步执行中的回调函数的传递链.md",
+    "2026-07-26 Day11.md",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day10.canvas",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day10.canvas.tmp.40888.1d7de02634a0",
     "仓库管理系统/系统核心架构/数据库密码安全.md",
-    "仓库管理系统/日程实施计划/白板/系统基础模块/Day9.canvas",
+    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-25 Day10.md",
     "仓库管理系统/系统核心架构/CMake各模块依赖关系.canvas",
     "仓库管理系统/系统核心架构/各模块依赖关系.md",
     "仓库管理系统/系统核心架构/模块依赖关系(CMake).canvas",
@@ -239,15 +259,11 @@
     "仓库管理系统/系统核心架构/各模块依赖关系.md.tmp.14224.7e1a5eb3a62c",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-24 Day9.md",
     "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-23 Day8.md",
-    "停车场管理系统/停车场管理系统.c",
-    "停车场管理系统",
     "仓库管理系统/C++_Qt_MySQL_仓库管理系统_学习计划.md",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day8.canvas",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day7.canvas",
     "仓库管理系统/数据库相关/数据库设计相关知识.md",
     "仓库管理系统/日程实施计划/白板/系统基础模块/Day6.canvas",
-    "仓库管理系统/日程实施计划/白板/系统基础模块/Day4.canvas",
-    "仓库管理系统/日程实施计划/白板/系统基础模块/Day5.canvas",
     "仓库管理系统/C++_Qt_MySQL_WMS_优化计划_v2.md",
     "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-22 Day7.md",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-18 仓库管理系统Day2.md",
@@ -255,12 +271,14 @@
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-19 Day4.md",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-21 Day6.md",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-20 Day5.md",
-    "MySQL数据库/MySQL数据库 MOC.md",
-    "仓库管理系统/数据库相关/MySQL数据库基础知识汇总.md",
-    "仓库管理系统/日程实施计划/日记/未命名.md",
     "MySQL数据库/图片/Pasted image 20260719173624.png",
-    "[C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
+    "MySQL数据库/图片/锁_img2.png",
+    "MySQL数据库/图片/视图_img2.png",
+    "MySQL数据库/图片/视图_img1.png",
     "MySQL数据库/图片/SQL优化_img1.png",
-    "MySQL数据库/图片/InnoDB_img7.png"
+    "MySQL数据库/图片/InnoDB_img7.png",
+    "MySQL数据库/图片/Pasted image 20260708021739.png",
+    "MySQL数据库/图片/Pasted image 20260708021911.png",
+    "MySQL数据库/图片/Pasted image 20260708021831.png"
   ]
 }
