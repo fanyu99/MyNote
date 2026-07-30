@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"a7b80470782710b5","x":-309,"y":-255,"width":649,"height":695,"color":"5","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-07-30 Day13.md"},
+		{"id":"4036511cf87af75e","x":423,"y":-10,"width":250,"height":60,"type":"text","text":""}
+	],
+	"edges":[
+		{"id":"34fbfa5a33de26c5","fromNode":"a7b80470782710b5","fromSide":"right","toNode":"4036511cf87af75e","toSide":"left"}
+	]
+}
