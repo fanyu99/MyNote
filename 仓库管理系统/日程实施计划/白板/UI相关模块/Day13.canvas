@@ -1,7 +1,7 @@
 {
 	"nodes":[
-		{"id":"a7b80470782710b5","x":-309,"y":-255,"width":649,"height":695,"color":"5","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-07-30 Day13.md"},
-		{"id":"4036511cf87af75e","x":423,"y":-10,"width":250,"height":60,"type":"text","text":""}
+		{"id":"a7b80470782710b5","x":-309,"y":-255,"width":609,"height":695,"color":"5","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-07-30 Day13.md"},
+		{"id":"4036511cf87af75e","x":340,"y":-255,"width":360,"height":455,"type":"text","text":"# UI层与核心层的分工\n\n| 模块                | 作用                                                     |\n| ----------------- | ------------------------------------------------------ |\n| ProductTableModel | 负责控制表格的数据显示                                            |\n| ProductPage       | 负责按钮,查询条件,分页,调用Service,刷新Model等                        |\n| ProductEditDialog | 负责收集用户的输入及校验,做基础的UI校验,将DTO交给ProductPage/ProductService |\n|                   |                                                        |\n|                   |                                                        |\n|                   |                                                        |\n"}
 	],
 	"edges":[
 		{"id":"34fbfa5a33de26c5","fromNode":"a7b80470782710b5","fromSide":"right","toNode":"4036511cf87af75e","toSide":"left"}
