@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"a7b80470782710b5","x":-309,"y":-255,"width":609,"height":695,"color":"5","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-07-30 Day13.md"},
+		{"id":"4036511cf87af75e","x":340,"y":-255,"width":400,"height":375,"color":"3","type":"text","text":"# UI层与核心层的分工\n\n| 模块                | 作用                                                     |\n| ----------------- | ------------------------------------------------------ |\n| ProductTableModel | 负责控制表格的数据显示                                            |\n| ProductPage       | 负责按钮,查询条件,分页,调用Service,刷新Model等                        |\n| ProductEditDialog | 负责收集用户的输入及校验,做基础的UI校验,将DTO交给ProductPage/ProductService |\n| ProductService    | 负责业务管理:创建产品,更新产品等                                      |\n| DatabaseExecutor  | 负责执行Service所提交的数据库相关任务                                 |\n"},
+		{"id":"ef893100933b2f7b","x":340,"y":209,"width":400,"height":131,"color":"2","type":"text","text":"# UI校验与Service校验的分工\n1. UI校验为了用户体验:名称编码不能为空等\n2. Service校验为了业务安全:检查权限,编码重复等"}
+	],
+	"edges":[
+		{"id":"34fbfa5a33de26c5","fromNode":"a7b80470782710b5","fromSide":"right","toNode":"4036511cf87af75e","toSide":"left"},
+		{"id":"aa805c1cdbe2e331","fromNode":"a7b80470782710b5","fromSide":"right","toNode":"ef893100933b2f7b","toSide":"left"}
+	]
+}
