@@ -20,26 +20,8 @@
               "icon": "lucide-file",
               "title": "C++_Qt_MySQL_仓库管理系统_优化版详细实施计划"
             }
-          },
-          {
-            "id": "d85d7814165f226c",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "仓库管理系统/日程实施计划/白板/UI相关模块/Day13.canvas",
-                "viewState": {
-                  "x": 215.5,
-                  "y": 92.5,
-                  "zoom": 0
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Day13"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
