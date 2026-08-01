@@ -59,7 +59,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "byModifiedTime",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -206,8 +208,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 226.5,
-    "collapsed": true
+    "width": 226.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,7 +225,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "d85d7814165f226c",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
     "仓库管理系统/计划文档/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
     "仓库管理系统/日程实施计划/白板/UI相关模块/Day13.canvas",
