@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "仓库管理系统/计划文档/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
+                "file": "2026-08-04 Day14.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++_Qt_MySQL_仓库管理系统_优化版详细实施计划"
+              "title": "2026-08-04 Day14"
             }
           }
         ]
@@ -207,9 +207,10 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "585e0a0c0d69a130",
+  "active": "ac9444e18032b069",
   "lastOpenFiles": [
     "仓库管理系统/计划文档/C++_Qt_MySQL_仓库管理系统_优化版详细实施计划.md",
+    "2026-08-04 Day14.md",
     "仓库管理系统/日程实施计划/白板/UI相关模块/Day13.canvas",
     "C++学习笔记/基础知识/56~63 指针.md",
     "C++学习笔记/基础知识/64~71 结构体.md",
