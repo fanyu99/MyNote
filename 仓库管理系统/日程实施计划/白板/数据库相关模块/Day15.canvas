@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"78e4eee654723ea4","type":"file","file":"仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-06 Day15.md","x":-700,"y":-380,"width":780,"height":980,"color":"3"},
+		{"id":"bd5e8be78e439992","x":221,"y":-387,"width":499,"height":667,"color":"5","type":"text","text":"# 真实MySqlInboundRepository的实现骨架\n\n1. createDraft():\n    1) 创建事务型任务(保证数据的原子性和完整性):插入Inbound_orders表并设置用户变量存储插入自动生成的order_id,插入Inbound_details表(从用户变量获取order_id)\n    2) pending_添加任务上下文并设置回调:使用findByOrderNo查询任务结果并调用上层回调)\n    3) 最后提交任务到worker\n2. findById/findByOrderNo():\n    1) 创建事务型任务,一句查inbound_orders,一句查inbound_details,\n    2) pending_添加任务上下文并设置回调:在获取任务结果后,将orders表和details表中的任务结果进行合并为InboundOrder并调用上层回调\n    3) 提交任务到worker\n3. listOrders():\n     1) 创建事务型任务,构建where查询条件\n     2) 创建查询语句:\n        1- 查询总记录数\n        2- 查询分页数据\n     3) pending_添加上下文并设置回调:获取任务结果后将获取的数据进行包装为PageResult并调用上层回调\n     4) 提交任务到worker\n"}
+	],
+	"edges":[
+		{"id":"76552ac00eea011c","fromNode":"78e4eee654723ea4","fromSide":"right","toNode":"bd5e8be78e439992","toSide":"left"}
+	]
+}
