@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"5a23422bd916146c","type":"file","file":"仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-04 Day14.md","x":-245,"y":-380,"width":605,"height":720,"color":"4"},
+		{"id":"5a23422bd916146c","type":"file","file":"仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-04 Day14 入库单领域模型.md","x":-245,"y":-380,"width":605,"height":720,"color":"4"},
 		{"id":"b62ce4fb36a3aa62","type":"text","text":"# 注意\n\tInboundService的confirmOrder()方法如果调用查找函数findByOrderNo()进行查找后再进行确认的话,会出现数据竟态问题:A线程查找发现订单为Draft状态,但是B线程先确认了订单,之后A仍然进行confirm\n    故转为在Service层中直接确认,repository层再进行原子性操作:查找是否存在订单,存在就更改状态为confirmed,并提交事务\n","x":520,"y":-2,"width":357,"height":342,"color":"1"},
 		{"id":"40f56bea739414c4","x":520,"y":-580,"width":357,"height":560,"type":"text","text":"# InboundService相关函数的完成思路\n\n1. listOrders:\n\t\t1) 校验参数和权限,\n\t\t2) 校验分页请求和筛选器\n\t\t3) 通过repository进行查找并添加回调函数\n2. createDraft:\n        1) 校验参数和权限\n        2) 将传入的InboundCreateRequest转换为InboundOrder(转换过程中进行校验\n        3) 通过repository直接进行创建(订单是否已存在由repository层进行校验)\n        4) repository层创建好了订单,回调函数对创建好的订单进行校验并回调上层回调函数\n3. confirmOrder:\n\t       1) 校验参数和权限以及订单id\n\t       2) 通过repository直接进行确认(订单是否存在/是否已确认由repository层校验)\n\t       3) repository层确认订单返回结果,回调函数进行校验并回调上层回调函数"}
 	],

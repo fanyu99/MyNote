@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"24602c66a41a89ce","type":"file","file":"仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-21 Day6.md","x":-240,"y":-140,"width":400,"height":640,"color":"1"},
+		{"id":"24602c66a41a89ce","type":"file","file":"仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-21 Day6 配置读取与ConfigManager.md","x":-240,"y":-140,"width":400,"height":640,"color":"1"},
 		{"id":"39aa845a811dc32b","type":"text","text":"# IniHelper的用处:\n\t将QSettings的细节封装起来,使读取配置可控,不会出现类似缺失配置时会得到空字符串/0","x":230,"y":-140,"width":250,"height":220,"color":"4"},
 		{"id":"9b8bd23d42ec0cae","type":"text","text":"# ConfigManager的职责:\n\t作为统一调配器,负责配置和强类型转换,对DatabaseConfig,LoggerConfig,ExecutorConfig等强类型配置进行调控,使读取配置变得可复用且稳定\n","x":-620,"y":-160,"width":250,"height":300,"color":"2"},
 		{"id":"bd4e8381dcaec5f2","type":"text","text":"# IniHelper的具体职责:\n1. 读取字符串,整数,bool等\n2. 检查配置中的key是否存在\n3. 返回清晰的错误进行汇报\n","x":230,"y":176,"width":250,"height":244,"color":"6"},
