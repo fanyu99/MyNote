@@ -13,7 +13,7 @@
             "state": {
               "type": "canvas",
               "state": {
-                "file": "仓库管理系统/日程实施计划/白板/数据库相关模块/未命名.canvas",
+                "file": "仓库管理系统/日程实施计划/白板/数据库相关模块/Day18 单位与分类基础服务.canvas",
                 "viewState": {
                   "x": 0,
                   "y": 0,
@@ -21,7 +21,7 @@
                 }
               },
               "icon": "lucide-layout-dashboard",
-              "title": "未命名"
+              "title": "Day18 单位与分类基础服务"
             }
           }
         ]
@@ -210,10 +210,10 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "515c85c2b81295c4",
+  "active": "a70c3795ffc330fe",
   "lastOpenFiles": [
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/未命名.canvas",
     "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-09 Day18 单位与分类基础服务.md",
+    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day18 单位与分类基础服务.canvas",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day17 入库真实链路测试.canvas",
     "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-08 Day17 入库真实链路测试.md",
     "仓库管理系统/日程实施计划/白板/系统基础模块/Day3 Worker初始化与ODBC连接.canvas",
