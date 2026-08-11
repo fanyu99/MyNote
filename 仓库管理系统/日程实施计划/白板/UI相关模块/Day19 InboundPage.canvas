@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"455509f76b542c5c","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-08-10 Day19 InboundPage.md","x":-320,"y":-280,"width":520,"height":500,"color":"5"},
+		{"id":"29d8c139aa3e2890","x":292,"y":-286,"width":368,"height":506,"color":"3","type":"text","text":"# 基础服务数据异步回显逻辑\n1. 使用序列号进行校验,以最新请求为准\n2. 保存待回显的数据ID,之后在addUnit/addCategory/addWarehouse里面进行校验,如果数据ID等于保存的待回显ID,那么直接设置对应的显示(ComboBox)的数据index\n3. 在回调函数中校验是否所有数据加载完成,未加载完成时确认按钮及ComboBox禁用\n## 总逻辑:\n1. Dialog 保存 UI 状态和当前加载 token；\n2. Page 发起异步请求；\n3. Service 回调回来后，先检查 token，再填充 Dialog；\n4. checkbox toggled 只负责触发重新加载。"}
+	],
+	"edges":[
+		{"id":"4bd5c17c3c628647","fromNode":"455509f76b542c5c","fromSide":"right","toNode":"29d8c139aa3e2890","toSide":"left"}
+	]
+}
