@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"c8cae74cdb9bec53","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-08-13 Day21 计划整理并开始outbound模块.md","x":-560,"y":-460,"width":500,"height":420,"color":"2"},
+		{"id":"36fbd9179aa40410","x":-560,"y":-20,"width":500,"height":260,"type":"text","text":"# outbound确认订单出库(整体出库)逻辑\n## confirmOrder()函数中:\n1. 首先预读一遍order,并构建outboundorder与其明细lines\n2. 设置订单状态与行数期望守卫,更改失败直接整体回滚\n3. 构建任务并添加查询语句\n4. **构建出库语句,并设置行数期望(1),不符合直接整体回滚**\n5. 构建插入审计表语句\n6. 提交到pending_队列,设置回调函数\n7. 回调函数:验证参数与各语句执行结果,最后进行回查订单并返回订单数据"}
+	],
+	"edges":[
+		{"id":"2b9e92d63a2b8160","fromNode":"c8cae74cdb9bec53","fromSide":"bottom","toNode":"36fbd9179aa40410","toSide":"top"}
+	]
+}
