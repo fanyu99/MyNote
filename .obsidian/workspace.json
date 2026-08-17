@@ -4,24 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "89c88b4681726d92",
+        "id": "ba3db61867da3133",
         "type": "tabs",
         "children": [
           {
-            "id": "515c85c2b81295c4",
+            "id": "c40a9bbd4c543865",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "仓库管理系统/日程实施计划/白板/UI相关模块/Day21 计划整理并开始outbound模块.canvas",
-                "viewState": {
-                  "x": -32.75,
-                  "y": -154.9999905395508,
-                  "zoom": 0
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "Day21 计划整理并开始outbound模块"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -210,10 +203,29 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "515c85c2b81295c4",
+  "active": "c40a9bbd4c543865",
   "lastOpenFiles": [
-    "仓库管理系统/日程实施计划/日记/UI模块/2026-08-13 Day21 计划整理并开始outbound模块.md",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811145355.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260805150505.png",
     "仓库管理系统/日程实施计划/白板/UI相关模块/Day21 计划整理并开始outbound模块.canvas",
+    "MySQL数据库（lxj）/基础篇/07 多表查询.md",
+    "MySQL数据库（lxj）/基础篇/06 约束.md",
+    "MySQL数据库（lxj）/基础篇/05 函数.md",
+    "MySQL数据库（lxj）/基础篇/04 DCL.md",
+    "MySQL数据库（lxj）/基础篇/03 DQL.md",
+    "MySQL数据库（lxj）/基础篇/02 DML.md",
+    "MySQL数据库（lxj）/基础篇/01 DDL.md",
+    "MySQL数据库（lxj）/基础篇/0.5 SQL分类.md",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811143421.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811115909.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811114809.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811105938.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811104830.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811103645.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260809105453.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260809104857.png",
+    "MySQL数据库（lxj）/图片/Pasted image 20260808150121.png",
+    "仓库管理系统/日程实施计划/日记/UI模块/2026-08-13 Day21 计划整理并开始outbound模块.md",
     "仓库管理系统/日程实施计划/白板/UI相关模块/Day20 页面测试和问题修复及功能优化.canvas",
     "仓库管理系统/日程实施计划/日记/UI模块/2026-08-12 Day20 页面测试与问题修复.md",
     "仓库管理系统/日程实施计划/日记/UI模块/未命名.md",
@@ -237,11 +249,6 @@
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-20 Day5 事务与affectedRows守卫.md",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-21 Day6 配置读取与ConfigManager.md",
     "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-19 Day4 队列与requestId映射.md",
-    "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-19 Day3 Worker初始化与ODBC连接.md",
-    "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-24 Day9 认证模型与权限边界.md",
-    "仓库管理系统/日程实施计划/日记/UI模块/2026-07-30 Day13 物资CRUD UI纵向切片.md",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-22 Day7 数据库Schema与迁移.md",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-07 Day16 入库确认与库存一致性.md",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day11 MySQL ProductRepository.canvas",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/Day14 入库单领域模型.canvas",
     "仓库管理系统/UI页面/QT连接MySQL.md.tmp.87900.1190bb0f031b",
@@ -253,19 +260,6 @@
     "仓库管理系统/日程实施计划/白板/数据库相关模块/sedGYEZBC",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/sed4T68EL",
     "仓库管理系统/日程实施计划/白板/数据库相关模块/sedgOQrOB",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/sedodv28L",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-06 Day15 入库Repository与事务.md",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-04 Day14 入库单领域模型.md",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-26 Day11 MySQL ProductRepository.md",
-    "MySQL数据库（lxj）/图片/Pasted image 20260805120910.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260805114552.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260805111314.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260804162248.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260804160752.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260804155522.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260804152206.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260804110323.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260804110019.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260804103716.png"
+    "仓库管理系统/日程实施计划/白板/数据库相关模块/sedodv28L"
   ]
 }
