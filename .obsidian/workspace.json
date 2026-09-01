@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ba3db61867da3133",
+        "id": "986ca4b5c21a89a2",
         "type": "tabs",
         "children": [
           {
-            "id": "c40a9bbd4c543865",
+            "id": "b1e0ec8fff09f17b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "OpenCV学习笔记/OpenCV第一课.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "OpenCV第一课"
             }
           }
         ]
@@ -51,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "删除",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,7 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 414.5
+    "width": 200
   },
   "right": {
     "id": "32a6421c5c0f1c0c",
@@ -186,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 226.5
+    "width": 353.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -203,63 +207,63 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "c40a9bbd4c543865",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
+    "OpenCV学习笔记/OpenCV第二课.md",
+    "OpenCV学习笔记/OpenCV第一课.md",
+    "仓库管理系统/_MOC.md",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day24 完成MainWindow.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day21 计划整理并开始outbound模块.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day22 LoginPage基础功能.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day13 物资CRUD UI纵向切片.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day12 ProductTableModel与列表页.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day19 InboundPage.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day20 页面测试和问题修复及功能优化.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块",
+    "仓库管理系统/01_计划/90_历史/原版计划.md.tmp.83156.6cca19a6a7fe",
+    "仓库管理系统/01_计划/90_历史/原版计划.md.tmp.83156.093e5abfb956",
+    "仓库管理系统/01_计划/01_优化版详细实施计划.md.tmp.83156.d26c47267a05",
+    "仓库管理系统/01_计划/90_历史/WMS_优化计划_v2.md",
+    "仓库管理系统/01_计划/90_历史/原版计划.md",
+    "仓库管理系统/01_计划/01_优化版详细实施计划.md",
+    "仓库管理系统/01_计划/00_计划索引.md",
+    "仓库管理系统/01_计划/90_历史",
+    "仓库管理系统/04_UI开发/QT连接MySQL.md",
+    "仓库管理系统/04_UI开发/QT对象树的注意事项.md",
+    "仓库管理系统/04_UI开发/QT坐标体系.md",
+    "仓库管理系统/04_UI开发/使用QSS和QPalette管理样式.md",
+    "仓库管理系统/04_UI开发/QT多窗口导航架构.md",
+    "仓库管理系统/04_UI开发/Model View.md",
+    "仓库管理系统/04_UI开发",
+    "仓库管理系统/05_数据库知识/数据库设计相关知识.md",
+    "仓库管理系统/05_数据库知识/MySQL数据库基础知识汇总.md",
+    "仓库管理系统/05_数据库知识",
+    "仓库管理系统/03_架构设计/数据库密码安全.md",
+    "仓库管理系统/03_架构设计/数据库连接池.md",
+    "仓库管理系统/03_架构设计/数据库业务执行架构.md",
+    "仓库管理系统/03_架构设计/异步执行中的回调函数的传递链.md",
+    "仓库管理系统/03_架构设计/CMake各模块依赖关系.canvas",
+    "仓库管理系统/03_架构设计",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/Day2 数据库协议与执行器状态机.canvas",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/Day9 认证模型与权限边界.canvas",
+    "仓库管理系统/02_实施记录/日记/系统基础模块/2026-08-17 Day23  完成基础各项模块测试.md",
+    "仓库管理系统/02_实施记录/日记/系统基础模块/2026-07-24 Day9 认证模型与权限边界.md",
+    "仓库管理系统/02_实施记录/日记/系统基础模块/2026-07-21 Day6 配置读取与ConfigManager.md",
+    "仓库管理系统/02_实施记录/日记/系统基础模块/2026-07-20 Day5 事务与affectedRows守卫.md",
+    "仓库管理系统/02_实施记录/日记/系统基础模块/2026-07-19 Day4 队列与requestId映射.md",
+    "仓库管理系统/02_实施记录/日记/系统基础模块/2026-07-19 Day3 Worker初始化与ODBC连接.md",
+    "仓库管理系统/02_实施记录/日记/系统基础模块/2026-07-18 Day2 数据库协议与执行器状态机.md",
+    "仓库管理系统/02_实施记录/日记/系统基础模块",
+    "仓库管理系统/02_实施记录/白板/系统基础模块",
+    "MySQL数据库（lxj）/图片/Pasted image 20260811143421.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260811145355.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260805150505.png",
-    "仓库管理系统/日程实施计划/白板/UI相关模块/Day21 计划整理并开始outbound模块.canvas",
-    "MySQL数据库（lxj）/基础篇/07 多表查询.md",
-    "MySQL数据库（lxj）/基础篇/06 约束.md",
-    "MySQL数据库（lxj）/基础篇/05 函数.md",
-    "MySQL数据库（lxj）/基础篇/04 DCL.md",
-    "MySQL数据库（lxj）/基础篇/03 DQL.md",
-    "MySQL数据库（lxj）/基础篇/02 DML.md",
-    "MySQL数据库（lxj）/基础篇/01 DDL.md",
-    "MySQL数据库（lxj）/基础篇/0.5 SQL分类.md",
-    "MySQL数据库（lxj）/图片/Pasted image 20260811143421.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260811115909.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260811114809.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260811105938.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260811104830.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260811103645.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260809105453.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260809104857.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260808150121.png",
-    "仓库管理系统/日程实施计划/日记/UI模块/2026-08-13 Day21 计划整理并开始outbound模块.md",
-    "仓库管理系统/日程实施计划/白板/UI相关模块/Day20 页面测试和问题修复及功能优化.canvas",
-    "仓库管理系统/日程实施计划/日记/UI模块/2026-08-12 Day20 页面测试与问题修复.md",
-    "仓库管理系统/日程实施计划/日记/UI模块/未命名.md",
-    "仓库管理系统/日程实施计划/白板/UI相关模块/Day19 InboundPage.canvas",
-    "仓库管理系统/日程实施计划/日记/UI模块/2026-07-28 Day12 ProductTableModel与列表页.md",
-    "仓库管理系统/日程实施计划/日记/UI模块/2026-08-10 Day19 InboundPage.md",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day18 单位与分类基础服务.canvas",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-09 Day18 单位与分类基础服务.md",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day17 入库真实链路测试.canvas",
-    "仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-08 Day17 入库真实链路测试.md",
-    "仓库管理系统/日程实施计划/白板/系统基础模块/Day3 Worker初始化与ODBC连接.canvas",
-    "仓库管理系统/日程实施计划/白板/系统基础模块/Day4 队列与requestId映射.canvas",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day15 入库Repository与事务.canvas",
-    "仓库管理系统/UI页面/Model View.md",
-    "仓库管理系统/UI页面/QT多窗口导航架构.md",
-    "仓库管理系统/UI页面/使用QSS和QPalette管理样式.md",
-    "仓库管理系统/系统核心架构/数据库密码安全.md",
-    "仓库管理系统/系统核心架构/数据库连接池.md",
-    "仓库管理系统/数据库相关/数据库设计相关知识.md",
-    "仓库管理系统/数据库相关/MySQL数据库基础知识汇总.md",
-    "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-20 Day5 事务与affectedRows守卫.md",
-    "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-21 Day6 配置读取与ConfigManager.md",
-    "仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-19 Day4 队列与requestId映射.md",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day11 MySQL ProductRepository.canvas",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/Day14 入库单领域模型.canvas",
-    "仓库管理系统/UI页面/QT连接MySQL.md.tmp.87900.1190bb0f031b",
-    "仓库管理系统/UI页面/Model View.md.tmp.87900.2bc5197d9637",
-    "仓库管理系统/数据库相关/数据库设计相关知识.md.tmp.87900.8195dfbabe5d",
-    "仓库管理系统/日程实施计划/白板/UI相关模块/sed47NRk4",
-    "仓库管理系统/日程实施计划/白板/UI相关模块/sedujxHaT",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/sedEM6NHZ",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/sedGYEZBC",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/sed4T68EL",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/sedgOQrOB",
-    "仓库管理系统/日程实施计划/白板/数据库相关模块/sedodv28L"
+    "MySQL数据库（lxj）/图片/Pasted image 20260809104857.png"
   ]
 }

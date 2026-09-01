@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"df1918b60f4f8798","x":305,"y":-179,"width":400,"height":400,"type":"file","file":"仓库管理系统/UI页面-QTWidgets/QT对象树的注意事项.md"},
+		{"id":"ab0089128d38eeb7","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-08-18 Day24 完成MainWindow.md","x":-181,"y":-320,"width":400,"height":685,"color":"5"}
+	],
+	"edges":[
+		{"id":"85f47727a8e80997","fromNode":"ab0089128d38eeb7","fromSide":"right","toNode":"df1918b60f4f8798","toSide":"left"}
+	]
+}
