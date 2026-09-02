@@ -354,7 +354,7 @@ int main()
 
 ## 相关链接
 
-- 上一课：[[OpenCV第一课]]
+- 上一课：[[OpenCV第一课 基础入门]]
 - 下一课：（待添加）
 - 主题归纳：[[OpenCV学习笔记/主题模块/cv_Mat核心]] · [[OpenCV学习笔记/主题模块/OpenCV与Qt集成]]
 - 知识库总览：[[OpenCV学习笔记/_MOC]]

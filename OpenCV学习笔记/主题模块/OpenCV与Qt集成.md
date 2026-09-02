@@ -57,7 +57,7 @@ QImage qImage(
 
 ## 四、引用自哪些课程笔记
 
-- [[OpenCV第一课]]
+- [[OpenCV第一课 基础入门]]
 
 ---
 
