@@ -354,6 +354,6 @@ cv2.destroyAllWindows()
 ## 相关链接
 
 - 上一课：[[OpenCV第二课 cv_Mat模型]]
-- 下一课：（待添加）
+- 下一课：[[OpenCV第四课 阈值处理和二值化]]
 - 主题归纳：[[OpenCV学习笔记/主题模块/图像处理]] · [[OpenCV学习笔记/主题模块/cv_Mat核心]]
 - 知识库总览：[[OpenCV学习笔记/_MOC]]

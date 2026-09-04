@@ -359,3 +359,7 @@ SELECT * FROM student ORDER BY score DESC;
 ---
 
 > 💡 **提示**：`UPDATE` 和 `DELETE` 前一定先用 `SELECT` 配合相同的 `WHERE` 条件预习结果。宁可多一次查询，也不要误改误删数据！
+
+---
+
+📚 **课程导航**：[[01 DDL|← 上一课]] · [[03 DQL|下一课 →]] ｜ [[00 基础篇概览|返回基础篇]] · [[01 mysql课程介绍（导航栏）|课程导航]]

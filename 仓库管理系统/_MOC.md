@@ -123,7 +123,11 @@ tags:
 ## 🔗 七、资源链接
 
 - 我的其他相关笔记：[[README]]（仓库主页）
-- 其他知识库：[[OpenCV学习笔记/_MOC]]
+- 其他知识库：
+  - [[OpenCV学习笔记/_MOC|OpenCV（计算机视觉）]]
+  - [[C++学习笔记/_MOC|C++（语言基础）]]
+  - [[MySQL数据库（lxj）/01 mysql课程介绍（导航栏）|MySQL 课程]]
+  - [[MySQL数据库/MySQL数据库 MOC|MySQL 知识（原理归纳）]]
 
 ---
 
