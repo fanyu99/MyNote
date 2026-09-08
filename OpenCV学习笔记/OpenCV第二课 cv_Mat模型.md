@@ -102,6 +102,14 @@ cv::Mat image = cv::imread("test.jpg");
 cv::Mat copyImage = image;
 ```
 
+**Python 对照**（numpy 数组直接赋值 = 浅拷贝视图）：
+```python
+import cv2
+
+image = cv2.imread("test.jpg")   # -> np.ndarray / None
+copy_image = image          # numpy 视图，与 image 共享同一块内存
+```
+
 > **浅拷贝**后，`copyImage` 与 `image` 的 `data` 指针指向**同一块内存**，因此只要修改其中一个的数据，另一个的数据也会被修改！
 
 ```cpp
@@ -118,12 +126,22 @@ cv::imshow("copyImage", copyImage);
 // 这时候会发现 image 和 copyImage 的图片左上角都为红色！！！
 ```
 
+**Python 对照**（numpy 切片赋值会同时影响两个视图）：
+```python
+copy_image[0:100, 0:100] = (0, 0, 255)   # BGR 红色；因为共享内存，image 也会一起变红
+```
+
 #### 2. 深拷贝：clone() 与 copyTo()
 
 **使用 `clone()` 进行深拷贝**
 
 ```cpp
 cv::Mat deepCopy = image.clone(); // 深拷贝
+```
+
+**Python 对照**（`.copy()` = 深拷贝）：
+```python
+deep_copy = image.copy()    # 独立内存，互不影响   # -> np.ndarray
 ```
 
 此时两个对象的 `data` 指向**不同的内存**：
@@ -142,12 +160,27 @@ image.copyTo(output);            // 相当于 output = input.clone()
 image.copyTo(result, mask);      // 只复制 mask 中满足条件的区域
 ```
 
+**Python 对照**（`copy()` 对应 `clone()`；带掩膜用 `np.where` 或 `copyTo` 逻辑）：
+```python
+output = image.copy()            # 深拷贝   # -> np.ndarray
+
+import numpy as np
+result = image.copy()            # -> np.ndarray
+result[mask == 0] = 0            # 只保留 mask 非零区域的像素
+```
+
 #### 3. cv::Mat 的引用计数
 
 ```cpp
 cv::Mat image = cv::imread("test.jpg");
 cv::Mat image2 = image;
 cv::Mat image3 = image;
+```
+
+**Python 对照**（多个变量指向同一数组 = 共享数据）：
+```python
+image2 = image
+image3 = image          # 三个变量共用同一块数据，最后一个引用失效时才释放
 ```
 
 此时三个 `image` 共用一块图像数据内存；当**最后一个引用对象销毁**时，会自动释放图像数据内存。因此**不需要手动 delete 图像数据内存**！
@@ -181,6 +214,13 @@ cv::Mat image = cv::imread("test.jpg");
 cv::Rect rect(100, 50, 300, 200); // 定义一个矩形 (x, y, w, h)
 
 cv::Mat roi = image(rect);        // 获取 image 的指定矩形区域
+```
+
+**Python 对照**（numpy 切片 = ROI，同样是浅拷贝视图）：
+```python
+x, y, w, h = 100, 50, 300, 200
+roi = image[y:y+h, x:x+w]        # 切片，与原图共享内存（视图）
+roi_copy = image[y:y+h, x:x+w].copy()   # 深拷贝，独立保存   # -> np.ndarray
 ```
 
 > ⚠️ **注意**：ROI 同样是**浅拷贝**！如果要独立保存，请使用 `copyTo()` 或 `clone()`。
@@ -222,6 +262,13 @@ uchar g = pixel[1];
 uchar r = pixel[2];
 ```
 
+**Python 对照**（numpy 下标访问，顺序同为 `[行, 列]`）：
+```python
+value = gray[y, x]               # 灰度图，标量（np.uint8）
+
+b, g, r = color[y, x]            # BGR 三通道，返回长度为 3 的数组（np.uint8）
+```
+
 #### 2. 使用 `ptr<>`（推荐用于批量处理）
 
 ```cpp
@@ -252,6 +299,12 @@ for (int y = 0; y < image.rows; ++y)
 }
 ```
 
+**Python 对照**（矢量化，等效于上面的双层循环）：
+```python
+gray = 255 - gray      # 灰度图反色
+color = 255 - color    # BGR 彩图反色（三通道一起）
+```
+
 #### 3. 直接访问 `data`（仅当内存连续时才能使用）
 
 ```cpp
@@ -267,6 +320,17 @@ if (gray.isContinuous())
 }
 ```
 
+**Python 对照**（numpy 数组默认连续，`.ravel()`/`.flat` 可按一维遍历）：
+```python
+# 用 ravel() 得到一维视图（仅当连续时无需复制）
+flat = gray.ravel()
+for i in range(flat.size):
+    flat[i] = 255 - flat[i]
+
+# 但 Python 中通常直接用矢量化一行解决：
+gray = 255 - gray
+```
+
 ---
 
 ## 六、Qt + OpenCV 中浅拷贝的危险
@@ -279,14 +343,14 @@ if (gray.isContinuous())
 
 ```cpp
 cv::Mat frame;
-camera.read(frame);
+camera.read(frame);   // VideoCapture::read(OutputArray) -> bool
 
 QImage qImage(
-    frame.data,
-    frame.cols,
-    frame.rows,
-    static_cast<int>(frame.step),
-    QImage::Format_RGB888
+    frame.data,                      // const uchar*
+    frame.cols,                      // int
+    frame.rows,                      // int
+    static_cast<int>(frame.step),    // int（行步长）
+    QImage::Format_RGB888            // Format
 );
 ```
 
@@ -336,6 +400,30 @@ int main()
 ```
 
 > 说明：本课内容偏 C++ 内存语义；Python 中 `numpy` 数组的切片赋值同样属于**共享内存**（浅拷贝），如需独立数据应使用 `.copy()`。
+
+### Python 示例：深拷贝与 ROI（与上方 C++ 对照）
+
+```python
+import cv2
+import numpy as np
+
+image = cv2.imread("test.jpg")   # -> np.ndarray / None
+
+shallow = image                    # 浅拷贝：共享内存
+deep    = image.copy()             # 深拷贝：独立内存   # -> np.ndarray
+
+x, y, w, h = 100, 50, 300, 200
+roi      = image[y:y+h, x:x+w]           # ROI：默认浅拷贝（视图）
+roi_copy = image[y:y+h, x:x+w].copy()    # 独立保存
+
+# 像素访问（灰度图）——矢量化反色
+gray = cv2.imread("test.jpg", cv2.IMREAD_GRAYSCALE)   # -> np.ndarray / None
+gray = 255 - gray
+
+cv2.imshow("image", image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
 
 ---
 

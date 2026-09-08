@@ -40,13 +40,20 @@ status: 学习中
 一般用法：
 
 ```C++
-double ret = cv::threshold(
-    src,    // 输入图，通常为灰度图
-    dst,
-    thresh, // 阈值
-    maxval, // 最大值，通常为 255
-    type    // 阈值类型
+double cv::threshold(           // 返回实际使用/计算出的阈值
+    InputArray src,             // 输入图，通常为灰度图
+    OutputArray dst,            // 输出图
+    double thresh,              // 阈值
+    double maxval,              // 最大值，通常为 255
+    int type                    // 阈值类型
 );
+```
+
+**Python 对照**（多返回一个阈值 `ret`）：
+```python
+# cv2.threshold(src, thresh, maxval, type) -> (ret: float, dst: np.ndarray)
+#   src: np.ndarray（灰度图）, thresh/maxval: float, type: int
+ret, dst = cv2.threshold(src, thresh, maxval, type)   # src 通常为灰度图
 ```
 
 #### 阈值类型
@@ -62,14 +69,14 @@ double ret = cv::threshold(
 **自定义阈值**：根据每个像素附近的小区域分别计算局部的阈值，更适合**光照不均匀**的图像。
 
 ```C++
-cv::adaptiveThreshold(
-    src,
-    dst,
-    maxValue,
-    adaptiveMethod, // 局部的阈值计算方法
-    thresholdType,  // THRESH_BINARY / THRESH_BINARY_INV
-    blockSize,      // 邻域大小，必须为奇数
-    C               // 从计算结果中减去的常量
+void cv::adaptiveThreshold(
+    InputArray src,         // 输入图，通常为灰度图
+    OutputArray dst,        // 输出图
+    double maxValue,        // 最大值，通常为 255
+    int adaptiveMethod,     // 局部的阈值计算方法（MEAN_C / GAUSSIAN_C）
+    int thresholdType,      // THRESH_BINARY / THRESH_BINARY_INV
+    int blockSize,          // 邻域大小，必须为奇数
+    double C                // 从计算结果中减去的常量
 );
 ```
 
@@ -89,6 +96,12 @@ cv::adaptiveThreshold(
 );
 ```
 
+**Python 对照**：
+```python
+adaptive_mean = cv2.adaptiveThreshold(
+    gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)  # -> np.ndarray
+```
+
 ##### 高斯自适应阈值
 
 ```C++
@@ -103,6 +116,12 @@ cv::adaptiveThreshold(
     11,
     2
 );
+```
+
+**Python 对照**：
+```python
+adaptive_gaussian = cv2.adaptiveThreshold(
+    gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)  # -> np.ndarray
 ```
 
 **均值法 vs 高斯法**：
@@ -133,6 +152,13 @@ std::cout << "Otsu 自动计算的阈值："
           << std::endl;
 ```
 
+**Python 对照**（Otsu 会返回自动计算的阈值）：
+```python
+otsu_threshold, otsu = cv2.threshold(
+    gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)  # -> (float, np.ndarray)
+print("Otsu 自动计算的阈值：", otsu_threshold)
+```
+
 ### 高斯滤波预处理
 
 如果图像的噪声比较多，可以先对图像进行**高斯滤波**以提高二值化的准确性，避免噪声被误判为前景或背景。
@@ -157,6 +183,13 @@ double otsuThresholdAfterBlur = cv::threshold(
     255,
     cv::THRESH_BINARY | cv::THRESH_OTSU
 );
+```
+
+**Python 对照**：
+```python
+blurred = cv2.GaussianBlur(gray, (5, 5), 0)  # -> np.ndarray
+otsu_threshold, otsu_after_blur = cv2.threshold(
+    blurred, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)  # -> (float, np.ndarray)
 ```
 
 ---
@@ -358,7 +391,7 @@ import cv2
 
 image_path = r"D:\OneDrive\图片\Screenshots\屏幕截图 2026-07-19 173438.png"
 
-image = cv2.imread(image_path)
+image = cv2.imread(image_path)  # -> np.ndarray / None
 
 if image is None:
     print("读取图片失败：", image_path)
@@ -368,7 +401,7 @@ if image is None:
 gray = cv2.cvtColor(
     image,
     cv2.COLOR_BGR2GRAY
-)
+)  # -> np.ndarray
 
 # 2. 固定阈值
 fixed_threshold, binary = cv2.threshold(
@@ -376,7 +409,7 @@ fixed_threshold, binary = cv2.threshold(
     127,
     255,
     cv2.THRESH_BINARY
-)
+)  # -> (float, np.ndarray)
 
 # 3. 反二值化
 _, binary_inv = cv2.threshold(
@@ -384,7 +417,7 @@ _, binary_inv = cv2.threshold(
     127,
     255,
     cv2.THRESH_BINARY_INV
-)
+)  # -> (float, np.ndarray)
 
 # 4. 截断阈值
 _, trunc = cv2.threshold(
@@ -392,7 +425,7 @@ _, trunc = cv2.threshold(
     127,
     255,
     cv2.THRESH_TRUNC
-)
+)  # -> (float, np.ndarray)
 
 # 5. TOZERO
 _, to_zero = cv2.threshold(
@@ -400,7 +433,7 @@ _, to_zero = cv2.threshold(
     127,
     255,
     cv2.THRESH_TOZERO
-)
+)  # -> (float, np.ndarray)
 
 # 6. 自适应均值阈值
 adaptive_mean = cv2.adaptiveThreshold(
@@ -410,7 +443,7 @@ adaptive_mean = cv2.adaptiveThreshold(
     cv2.THRESH_BINARY,
     11,
     2
-)
+)  # -> np.ndarray
 
 # 7. 自适应高斯阈值
 adaptive_gaussian = cv2.adaptiveThreshold(
@@ -420,7 +453,7 @@ adaptive_gaussian = cv2.adaptiveThreshold(
     cv2.THRESH_BINARY,
     11,
     2
-)
+)  # -> np.ndarray
 
 # 8. Otsu 自动阈值
 otsu_threshold, otsu = cv2.threshold(
@@ -428,21 +461,21 @@ otsu_threshold, otsu = cv2.threshold(
     0,
     255,
     cv2.THRESH_BINARY | cv2.THRESH_OTSU
-)
+)  # -> (float, np.ndarray)
 
 # 9. 高斯滤波后使用 Otsu
 blurred = cv2.GaussianBlur(
     gray,
     (5, 5),
     0
-)
+)  # -> np.ndarray
 
 otsu_blur_threshold, otsu_after_blur = cv2.threshold(
     blurred,
     0,
     255,
     cv2.THRESH_BINARY | cv2.THRESH_OTSU
-)
+)  # -> (float, np.ndarray)
 
 print("固定阈值：", fixed_threshold)
 print("Otsu 阈值：", otsu_threshold)
@@ -519,6 +552,6 @@ cv::THRESH_OTSU       // 自动计算阈值，通常组合前两者
 ## 相关链接
 
 - 上一课：[[OpenCV第三课 图像几何操作]]
-- 下一课：[[OpenCV第六课 图像平滑与滤波]]
+- 下一课：[[OpenCV第五课 图像平滑与滤波]]
 - 主题归纳：[[OpenCV学习笔记/主题模块/图像处理]]
 - 知识库总览：[[OpenCV学习笔记/_MOC]]

@@ -1,7 +1,7 @@
 ---
-title: OpenCV 第六课 图像平滑与滤波
+title: OpenCV 第五课 图像平滑与滤波
 type: 课程笔记
-课程: 6
+课程: 5
 created: 2026-09-03
 updated: 2026-09-03
 tags:
@@ -11,7 +11,7 @@ tags:
 status: 学习中
 ---
 
-# OpenCV第六课 图像平滑与滤波
+# OpenCV第五课 图像平滑与滤波
 
 > **本课目标**：掌握图像滤波的基本思想（卷积核），以及 OpenCV 的四种常用滤波——**均值、高斯、中值、双边滤波**。理解各自的原理、适用场景与优缺点，并能根据噪声类型和边缘保护需求选择合适的方法。
 > **涉及主题**：[[OpenCV学习笔记/主题模块/图像处理]]
@@ -72,11 +72,18 @@ cv::Size(7,7) // 平滑效果强，细节损失多
 #### 1. cv::blur()
 
 ```cpp
-cv::blur(
-    src,
-    dst,
-    cv::Size(5,5)
+void cv::blur(
+    InputArray src,               // 输入图
+    OutputArray dst,              // 输出图
+    Size ksize,                   // 卷积核大小
+    Point anchor = Point(-1, -1), // 锚点，默认核中心
+    int borderType = BORDER_DEFAULT
 );
+```
+
+**Python 对照**：
+```python
+dst = cv2.blur(src, (5, 5))  # -> np.ndarray
 ```
 
 - 即窗口中所有像素的平均值替换中心像素。
@@ -86,14 +93,20 @@ cv::blur(
 #### 2. cv::boxFilter()
 
 ```cpp
-cv::boxFilter(
-    src,
-    dst,
-    -1,                 // 输出的图像深度与输入相同
-    cv::Size(5,5),      // 卷积核大小
-    cv::Point(-1,-1),   // 自动使用核中心
-    normalize           // 归一化
-)
+void cv::boxFilter(
+    InputArray src,               // 输入图
+    OutputArray dst,              // 输出图
+    int ddepth,                   // 输出深度，-1 表示与输入相同
+    Size ksize,                   // 卷积核大小
+    Point anchor = Point(-1, -1), // 锚点，默认核中心
+    bool normalize = true,        // 是否归一化
+    int borderType = BORDER_DEFAULT
+);
+```
+
+**Python 对照**：
+```python
+dst = cv2.boxFilter(src, -1, (5, 5), normalize=True)  # -> np.ndarray
 ```
 
 ### 高斯滤波
@@ -101,11 +114,13 @@ cv::boxFilter(
 特点：**距离中心越近的像素权重越大**，越远的像素权重越小。
 
 ```cpp
-cv::GaussianBlur(
-    src,
-    dst,
-    cv::Size(),  // 卷积核大小
-    0            // 根据卷积核大小自动计算分布参数
+void cv::GaussianBlur(
+    InputArray src,      // 输入图
+    OutputArray dst,     // 输出图
+    Size ksize,          // 卷积核大小
+    double sigmaX,       // X 方向标准差（0 表示按核大小自动计算）
+    double sigmaY = 0,   // Y 方向标准差（0 表示与 sigmaX 相同）
+    int borderType = BORDER_DEFAULT
 );
 // 或者手动指定分布参数：
 cv::GaussianBlur(
@@ -115,6 +130,12 @@ cv::GaussianBlur(
     1.0,         // 用于控制高斯分布的范围
     1.0
 );
+```
+
+**Python 对照**：
+```python
+dst = cv2.GaussianBlur(src, (5, 5), 0)        # sigmaX=0 自动按核大小计算   # -> np.ndarray
+dst = cv2.GaussianBlur(src, (5, 5), 1.0, 1.0) # 手动指定 sigmaX/sigmaY     # -> np.ndarray
 ```
 
 **常用场景**：
@@ -127,11 +148,16 @@ cv::GaussianBlur(
 取出邻域内的所有像素，取排序后的**中位数**作为中心像素。特别适合去除**椒盐噪声**（随机的黑点/白点）。
 
 ```cpp
-cv::medianBlur(
-    src,
-    dst,
-    dsize // 窗口大小，奇数
+void cv::medianBlur(
+    InputArray src,   // 输入图
+    OutputArray dst,  // 输出图
+    int ksize         // 窗口大小，必须为奇数
 );
+```
+
+**Python 对照**：
+```python
+dst = cv2.medianBlur(src, 5)   # 窗口大小必须为奇数   # -> np.ndarray
 ```
 
 **常用场景**：
@@ -148,13 +174,19 @@ cv::medianBlur(
 缺点：速度较慢，大尺寸图像会进行大量重复处理。
 
 ```cpp
-cv::bilateralFilter(
-    src,
-    dst,
-    d,           // 邻域的直径
-    sigmaColor,  // 颜色或灰度差异的影响范围：值越大，越容易把颜色差异大的混合，平滑效果越好
-    sigmaSpace   // 空间距离的影响范围
-)
+void cv::bilateralFilter(
+    InputArray src,        // 输入图
+    OutputArray dst,       // 输出图
+    int d,                 // 邻域的直径
+    double sigmaColor,     // 颜色或灰度差异的影响范围：值越大，越容易把颜色差异大的混合，平滑效果越好
+    double sigmaSpace,     // 空间距离的影响范围
+    int borderType = BORDER_DEFAULT
+);
+```
+
+**Python 对照**：
+```python
+dst = cv2.bilateralFilter(src, 9, 75, 75)   # (d, sigmaColor, sigmaSpace)   # -> np.ndarray
 ```
 
 **常用场景**：
@@ -280,7 +312,7 @@ image_path = r"C:\Users\fanyu\Downloads\qq_pic_merged_1788356484263.jpg"
 image = cv2.imread(
     image_path,
     cv2.IMREAD_COLOR
-)
+)  # -> np.ndarray / None
 
 if image is None:
     print("图像读取失败")
@@ -291,20 +323,20 @@ if image is None:
 mean_result = cv2.blur(
     image,
     (5, 5)
-)
+)  # -> np.ndarray
 
 # 高斯滤波
 gaussian_result = cv2.GaussianBlur(
     image,
     (5, 5),
     0
-)
+)  # -> np.ndarray
 
 # 中值滤波
 median_result = cv2.medianBlur(
     image,
     5
-)
+)  # -> np.ndarray
 
 # 双边滤波
 bilateral_result = cv2.bilateralFilter(
@@ -312,7 +344,7 @@ bilateral_result = cv2.bilateralFilter(
     9,
     75,
     75
-)
+)  # -> np.ndarray
 
 cv2.imshow("Original", image)
 cv2.imshow("Mean Blur", mean_result)
@@ -340,6 +372,6 @@ cv2.destroyAllWindows()
 ## 相关链接
 
 - 上一课：[[OpenCV第四课 阈值处理和二值化]]
-- 下一课：[[OpenCV第七课 形态学处理]]
+- 下一课：[[OpenCV第六课 形态学处理]]
 - 主题归纳：[[OpenCV学习笔记/主题模块/图像处理]]
 - 知识库总览：[[OpenCV学习笔记/_MOC]]

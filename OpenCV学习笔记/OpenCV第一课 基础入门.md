@@ -115,7 +115,7 @@ int main()
 ```python
 import cv2
 
-image = cv2.imread("test.jpg")   # 请替换为你自己的图片路径
+image = cv2.imread("test.jpg")   # 请替换为你自己的图片路径   -> np.ndarray / None
 
 if image is None:
     print("读取图片失败")
@@ -125,11 +125,11 @@ print("图片读取成功")
 print("宽度:", image.shape[1])
 print("高度:", image.shape[0])
 print("通道数:", image.shape[2])
-print(image[0, 0])   # 获取 Numpy 数组
-cv2.imshow("原始图片", image)
+print(image[0, 0])   # 获取 Numpy 数组（返回像素值，灰度: np.uint8 标量 / 彩色: 长度 3 的数组）
+cv2.imshow("原始图片", image)   # -> None
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.waitKey(0)                  # -> int
+cv2.destroyAllWindows()         # -> None
 ```
 
 > **注意**：Python 中获取宽高的顺序与 C++ 不同：
@@ -154,11 +154,25 @@ cv2.destroyAllWindows()
 cv::Mat image = cv::imread("test.jpg", cv::IMREAD_COLOR);
 ```
 
+**Python 对照**：
+```python
+image = cv2.imread("test.jpg", cv2.IMREAD_COLOR)      # 彩色（默认）   -> np.ndarray / None
+gray  = cv2.imread("test.jpg", cv2.IMREAD_GRAYSCALE)  # 灰度           -> np.ndarray / None
+raw   = cv2.imread("test.jpg", cv2.IMREAD_UNCHANGED)  # 保留原通道     -> np.ndarray / None
+```
+
 ### cv::imshow / cv::waitKey —— 显示图片
 
 ```cpp
-cv::imshow("原始图片", image); // 创建窗口并提交显示请求，不一定一直等待用户操作
-cv::waitKey(0);                // 无限等待键盘输入，返回值为用户输入的键值
+void cv::imshow(const std::string& winname, cv::InputArray mat); // 创建窗口并提交显示请求，不一定一直等待用户操作
+int  cv::waitKey(int delay = 0);                                 // 无限等待键盘输入，返回值为用户输入的键值
+```
+
+**Python 对照**：
+```python
+cv2.imshow("原始图片", image)   # -> None
+cv2.waitKey(0)                  # -> int：用户按下的键值
+cv2.destroyAllWindows()         # -> None
 ```
 
 ### 访问像素
@@ -177,6 +191,12 @@ uchar value = image.at<uchar>(0, 0); // 获取第 0 行 0 列的像素
 std::cout << "左上角灰度值: " << static_cast<int>(value) << "\n";
 ```
 
+**Python 对照**（numpy 下标，顺序同为 `[行, 列]`）：
+```python
+value = image[0, 0]     # 第 0 行 0 列像素（numpy 标量）
+print("左上角灰度值:", value)
+```
+
 #### 三通道彩色读取
 
 ```cpp
@@ -187,6 +207,14 @@ cv::Vec3b pixel = image.at<cv::Vec3b>(0, 0); // Vec3b 由 3 个 uchar 组成的�
 std::cout << "B = " << static_cast<int>(pixel[0]) << std::endl;
 std::cout << "G = " << static_cast<int>(pixel[1]) << std::endl;
 std::cout << "R = " << static_cast<int>(pixel[2]) << std::endl;
+```
+
+**Python 对照**（返回长度为 3 的数组，顺序为 BGR）：
+```python
+b, g, r = image[0, 0]
+print("B =", b)
+print("G =", g)
+print("R =", r)
 ```
 
 ---
@@ -201,17 +229,31 @@ OpenCV 读出的普通彩色图片通常是 **BGR**，而 Qt 常用格式是 **R
 
 ```cpp
 // OpenCV 通常使用转换：
+void cv::cvtColor(
+    InputArray src,          // 输入图
+    OutputArray dst,         // 输出图（RGB）
+    int code,                // 转换类型，如 COLOR_BGR2RGB
+    int dstCn = 0            // 目标通道数，0 表示自动
+);
 cv::Mat rgbImage;
 cv::cvtColor(image, rgbImage, cv::COLOR_BGR2RGB);
 
 // Qt 显示通常使用：
 QImage qImage(
-    rgbImage.data,
-    rgbImage.cols,
-    rgbImage.rows,
-    static_cast<int>(rgbImage.step),
-    QImage::Format_RGB888
+    rgbImage.data,                     // const uchar*
+    rgbImage.cols,                     // int
+    rgbImage.rows,                     // int
+    static_cast<int>(rgbImage.step),   // int（行步长）
+    QImage::Format_RGB888              // Format
 );
+```
+
+**Python 对照**（Qt 显示部分为 C++/Qt 专用；Python 通常用 `matplotlib` 或 OpenCV 直接显示）：
+```python
+rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)   # BGR -> RGB   -> np.ndarray
+# matplotlib 显示 RGB：
+# import matplotlib.pyplot as plt
+# plt.imshow(rgb_image); plt.show()
 ```
 
 ### 知识重点

@@ -1,7 +1,7 @@
 ---
-title: OpenCV 第八课 轮廓检测与目标分析
+title: OpenCV 第七课 轮廓检测与目标分析
 type: 课程笔记
-课程: 8
+课程: 7
 created: 2026-09-03
 updated: 2026-09-03
 tags:
@@ -11,7 +11,7 @@ tags:
 status: 学习中
 ---
 
-# OpenCV第八课 轮廓检测与目标分析
+# OpenCV第七课 轮廓检测与目标分析
 
 > **本课目标**：掌握用 OpenCV 查找图像轮廓的方法（`findContours`、层级关系、提取模式、点保存方式），并学会基于轮廓计算**面积、周长、外接矩形、中心点、最小外接圆、轮廓近似**等特征，从而实现目标检测、计数与形状分析。
 > **涉及主题**：[[OpenCV学习笔记/主题模块/图像处理]]
@@ -57,14 +57,20 @@ status: 学习中
 ### findContours() 函数
 
 ```C++
-cv::findContours(
-    image,
-    contours,   // 轮廓集合(vector等)
-    hierarchy,  // 轮廓的层级关系
-    mode,       // 轮廓提取的模式
-    method,     // 轮廓点保存方式
-    offset      // 偏移量,一般不填
+void cv::findContours(
+    InputArray image,                  // 输入二值图（会被修改，保护原图用 .clone()）
+    OutputArrayOfArrays contours,      // 轮廓集合(vector等)
+    OutputArray hierarchy,             // 轮廓的层级关系
+    int mode,                          // 轮廓提取的模式
+    int method,                        // 轮廓点保存方式
+    Point offset = Point()             // 偏移量,一般不填
 );
+```
+
+**Python 对照**（Python 直接**返回**两个值，无需传出参数）：
+```python
+contours, hierarchy = cv2.findContours(
+    image, mode, method, offset)   # 注意返回值顺序：轮廓集合, 层级   # -> (list, np.ndarray)
 ```
 
 > ⚠️ `findContours` 会**修改传入的二值图像**，若后续仍需使用原图，请传入 `.clone()` 副本。
@@ -88,6 +94,12 @@ hierarchy[i][2]  // 第一个子轮廓
 hierarchy[i][3]  // 父轮廓
 ```
 
+**Python 对照**（`hierarchy` 是 `[层级数, 4, 4]` 的数组，需先取第 0 维）：
+```python
+# hierarchy[0][i] 才是第 i 个轮廓的层级 [下一个, 上一个, 第一个子, 父]
+next_, prev, first_child, parent = hierarchy[0][i]
+```
+
 #### 轮廓的提取模式
 
 1. **RETR_EXTERNAL**：只提取最外层的轮廓。适合只关心物体的整体、目标计数以及简单的外部目标检测。
@@ -100,6 +112,12 @@ cv::findContours(
     cv::RETR_EXTERNAL,  // 仅关注外部的轮廓
     cv::CHAIN_APPROX_SIMPLE
 );
+```
+
+**Python 对照**：
+```python
+contours, hierarchy = cv2.findContours(
+    image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)  # -> (list, np.ndarray)
 ```
 
 2. **RETR_LIST**：提取所有的轮廓，但不建立父子层级关系。适合只想得到所有的轮廓、不关心轮廓之间关系的情况。
@@ -116,6 +134,10 @@ cv::findContours(
 ### 绘制轮廓 drawContours()
 
 ```C++
+// void drawContours(InputOutputArray image, InputArrayOfArrays contours,
+//                   int contourIdx, const Scalar& color, int thickness = 1,
+//                   int lineType = LINE_8, InputArray hierarchy = noArray(),
+//                   int maxLevel = INT_MAX, Point offset = Point())
 cv::drawContours(
     drawing,
     contours,                  // 轮廓集合
@@ -123,6 +145,11 @@ cv::drawContours(
     cv::Scalar(0, 255, 0),     // BGR 颜色，当前为绿色
     2                          // 线宽，-1 表示填充轮廓内部
 );
+```
+
+**Python 对照**（颜色为 BGR 元组）：
+```python
+cv2.drawContours(drawing, contours, -1, (0, 255, 0), 2)   # 就地修改，无返回值
 ```
 
 ### 轮廓数量 != 目标数量
@@ -152,6 +179,11 @@ RETR_EXTERNAL
 double area = cv::contourArea(contours[i]);
 ```
 
+**Python 对照**：
+```python
+area = cv2.contourArea(contours[i])  # -> float
+```
+
 ### 面积过滤噪声
 
 ```C++
@@ -165,6 +197,17 @@ for (size_t i = 0; i < contours.size(); ++i) {
 }
 ```
 
+**Python 对照**：
+```python
+min_area = 500.0
+for contour in contours:
+    area = cv2.contourArea(contour)
+    if area < min_area:
+        continue
+    # 仅处理面积较大的轮廓,忽略小面积的噪声
+    # ...
+```
+
 ### 轮廓周长(弧长): arcLength()
 
 ```C++
@@ -174,6 +217,11 @@ double perimeter = cv::arcLength(
 );
 ```
 
+**Python 对照**：
+```python
+perimeter = cv2.arcLength(contour, True)   # True 表示闭合轮廓   # -> float
+```
+
 例如计算闭合轮廓的周长：
 
 ```C++
@@ -181,6 +229,13 @@ for (const auto &contour : contours) {
     double perimeter = cv::arcLength(contour, true);
     qDebug() << "周长: " << perimeter;
 }
+```
+
+**Python 对照**：
+```python
+for contour in contours:
+    perimeter = cv2.arcLength(contour, True)  # -> float
+    print("周长:", perimeter)
 ```
 
 ### 外接矩形: boundingRect()
@@ -194,15 +249,27 @@ rect.width
 rect.height
 ```
 
+**Python 对照**（直接解包返回 4 个值）：
+```python
+x, y, w, h = cv2.boundingRect(contour)   # -> (int, int, int, int)
+```
+
 ### 绘制外接矩形
 
 ```C++
+// void rectangle(InputOutputArray img, Rect rec, const Scalar& color,
+//                int thickness = 1, int lineType = LINE_8, int shift = 0)
 cv::rectangle(
     drawing,
     rect,                 // 矩形
     cv::Scalar(0, 255, 0),// 颜色
     2                     // 线宽
 );
+```
+
+**Python 对照**（用左上角与右下角两点绘制）：
+```python
+cv2.rectangle(drawing, (x, y), (x + w, y + h), (0, 255, 0), 2)   # 就地修改，无返回值
 ```
 
 ### 计算目标轮廓填充程度 extent
@@ -215,6 +282,13 @@ double rectangleArea = boundingBox.width * boundingBox.height;
 double extent = contourArea / rectangleArea;  // 越接近 1 说明轮廓越饱满
 ```
 
+**Python 对照**：
+```python
+area = cv2.contourArea(contour)
+x, y, w, h = cv2.boundingRect(contour)
+extent = area / (w * h)   # 越接近 1 说明轮廓越饱满
+```
+
 > `extent`（填充程度）接近 1 表示轮廓几乎填满外接矩形，适合判断目标形状是否规则、是否接近矩形。
 
 ### 轮廓中心点: moments()
@@ -223,6 +297,11 @@ double extent = contourArea / rectangleArea;  // 越接近 1 说明轮廓越饱�
 
 ```C++
 cv::Moments moments = cv::moments(contour);
+```
+
+**Python 对照**（`moments` 是字典，按键取值）：
+```python
+moments = cv2.moments(contour)   # -> dict（键如 "m00"、"m10"、"m01"）
 ```
 
 计算公式：
@@ -235,12 +314,21 @@ double centerX = moments.m10 / moments.m00;
 double centerY = moments.m01 / moments.m00;
 ```
 
+**Python 对照**（`moments` 是字典，用字符串键）：
+```python
+# centerX = m10 / m00; centerY = m01 / m00
+if moments["m00"] != 0:
+    center_x = moments["m10"] / moments["m00"]
+    center_y = moments["m01"] / moments["m00"]
+```
+
 ### 最小外接圆: minEnclosingCircle()
 
 ```C++
 cv::Point2f center;   // 中心
 float radius;         // 半径
 
+// void minEnclosingCircle(InputArray points, Point2f& center, float& radius)
 cv::minEnclosingCircle(
     contour,   // 轮廓
     center,    // 中心
@@ -248,6 +336,8 @@ cv::minEnclosingCircle(
 );
 
 // 绘制圆
+// void circle(InputOutputArray img, Point center, int radius, const Scalar& color,
+//             int thickness = 1, int lineType = LINE_8, int shift = 0)
 cv::circle(
     drawing,
     center,
@@ -257,17 +347,29 @@ cv::circle(
 );
 ```
 
+**Python 对照**（返回圆心与半径）：
+```python
+(x, y), radius = cv2.minEnclosingCircle(contour)          # -> ((float, float), float)
+cv2.circle(drawing, (int(x), int(y)), int(radius), (0, 0, 255), 2)   # 就地修改，无返回值
+```
+
 常用于：粗略表示目标范围、圆形目标检测、检测目标是否接近圆形、视觉测量。
 
 ### 轮廓近似: approxPolyDP()
 
 ```C++
+// void approxPolyDP(InputArray curve, OutputArray approxCurve, double epsilon, bool closed)
 cv::approxPolyDP(
     contour,      // 原始轮廓
     approximate,  // 近似后的轮廓
     epsilon,      // 最大距离偏差，越大，顶点越少（拐点越少）
     true          // 是否闭合
 );
+```
+
+**Python 对照**（直接返回近似轮廓）：
+```python
+approximate = cv2.approxPolyDP(contour, epsilon, True)  # -> np.ndarray
 ```
 
 示例：
@@ -284,6 +386,13 @@ cv::approxPolyDP(
     epsilon,
     true
 );
+```
+
+**Python 对照**：
+```python
+perimeter = cv2.arcLength(contour, True)  # -> float
+epsilon = 0.02 * perimeter
+approximate = cv2.approxPolyDP(contour, epsilon, True)  # -> np.ndarray
 ```
 
 > 某点距离大于 epsilon，被视为重要拐点保留；反之会被忽略。使用误差参数简化轮廓，**误差越大，保留的顶点通常越少**。
@@ -309,6 +418,17 @@ if (vertexCount == 3) {
 } else if (vertexCount > 4) {
     qDebug() << "可能是圆形或多边形";
 }
+```
+
+**Python 对照**（顶点数 = `len(approximate)`）：
+```python
+vertex_count = len(approximate)
+if vertex_count == 3:
+    print("可能是三角形")
+elif vertex_count == 4:
+    print("可能是四边形")
+elif vertex_count > 4:
+    print("可能是圆形或多边形")
 ```
 
 > ⚠️ 仅仅根据顶点数量判断**不可靠**！例如：
@@ -566,7 +686,7 @@ image_path = r"C:\Users\fanyu\Downloads\qq_pic_merged_1788356484263.jpg"
 image = cv2.imread(
     image_path,
     cv2.IMREAD_COLOR
-)
+)  # -> np.ndarray / None
 
 if image is None:
     print("图像读取失败")
@@ -576,14 +696,14 @@ if image is None:
 gray = cv2.cvtColor(
     image,
     cv2.COLOR_BGR2GRAY
-)
+)  # -> np.ndarray
 
 # 2. 高斯滤波
 filtered = cv2.GaussianBlur(
     gray,
     (5, 5),
     0
-)
+)  # -> np.ndarray
 
 # 3. Otsu 二值化
 otsu_value, binary = cv2.threshold(
@@ -591,7 +711,7 @@ otsu_value, binary = cv2.threshold(
     0,
     255,
     cv2.THRESH_BINARY | cv2.THRESH_OTSU
-)
+)  # -> (float, np.ndarray)
 
 print("Otsu 阈值:", otsu_value)
 
@@ -599,31 +719,31 @@ print("Otsu 阈值:", otsu_value)
 kernel = cv2.getStructuringElement(
     cv2.MORPH_RECT,
     (3, 3)
-)
+)  # -> np.ndarray
 
 opened = cv2.morphologyEx(
     binary,
     cv2.MORPH_OPEN,
     kernel
-)
+)  # -> np.ndarray
 
 # 5. 查找外部轮廓
 contours, hierarchy = cv2.findContours(
     opened.copy(),
     cv2.RETR_EXTERNAL,
     cv2.CHAIN_APPROX_SIMPLE
-)
+)  # -> (list, np.ndarray)
 
 print("轮廓数量:", len(contours))
 
-result = image.copy()
+result = image.copy()  # -> np.ndarray
 
 min_area = 500
 valid_count = 0
 
 for contour in contours:
     # 计算面积
-    area = cv2.contourArea(contour)
+    area = cv2.contourArea(contour)  # -> float
 
     if area < min_area:
         continue
@@ -634,13 +754,13 @@ for contour in contours:
     perimeter = cv2.arcLength(
         contour,
         True
-    )
+    )  # -> float
 
     # 外接矩形
-    x, y, w, h = cv2.boundingRect(contour)
+    x, y, w, h = cv2.boundingRect(contour)  # -> (int, int, int, int)
 
     # 计算中心点
-    moments = cv2.moments(contour)
+    moments = cv2.moments(contour)  # -> dict
 
     if abs(moments["m00"]) > 1e-5:
         center_x = int(moments["m10"] / moments["m00"])
@@ -656,7 +776,7 @@ for contour in contours:
         -1,
         (0, 255, 0),
         2
-    )
+    )  # 就地修改，无返回值
 
     # 绘制外接矩形
     cv2.rectangle(
@@ -665,7 +785,7 @@ for contour in contours:
         (x + w, y + h),
         (255, 0, 0),
         2
-    )
+    )  # 就地修改，无返回值
 
     # 绘制中心点
     cv2.circle(
@@ -674,7 +794,7 @@ for contour in contours:
         4,
         (0, 0, 255),
         -1
-    )
+    )  # 就地修改，无返回值
 
     # 显示编号
     cv2.putText(
@@ -685,7 +805,7 @@ for contour in contours:
         0.6,
         (0, 255, 255),
         2
-    )
+    )  # 就地修改，无返回值
 
     print(
         f"目标 {valid_count}: "
@@ -722,7 +842,7 @@ cv2.destroyAllWindows()
 
 ## 相关链接
 
-- 上一课：[[OpenCV第七课 形态学处理]]
+- 上一课：[[OpenCV第六课 形态学处理]]
 - 下一课：（待添加）
 - 主题归纳：[[OpenCV学习笔记/主题模块/图像处理]]
 - 知识库总览：[[OpenCV学习笔记/_MOC]]

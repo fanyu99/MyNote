@@ -47,13 +47,13 @@ OpenCV 中表示**大小**的常用数据类型。
 完整函数形式：
 
 ```cpp
-cv::resize(
-    src,             // 原图
-    dst,             // 输出图
-    dsize,           // 目标尺寸 (width, height)
-    fx,              // x 方向缩放比例
-    fy,              // y 方向缩放比例
-    interpolation    // 插值算法
+void cv::resize(
+    InputArray src,               // 原图
+    OutputArray dst,              // 输出图
+    Size dsize,                   // 目标尺寸 (width, height)
+    double fx = 0,                // x 方向缩放比例
+    double fy = 0,                // y 方向缩放比例
+    int interpolation = INTER_LINEAR  // 插值算法
 );
 ```
 
@@ -74,6 +74,15 @@ cv::resize(
 	0.5,
 	cv::INTER_AREA
 );
+```
+
+**Python 对照**：
+```python
+# 1. 缩放为指定尺寸 (宽, 高)
+result = cv2.resize(image, (800, 600))  # -> np.ndarray
+
+# 2. 按指定比例缩放（dsize 传 None，用 fx/fy）
+result = cv2.resize(image, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)  # -> np.ndarray
 ```
 
 ### 核心要点
@@ -118,6 +127,13 @@ cv::Mat resized;
 cv::resize(image, resized, cv::Size(targetWidth, targetHeight));
 ```
 
+**Python 对照**：
+```python
+target_width = 800
+target_height = int(image.shape[0] * target_width / image.shape[1])
+resized = cv2.resize(image, (target_width, target_height))  # -> np.ndarray
+```
+
 > ⚠️ 注意计算顺序：先转 `double` 再乘，避免整数除法导致精度丢失（即 `static_cast<double>(targetWidth)` 要放在乘法前）。
 
 ---
@@ -137,6 +153,12 @@ cv::Mat roi = image(rect);        // 裁剪出感兴趣区域,共享内存
 cv::Mat roiCopy = image(rect).clone(); // 需要独立数据时深拷贝
 ```
 
+**Python 对照**（numpy 切片，顺序为 `[行, 列]`）：
+```python
+roi      = image[0:100, 0:100]            # 浅拷贝/视图
+roi_copy = image[0:100, 0:100].copy()     # 独立数据
+```
+
 ### 重要
 
 1. **ROI 默认是浅拷贝**（共享底层内存）！若需独立数据，使用 `.clone()` 或 `.copyTo()`。
@@ -148,7 +170,16 @@ cv::Mat roiCopy = image(rect).clone(); // 需要独立数据时深拷贝
 
 ```cpp
 // 函数原型
-cv::flip(src, dst, flipCode);
+void cv::flip(
+    InputArray src,    // 输入图
+    OutputArray dst,   // 输出图
+    int flipCode       // 翻转方式：1 左右 / 0 上下 / -1 上下左右
+);
+```
+
+**Python 对照**：
+```python
+flipped = cv2.flip(image, 1)   # flipCode: 1 左右 / 0 上下 / -1 上下左右   # -> np.ndarray
 ```
 
 `flipCode` 的取值：
@@ -164,7 +195,16 @@ cv::flip(src, dst, flipCode);
 ## 五、旋转 90°：cv::rotate
 
 ```cpp
-cv::rotate(src, dst, cv::ROTATE_90_CLOCKWISE);
+void cv::rotate(
+    InputArray src,     // 输入图
+    OutputArray dst,    // 输出图
+    int rotateCode      // 旋转方式：ROTATE_90_CLOCKWISE 等
+);
+```
+
+**Python 对照**：
+```python
+rotated = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)  # -> np.ndarray
 ```
 
 常用参数：
@@ -190,6 +230,7 @@ cv::ROTATE_90_COUNTERCLOCKWISE // 逆时针 90°
 cv::Point2f center(image.cols / 2.0F, image.rows / 2.0F);
 
 // 2. 获取旋转矩阵
+// Mat getRotationMatrix2D(Point2f center, double angle, double scale)  -> 2×3 矩阵
 cv::Mat rotationMatrix = cv::getRotationMatrix2D(
     center,
     30.0,  // 逆时针 30°（正值逆时针）
@@ -197,11 +238,20 @@ cv::Mat rotationMatrix = cv::getRotationMatrix2D(
 );
 
 // 3. 仿射变换
+// void warpAffine(InputArray src, OutputArray dst, InputArray M, Size dsize, ...)
 cv::Mat rotated30;
 cv::warpAffine(image, rotated30, rotationMatrix, image.size());
 // 尺寸保持和 image 一致，超出部分会被裁切
 
 cv::imshow("逆时针旋转 30 度", rotated30);
+```
+
+**Python 对照**：
+```python
+h, w = image.shape[:2]
+center = (w // 2, h // 2)
+M = cv2.getRotationMatrix2D(center, 30.0, 1.0)   # 逆时针 30°   # -> np.ndarray (2×3)
+rotated30 = cv2.warpAffine(image, M, (w, h))     # 保持原尺寸，超出部分裁切   # -> np.ndarray
 ```
 
 ### 平移
@@ -219,6 +269,14 @@ cv::Mat M = (cv::Mat_<double>(2, 3) <<
 
 cv::Mat translated;
 cv::warpAffine(image, translated, M, image.size());
+```
+
+**Python 对照**：
+```python
+tx, ty = 100, 50
+M = np.float32([[1, 0, tx],
+                [0, 1, ty]])
+translated = cv2.warpAffine(image, M, (w, h))   # -> np.ndarray
 ```
 
 ### 核心要点
@@ -302,34 +360,34 @@ int main()
 import cv2
 import numpy as np
 
-image = cv2.imread("test.jpg")
+image = cv2.imread("test.jpg")  # -> np.ndarray / None
 if image is None:
     print("读取图片失败")
     exit()
 
 # 1. 缩放为指定尺寸（注意是 (宽, 高)）
-resized = cv2.resize(image, (400, 300))
+resized = cv2.resize(image, (400, 300))  # -> np.ndarray
 
 # 2. 保持宽高比缩放
 target_width = 400
 target_height = int(image.shape[0] * target_width / image.shape[1])
-resized = cv2.resize(image, (target_width, target_height))
+resized = cv2.resize(image, (target_width, target_height))  # -> np.ndarray
 
 # 3. 裁剪 ROI（numpy 切片默认是浅拷贝/视图，需独立时用 .copy()）
 h, w = image.shape[:2]
-roi = image[50:250, 50:250]          # [y1:y2, x1:x2]
-roi_copy = image[50:250, 50:250].copy()
+roi = image[50:250, 50:250]          # [y1:y2, x1:x2]（视图）
+roi_copy = image[50:250, 50:250].copy()  # -> np.ndarray
 
 # 4. 翻转
-flipped = cv2.flip(image, 1)         # 1 左右，0 上下，-1 上下左右
+flipped = cv2.flip(image, 1)         # 1 左右，0 上下，-1 上下左右   # -> np.ndarray
 
 # 5. 旋转 90°
-rotated = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
+rotated = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)  # -> np.ndarray
 
 # 6. 任意角度旋转
 center = (w // 2, h // 2)
-M = cv2.getRotationMatrix2D(center, 30, 1.0)   # 正值逆时针
-rotated30 = cv2.warpAffine(image, M, (w, h))
+M = cv2.getRotationMatrix2D(center, 30, 1.0)   # 正值逆时针   # -> np.ndarray (2×3)
+rotated30 = cv2.warpAffine(image, M, (w, h))   # -> np.ndarray
 
 cv2.imshow("原图", image)
 cv2.imshow("翻转", flipped)

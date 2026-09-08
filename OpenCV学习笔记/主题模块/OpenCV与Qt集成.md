@@ -33,16 +33,17 @@ status: 进行中
 
 ```cpp
 // BGR -> RGB
+// void cvtColor(InputArray src, OutputArray dst, int code, int dstCn = 0)
 cv::Mat rgbImage;
 cv::cvtColor(image, rgbImage, cv::COLOR_BGR2RGB);
 
 // 构造 QImage
 QImage qImage(
-    rgbImage.data,
-    rgbImage.cols,
-    rgbImage.rows,
-    static_cast<int>(rgbImage.step),
-    QImage::Format_RGB888
+    rgbImage.data,                      // const uchar*
+    rgbImage.cols,                      // int
+    rgbImage.rows,                      // int
+    static_cast<int>(rgbImage.step),    // int（行步长）
+    QImage::Format_RGB888               // Format
 );
 ```
 

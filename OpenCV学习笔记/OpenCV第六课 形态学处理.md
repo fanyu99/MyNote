@@ -1,7 +1,7 @@
 ---
-title: OpenCV 第七课 形态学处理
+title: OpenCV 第六课 形态学处理
 type: 课程笔记
-课程: 7
+课程: 6
 created: 2026-09-03
 updated: 2026-09-03
 tags:
@@ -11,7 +11,7 @@ tags:
 status: 学习中
 ---
 
-# OpenCV第七课 形态学处理
+# OpenCV第六课 形态学处理
 
 > **本课目标**：掌握形态学处理的基础——**结构元素（Kernel）**，以及**腐蚀、膨胀**两大基本运算；进而理解并运用**开运算、闭运算、形态学梯度、顶帽、黑帽**等组合运算，学会用它们处理二值图像（去噪、补洞、提取轮廓与亮/暗区域）。
 > **涉及主题**：[[OpenCV学习笔记/主题模块/图像处理]]
@@ -33,10 +33,16 @@ cv::MORPH_CROSS     // 十字形
 创建结构元素（以 5×5 矩形为例）：
 
 ```c++
+// Mat getStructuringElement(int shape, Size ksize, Point anchor = Point(-1,-1))
 cv::Mat kernel = cv::getStructuringElement(
     cv::MORPH_RECT,      // 形状：RECT / ELLIPSE / CROSS
     cv::Size(5, 5)       // 尺寸，一般为奇数
 );
+```
+
+**Python 对照**：
+```python
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))  # -> np.ndarray
 ```
 
 ### 前景与背景
@@ -65,16 +71,25 @@ cv::Mat kernel = cv::getStructuringElement(
 
 ```c++
 cv::Mat eroded;
-cv::erode(binary, eroded, kernel);
+cv::erode(binary, eroded, kernel);   // void erode(...)：结果写入 dst
 
 // 完整写法
-cv::erode(
-    src,
-    dst,
-    kernel,              // 结构元素
-    cv::Point(-1, -1),   // 锚点，(-1,-1) 表示中心
-    1                    // 操作次数
+void cv::erode(
+    InputArray src,                 // 输入图
+    OutputArray dst,                // 输出图
+    InputArray kernel,              // 结构元素
+    Point anchor = Point(-1, -1),   // 锚点，(-1,-1) 表示中心
+    int iterations = 1,             // 操作次数
+    int borderType = BORDER_CONSTANT,
+    const Scalar& borderValue = morphologyDefaultBorderValue()
 );
+```
+
+**Python 对照**：
+```python
+eroded = cv2.erode(binary, kernel)  # -> np.ndarray
+# 完整写法
+eroded = cv2.erode(src, kernel, anchor=(-1, -1), iterations=1)  # -> np.ndarray
 ```
 
 **腐蚀的作用**：
@@ -98,16 +113,24 @@ cv::erode(
 
 ```c++
 cv::Mat dilated;
-cv::dilate(binary, dilated, kernel);
+cv::dilate(binary, dilated, kernel);   // void dilate(...)：结果写入 dst
 
 // 完整写法
-cv::dilate(
-    binary,
-    dilated,
-    kernel,
-    cv::Point(-1, -1),
-    1
+void cv::dilate(
+    InputArray src,                 // 输入图
+    OutputArray dst,                // 输出图
+    InputArray kernel,              // 结构元素
+    Point anchor = Point(-1, -1),   // 锚点，(-1,-1) 表示中心
+    int iterations = 1,             // 操作次数
+    int borderType = BORDER_CONSTANT,
+    const Scalar& borderValue = morphologyDefaultBorderValue()
 );
+```
+
+**Python 对照**：
+```python
+dilated = cv2.dilate(binary, kernel)  # -> np.ndarray
+dilated = cv2.dilate(binary, kernel, anchor=(-1, -1), iterations=1)  # -> np.ndarray
 ```
 
 **膨胀的作用**：
@@ -131,6 +154,8 @@ cv::dilate(
 ### 开运算：先腐蚀后膨胀
 
 ```c++
+// void morphologyEx(InputArray src, OutputArray dst, int op, InputArray kernel,
+//                   Point anchor = Point(-1,-1), int iterations = 1, ...)
 cv::Mat opened;
 cv::morphologyEx(
     binary,
@@ -138,6 +163,11 @@ cv::morphologyEx(
     cv::MORPH_OPEN,   // 形态学中的开运算
     kernel
 );
+```
+
+**Python 对照**：
+```python
+opened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)  # -> np.ndarray
 ```
 
 - 常用于清除**小白点 / 粘连物**
@@ -153,6 +183,11 @@ cv::morphologyEx(
     cv::MORPH_CLOSE,  // 形态学中的闭运算
     kernel
 );
+```
+
+**Python 对照**：
+```python
+closed = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)  # -> np.ndarray
 ```
 
 - 常用于**填充小黑洞 / 连接断裂的白色目标**
@@ -171,6 +206,11 @@ cv::morphologyEx(
 );
 ```
 
+**Python 对照**：
+```python
+gradient = cv2.morphologyEx(binary, cv2.MORPH_GRADIENT, kernel)  # -> np.ndarray
+```
+
 - 作用：获取目标的**轮廓**，辅助边缘分析
 
 ### 顶帽 TopHat
@@ -187,6 +227,11 @@ cv::morphologyEx(
 );
 ```
 
+**Python 对照**：
+```python
+top_hat = cv2.morphologyEx(gray, cv2.MORPH_TOPHAT, kernel)  # -> np.ndarray
+```
+
 - 作用：提取**比周围更亮**的小区域，如灰色背景中的小白点、明亮的小缺陷、局部的亮纹理、粘连的物体等
 
 ### 黑帽 BlackHat
@@ -201,6 +246,11 @@ cv::morphologyEx(
     cv::MORPH_BLACKHAT,  // 黑帽
     kernel
 );
+```
+
+**Python 对照**：
+```python
+black_hat = cv2.morphologyEx(gray, cv2.MORPH_BLACKHAT, kernel)  # -> np.ndarray
 ```
 
 - 作用：提取**比周围更暗**的小目标，如浅色背景中的黑色文字、图像中的暗色裂纹、暗色缺陷等
@@ -273,24 +323,24 @@ int main()
 # Python 示例
 import cv2
 
-src = cv2.imread("path/to/image.jpg", cv2.IMREAD_GRAYSCALE)
+src = cv2.imread("path/to/image.jpg", cv2.IMREAD_GRAYSCALE)  # -> np.ndarray / None
 if src is None:
     print("图像读取失败")
     exit(1)
 
 # 二值化
-_, binary = cv2.threshold(src, 127, 255, cv2.THRESH_BINARY)
+_, binary = cv2.threshold(src, 127, 255, cv2.THRESH_BINARY)  # -> (float, np.ndarray)
 
 # 结构元素
-kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))  # -> np.ndarray
 
-eroded    = cv2.erode(binary, kernel)                          # 腐蚀
-dilated   = cv2.dilate(binary, kernel)                         # 膨胀
-opened    = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)   # 开运算
-closed    = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)  # 闭运算
-gradient  = cv2.morphologyEx(binary, cv2.MORPH_GRADIENT, kernel)
-tophat    = cv2.morphologyEx(binary, cv2.MORPH_TOPHAT, kernel)
-blackhat  = cv2.morphologyEx(binary, cv2.MORPH_BLACKHAT, kernel)
+eroded    = cv2.erode(binary, kernel)                          # 腐蚀    -> np.ndarray
+dilated   = cv2.dilate(binary, kernel)                         # 膨胀    -> np.ndarray
+opened    = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)   # 开运算  -> np.ndarray
+closed    = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)  # 闭运算  -> np.ndarray
+gradient  = cv2.morphologyEx(binary, cv2.MORPH_GRADIENT, kernel)  # -> np.ndarray
+tophat    = cv2.morphologyEx(binary, cv2.MORPH_TOPHAT, kernel)    # -> np.ndarray
+blackhat  = cv2.morphologyEx(binary, cv2.MORPH_BLACKHAT, kernel)  # -> np.ndarray
 
 for name, img in [("Binary", binary), ("Erode", eroded), ("Dilate", dilated),
                   ("Open", opened), ("Close", closed), ("Gradient", gradient),
@@ -316,7 +366,7 @@ cv2.destroyAllWindows()
 
 ## 相关链接
 
-- 上一课：[[OpenCV第六课 图像平滑与滤波]]
-- 下一课：[[OpenCV第八课 轮廓检测与目标分析]]
+- 上一课：[[OpenCV第五课 图像平滑与滤波]]
+- 下一课：[[OpenCV第七课 轮廓检测与目标分析]]
 - 主题归纳：[[OpenCV学习笔记/主题模块/图像处理]]
 - 知识库总览：[[OpenCV学习笔记/_MOC]]
