@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"4e86c256da3e3521","x":-280,"y":-100,"width":600,"height":860,"color":"1","type":"file","file":"仓库管理系统/02_实施记录/日记/UI模块/2026-09-11 Day25 完成InventoryPage及其基础板块的编写.md"},
+		{"id":"726b0758bfa8abc5","x":460,"y":30,"width":367,"height":560,"color":"3","type":"text","text":"# BUG根源\n本质是由于WA_DeleteOnClose与对象的分配方式冲突产生的BUG\n# 如何避免?\n1. WA_DeleteOnClose的法则: 使用对象的分配一定要使用堆分配!!!\n\n| 使用方式             | 分配方式   | WA_DeleteOnClose |\n| ---------------- | ------ | ---------------- |\n| dialog.exec()模态  | 一般为栈分配 | 不需要,局部变量自动销毁     |\n| dialog.open()非模态 | 必须要堆分配 | 需要,否则内存泄露        |\n\n2. 对话框的构造函数明确不要使用WA_DeleteOnClose,除非确定只会使用new进行分配内存"},
+		{"id":"a1b2c3d4e5f60789","x":460,"y":-500,"width":367,"height":300,"color":"4","type":"file","file":"仓库管理系统/04_UI开发/QT对话框的WA_DeleteOnClose.md"}
+	],
+	"edges":[
+		{"id":"09f82f5c75f88799","fromNode":"4e86c256da3e3521","fromSide":"right","toNode":"726b0758bfa8abc5","toSide":"left"},
+		{"id":"e5f60789a1b2c3d4","fromNode":"4e86c256da3e3521","fromSide":"right","toNode":"a1b2c3d4e5f60789","toSide":"left"}
+	]
+}

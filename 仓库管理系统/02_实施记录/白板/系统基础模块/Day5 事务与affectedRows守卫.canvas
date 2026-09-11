@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"9b0175113b53c8d8","type":"file","file":"仓库管理系统/日程实施计划/日记/系统基础模块/2026-07-20 Day5 事务与affectedRows守卫.md","x":-500,"y":-140,"width":460,"height":720,"color":"1"},
+		{"id":"9b0175113b53c8d8","type":"file","file":"仓库管理系统/02_实施记录/日记/系统基础模块/2026-07-20 Day5 事务与affectedRows守卫.md","x":-500,"y":-140,"width":460,"height":720,"color":"1"},
 		{"id":"cf641d51ef01090a","type":"text","text":"# 事务任务的执行顺序\n-> 开启事务\n-> 执行SQL\n-> 检查SQL是否成功\n-> 检查affectedRows是否符合预期\n-> 任意失败进行rollback\n-> 提交事务\n-> 提交事务失败,进行rollback","x":122,"y":-280,"width":278,"height":214,"color":"4"},
 		{"id":"e94dbc7a51b39692","type":"text","text":"# 软超时机制\n## 机制:\n\t调用方等待一定时间后认为该任务超时,但是底层的数据库SQL并不一定就停止\n## 应用:\n\t在超时时,标记任务为timeout,但是并不强制关闭,等待任务完成后进行申请关闭\n# 异步关闭shutdown\n\t在执行器进行关闭的时候,先申请关闭requestShutdown,通过信号使用异步形式(Qt::QueueConnection)进行执行","x":-920,"y":-280,"width":300,"height":400,"color":"2"},
 		{"id":"62a864a168a6ff6f","type":"text","text":"# 任务队列关闭时的排队取消\n\n\t1.将状态改为shuttingdown\n\t2.不再接收新任务,当前的执行任务完成\n\t3.未派发的任务标记为取消并发出taskFinished,错误码为taskCanceled\n\t4.等待当前执行的任务完成\n\t5.最后进入stopped关闭阶段\n","x":-920,"y":200,"width":300,"height":340,"color":"7"},

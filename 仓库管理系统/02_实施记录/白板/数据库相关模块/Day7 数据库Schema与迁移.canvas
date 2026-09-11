@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"1e37108c3f8fdd75","type":"file","file":"仓库管理系统/日程实施计划/日记/数据库相关模块/2026-07-22 Day7 数据库Schema与迁移.md","x":-400,"y":-160,"width":560,"height":820,"color":"1"},
+		{"id":"1e37108c3f8fdd75","type":"file","file":"仓库管理系统/02_实施记录/日记/数据库相关模块/2026-07-22 Day7 数据库Schema与迁移.md","x":-400,"y":-160,"width":560,"height":820,"color":"1"},
 		{"id":"19bc38b4169effa0","type":"text","text":"# 为什么使用migration?而不是直接创建schema.sql?\n\t用以进行数据库的版本控制,配合git进行版本控制(追踪,升级,回滚等)\t","x":-270,"y":-480,"width":300,"height":260,"color":"5"},
 		{"id":"5d0bb585e85e1aac","type":"text","text":"# 数据库分层:\n\n认证与权限\n  users \n\n主数据\n  categories  \n  units \n  products\n  warehouses\n\n入库\n  stock_in_orders\n  stock_in_items\n\n出库\n  stock_out_orders\n  stock_out_items\n\n库存\n  stock_movements \n  stock_balance \n\n审计\n  audit_logs","x":280,"y":-50,"width":280,"height":600,"color":"3"},
 		{"id":"72e8526830f6004f","type":"text","text":"# 数据库相关设计\n## 数据库删除设计 \n1. 已确认入库/出库单,库存流水,审计日志***不可删除***,仅能作废或冲销\n2. 主数据(users等)仅能停用而不是删除,使旧单据仍可追溯,历史数据保留\n## 字段设计\n1. 状态字段一般使用enum / varchar+check\n2. 单据系统常用结构:header+detail,即主表+明细表\n## migration回滚脚本顺序:\n\t一般与创建sql顺序相反:可能后创建的表对先创建的表存在依赖/外键\n\t例如:\n\t\t创建顺序为:users->product->stock_in_orders->stock_in_items\n\t\t那么回滚顺序为stock_in_items->stock_in_orders->product->users\n\t","x":694,"y":-160,"width":386,"height":710,"color":"4"},

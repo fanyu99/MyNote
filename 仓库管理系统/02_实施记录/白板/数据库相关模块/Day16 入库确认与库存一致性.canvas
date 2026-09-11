@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"87443036a308c1be","x":-21,"y":-340,"width":501,"height":537,"color":"1","type":"file","file":"仓库管理系统/日程实施计划/日记/数据库相关模块/2026-08-07 Day16 入库确认与库存一致性.md"},
+		{"id":"87443036a308c1be","x":-21,"y":-340,"width":501,"height":537,"color":"1","type":"file","file":"仓库管理系统/02_实施记录/日记/数据库相关模块/2026-08-07 Day16 入库确认与库存一致性.md"},
 		{"id":"4919b590dd344e36","x":596,"y":-340,"width":250,"height":440,"color":"6","type":"text","text":"# 新增功能及注意\n1. 增加AuditContext上下文记录用户相关信息,轻量审计日志写入功能工具MySqlAuditLogRepository\n2. 对repository层涉及数据库修改/查找操作函数进行重构,新增AuditContext参数\n***注意***:\n3. repository层负责与数据库的交接,书写SQL语句及包装任务,不能接触SessionManager等上层模块,减少耦合\n4. service层不能接触SQL语句,无需在service层回调函数中进行审计写入"}
 	],
 	"edges":[

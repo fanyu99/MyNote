@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"9274fe7254cebc31","x":-280,"y":-117,"width":540,"height":557,"color":"2","type":"file","file":"仓库管理系统/日程实施计划/日记/UI模块/2026-08-12 Day20 页面测试与问题修复.md"},
+		{"id":"9274fe7254cebc31","x":-280,"y":-117,"width":540,"height":557,"color":"2","type":"file","file":"仓库管理系统/02_实施记录/日记/UI模块/2026-08-12 Day20 页面测试与问题修复.md"},
 		{"id":"5236e74dec8b565f","x":366,"y":-119,"width":474,"height":559,"color":"6","type":"text","text":"# 测试总结与问题修复和功能优化:\n## 测试:\n1. 测试Dialog中的CheckBox的动态刷新\n2. 手动测试Page页的相关功能是否完备(创建产品/更新产品/创建订单/刷新等)\n3. 测试编辑功能的实时回显\n4. 测试加载基础数据时的回显和加载失败时的页面禁止\n5. 测试页面错误提示和相关UI展示(formLayout/tableView等)\n## 问题:\n    InboundPage页面中createBtn/reloadBtn,confirmBtn,formLayout并未添加父对象this(InboundPage)和添加到mainLayout中,导致订单展示表格显示异常\n## 功能优化:\n\t添加选择页面导航PageNavigator(当前页码/总页码 转到页码)\n\n  "}
 	],
 	"edges":[

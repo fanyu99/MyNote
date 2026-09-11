@@ -11,14 +11,17 @@
             "id": "c6b0a17841ae325c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md",
-                "mode": "source",
-                "source": false
+                "file": "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块.canvas",
+                "viewState": {
+                  "x": 283.5,
+                  "y": 310,
+                  "zoom": 0
+                }
               },
-              "icon": "lucide-file",
-              "title": "OpenCV第九课 霍夫变换(检测直线或圆)"
+              "icon": "lucide-layout-dashboard",
+              "title": "Day25 完成InventoryPage及其相关模块"
             }
           }
         ]
@@ -80,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 384.5
   },
   "right": {
     "id": "32a6421c5c0f1c0c",
@@ -191,7 +194,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 381.5
+    "width": 358.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -208,31 +211,44 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "2ca7211d3ca7cca6",
+  "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "OpenCV学习笔记/主题模块/特征检测与匹配.md.tmp.87984.8b7f48b032ac",
-    "OpenCV学习笔记/主题模块/特征检测与匹配.md.tmp.87984.3fad485cc8d3",
-    "OpenCV学习笔记/_MOC.md.tmp.87984.7d5f787ffe98",
-    "OpenCV学习笔记/_MOC.md.tmp.87984.eec4e6b42db8",
-    "OpenCV学习笔记/OpenCV第八课 Canny边缘检测.md.tmp.87984.f877c8ae6895",
-    "OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md.tmp.87984.bbcd63848946",
-    "OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md.tmp.87984.4ce8836bfd13",
-    "OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md.tmp.87984.e1532663ffcf",
-    "OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md.tmp.87984.1f19cb0d1d2c",
-    "OpenCV学习笔记/OpenCV第八课 Canny边缘检测.md",
+    "仓库管理系统/04_UI开发/QT对话框的WA_DeleteOnClose.md",
+    "仓库管理系统/04_UI开发/QT对话框的WA_DeleteOnClose.md.tmp.104188.383aa5d90cd6",
+    "仓库管理系统/02_实施记录/日记/UI模块/2026-09-11 Day25 完成InventoryPage及其基础板块的编写.md.tmp.104188.43e31f86ee49",
+    "仓库管理系统/02_实施记录/日记/UI模块/2026-09-11 Day25 完成InventoryPage及其基础板块的编写.md",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块.canvas",
+    "仓库管理系统/02_实施记录/日记/数据库相关模块/2026-08-09 Day18 单位与分类基础服务.md",
+    "仓库管理系统/02_实施记录/日记/UI模块/未命名.md",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/Day5 事务与affectedRows守卫.canvas",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/sedMpiIVG",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/sedlgDrbW",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/sed7OQUyn",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/sedRMLEaZ",
+    "仓库管理系统/02_实施记录/白板/系统基础模块/sedRBx6Js",
+    "仓库管理系统/02_实施记录/白板/数据库相关模块/sedHy3Atx",
+    "仓库管理系统/02_实施记录/白板/数据库相关模块/sedk1Ot33",
+    "仓库管理系统/02_实施记录/白板/数据库相关模块/sedqppn0N",
+    "OpenCV学习笔记/OpenCV第十课 图像几何变换.md",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day19 InboundPage.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day22 LoginPage基础功能.canvas",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其基础模块编写.md",
+    "仓库管理系统/02_实施记录/白板/UI模块/Day24 完成MainWindow.canvas",
+    "OpenCV学习笔记/OpenCV第十一课 自动文档矫正综合实战.md",
+    "OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md",
     "OpenCV学习笔记/OpenCV第七课 轮廓检测与目标分析.md",
+    "OpenCV学习笔记/OpenCV第三课 图像几何操作.md",
+    "OpenCV学习笔记/_模板-课程笔记.md",
+    "OpenCV学习笔记/OpenCV第八课 Canny边缘检测.md",
     "OpenCV学习笔记/OpenCV第四课 阈值处理和二值化.md",
     "OpenCV学习笔记/OpenCV第六课 形态学处理.md",
     "OpenCV学习笔记/OpenCV第五课 图像平滑与滤波.md",
-    "OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md",
     "OpenCV学习笔记/图片/Pasted image 20260907154345.png",
     "OpenCV学习笔记/图片/Pasted image 20260907152320.png",
     "OpenCV学习笔记/图片/Pasted image 20260907152239.png",
     "OpenCV学习笔记/图片/Pasted image 20260907152116.png",
     "仓库管理系统/04_UI开发/QT坐标体系.md",
     "OpenCV学习笔记/图片/Pasted image 20260907152053.png",
-    "OpenCV学习笔记/图片",
-    "OpenCV学习笔记/_MOC.md.tmp.48816.caf0b98ea05f",
     "OpenCV学习笔记/主题模块/机器学习与深度学习.md",
     "OpenCV学习笔记/主题模块/OpenCV与Qt集成.md",
     "OpenCV学习笔记/主题模块/图像处理.md",
@@ -243,24 +259,11 @@
     "OpenCV学习笔记/OpenCV第六课 图像平滑与滤波.md",
     "OpenCV学习笔记/OpenCV第一课 基础入门.md",
     "OpenCV学习笔记/OpenCV第七课 形态学处理.md",
-    "OpenCV学习笔记/OpenCV第八课 轮廓检测与目标分析.md",
-    "仓库管理系统/03_架构设计/数据库连接池.md",
-    "C++学习笔记/_MOC.md",
-    "OpenCV学习笔记/OpenCV第三课 图像几何操作.md",
-    "OpenCV学习笔记/OpenCV第二课 cv_Mat模型.md",
-    "OpenCV学习笔记/第七课 形态学处理.md",
-    "OpenCV学习笔记/OpenCV第三课.md",
-    "仓库管理系统/_MOC.md",
-    "仓库管理系统/02_实施记录/白板/UI模块/Day24 完成MainWindow.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day21 计划整理并开始outbound模块.canvas",
-    "仓库管理系统/02_实施记录/白板/UI模块/Day22 LoginPage基础功能.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day13 物资CRUD UI纵向切片.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day12 ProductTableModel与列表页.canvas",
-    "仓库管理系统/02_实施记录/白板/UI模块/Day19 InboundPage.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day20 页面测试和问题修复及功能优化.canvas",
     "仓库管理系统/03_架构设计/CMake各模块依赖关系.canvas",
-    "仓库管理系统/02_实施记录/白板/系统基础模块/Day2 数据库协议与执行器状态机.canvas",
-    "仓库管理系统/02_实施记录/白板/系统基础模块/Day9 认证模型与权限边界.canvas",
     "MySQL数据库（lxj）/图片/Pasted image 20260811143421.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260811145355.png",
     "MySQL数据库（lxj）/图片/Pasted image 20260805150505.png",

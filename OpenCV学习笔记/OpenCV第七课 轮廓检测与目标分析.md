@@ -843,6 +843,6 @@ cv2.destroyAllWindows()
 ## 相关链接
 
 - 上一课：[[OpenCV第六课 形态学处理]]
-- 下一课：（待添加）
+- 下一课：[[OpenCV第八课 Canny边缘检测]]
 - 主题归纳：[[OpenCV学习笔记/主题模块/图像处理]]
 - 知识库总览：[[OpenCV学习笔记/_MOC]]
