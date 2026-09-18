@@ -15,7 +15,7 @@ status: 学习中
 # OpenCV 第一课
 
 > **本课目标**：正确认识图像的本质、掌握 OpenCV 的 BGR 颜色顺序、理解核心类 `cv::Mat`、认识常用数据类型，并跑通"读取→获取信息→显示→保存"的完整流程。
-> **涉及主题**：[[OpenCV学习笔记/主题模块/图像基础与色彩空间]] · [[OpenCV学习笔记/主题模块/cv_Mat核心]] · [[OpenCV学习笔记/主题模块/OpenCV与Qt集成]]
+> **涉及主题**：[[图像基础与色彩空间]] · [[cv_Mat核心]] · [[OpenCV与Qt集成]]
 
 ---
 
@@ -293,7 +293,7 @@ rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)   # BGR -> RGB   -> np.ndarra
 - **课程系列**：本课为第 1 课（后续：图像处理、特征检测…）
 - 下一课: [[OpenCV第二课 cv_Mat模型]]
 - **主题模块**：
-  - [[OpenCV学习笔记/主题模块/图像基础与色彩空间]]
-  - [[OpenCV学习笔记/主题模块/cv_Mat核心]]
-  - [[OpenCV学习笔记/主题模块/OpenCV与Qt集成]]
-- **知识库总览**：[[OpenCV学习笔记/_MOC]]
+  - [[图像基础与色彩空间]]
+  - [[cv_Mat核心]]
+  - [[OpenCV与Qt集成]]
+- **知识库总览**：[[视觉学习/OpenCV学习笔记/_MOC]]
