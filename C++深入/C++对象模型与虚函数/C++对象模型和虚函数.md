@@ -242,6 +242,8 @@ public:
 
 ## 六、RTTI
 
+^d31090
+
 ### 6.1 RTTI 是什么
 
 ```text

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md",
+                "file": "视觉学习/YOLO学习.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++对象模型和虚函数"
+              "title": "YOLO学习"
             }
           }
         ]
@@ -203,33 +203,34 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false,
       "obsidian-git:Open Git source control": false,
-      "realclaudian:Open Claudian": false
+      "realclaudian:Open Claudian": false,
+      "bases:新建数据库": false
     }
   },
   "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "C++学习笔记/cpp面向对象程序设计/01~05 程序的内存模型.md.tmp.42340.3bc194e16509",
-    "C++学习笔记/_MOC.md.tmp.42340.a5c5f4640327",
-    "视觉学习/Pytorch学习.md",
+    "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md",
     "C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md",
-    "C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md.tmp.42340.984a45bb0552",
+    "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md.tmp.33280.947e4051febb",
     "视觉学习/YOLO学习.md",
+    "视觉学习/OpenCV学习笔记/OpenCV第三课 图像几何操作.md",
+    "视觉学习/Pytorch学习.md",
+    "视觉学习/OpenCV学习笔记/主题模块/机器学习与深度学习.md.tmp.38600.b8bc7b16fd58",
+    "视觉学习/OpenCV学习笔记/主题模块/机器学习与深度学习.md.tmp.38600.00212dcf11f2",
+    "视觉学习/Pytorch学习.md.tmp.38600.fc8871f69b3a",
+    "视觉学习/Pytorch学习.md.tmp.38600.44c43e486a68",
+    "视觉学习/YOLO学习.md.tmp.38600.d1624a4705ed",
+    "视觉学习/YOLO学习.md.tmp.38600.85b918905774",
+    "视觉学习/YOLO学习.md.tmp.38600.2ae0cefe4009",
+    "视觉学习/YOLO学习.md.tmp.38600.e7e12d1c3b8b",
+    "视觉学习/YOLO学习.md.tmp.38600.f43e60af714a",
     "视觉学习/YOLO学习进度.md",
-    "C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md.tmp.42340.3676ec43daaf",
-    "C++深入/lesson1_polymorphism.exe",
-    "C++深入/lesson1_polymorphism.cpp",
     "C++深入/学习进度.md",
-    "C++深入/C++对象模型与虚函数",
     "C++深入/C++新特性/C++新特性.md",
-    "C++深入/C++新特性",
-    "C++深入",
     "视觉学习/_MOC.md",
     "视觉学习/图片/Pasted image 20260917213338.png",
-    "视觉学习/图片",
     "README.md",
-    "视觉学习/YOLO学习.md.tmp.42172.f0a4977d9718",
     "视觉学习/PyTorch学习优化总结.md",
     "视觉学习/优化清单.md",
     "上位机学习/Modbus协议.md",
@@ -250,8 +251,6 @@
     "仓库管理系统/02_实施记录/白板/UI模块/Day22 LoginPage基础功能.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其基础模块编写.md",
     "仓库管理系统/02_实施记录/白板/UI模块/Day24 完成MainWindow.canvas",
-    "视觉学习/OpenCV学习笔记/OpenCV第十一课 自动文档矫正综合实战.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第九课 霍夫变换(检测直线或圆).md",
     "视觉学习/OpenCV学习笔记/图片/Pasted image 20260907154345.png",
     "视觉学习/OpenCV学习笔记/图片/Pasted image 20260907152320.png",
     "视觉学习/OpenCV学习笔记/图片/Pasted image 20260907152239.png",
