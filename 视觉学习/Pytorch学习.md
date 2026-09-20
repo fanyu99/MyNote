@@ -12,7 +12,7 @@ tags:
 > 本笔记目标是**为学习 YOLO 打基础**，只覆盖 PyTorch 中会被 YOLO 训练/推理直接用到的部分（张量、自动求导、`nn.Module`、CNN 三大组件、分类训练循环），不追求覆盖 PyTorch 全部特性。
 > 
 > **相关笔记**：
-> - [[YOLO学习|YOLO 目标检测学习笔记]]（本笔记第 16~18 章是它的前置；YOLO 侧的概念会在那里继续展开）
+> - [[视觉学习/YOLO学习/_MOC|YOLO 目标检测学习笔记]]（本笔记第 16~18 章是它的前置；YOLO 侧的概念会在那里继续展开）
 > - [[视觉学习/_MOC|视觉学习知识库总览]]（学习路径、全景图）
 > - [[视觉学习/OpenCV学习笔记/_MOC|OpenCV 知识库总览]]（图像预处理/几何变换，与 YOLO 数据管线直接相关）
 
@@ -46,7 +46,7 @@ tags:
 17. [在图片上绘制和检查边界框](#十七在图片上绘制和检查边界框)
 18. [IoU、NMS 与检测指标](#十八iounms-与检测指标)
 
-> 第 16~18 章的知识点在 [[YOLO学习|YOLO 学习笔记]] 中会以目标检测的视角重新组织一遍，两篇笔记互为正反面。
+> 第 16~18 章的知识点在 [[视觉学习/YOLO学习/_MOC|YOLO 学习笔记]] 中会以目标检测的视角重新组织一遍，两篇笔记互为正反面。
 
 ---
 
@@ -1722,7 +1722,7 @@ start_epoch = checkpoint['epoch']
 前面的分类任务是一张图片一个类别，YOLO 的目标检测任务是一张图片对应一个或多个目标的位置和类别
 
 > [!tip] 对应 YOLO 笔记
-> 本节内容在 YOLO 视角下的整理与"为什么检测模型不能只改最后一层"的讨论，见 [[YOLO学习#第一课：从图像分类进入目标检测|YOLO 第一课]]。
+> 本节内容在 YOLO 视角下的整理与"为什么检测模型不能只改最后一层"的讨论，见 [[YOLO第一课 从图像分类进入目标检测|YOLO 第一课]]。
 
 ### 1. 什么是边界框
 ```
@@ -1793,7 +1793,7 @@ targets = torch.tensor([
 2个目标，每个目标存在五个值，分别对应类别、中心x、中心y、宽、高
 ```
 
-### 边界框格式转换为代码
+### 边界框格式转换代码
 
 ```python
 # 转换为 YOLO 边界框格式
@@ -1851,7 +1851,7 @@ print(result)
 
 > [!tip] 相关笔记
 > - OpenCV 侧的绘图/坐标操作见 [[视觉学习/OpenCV学习笔记/_MOC|OpenCV 知识库]]（`cv2.rectangle` / `cv2.putText`）
-> - YOLO 侧对可视化结果的解读见 [[YOLO学习#第二课：IoU、Precision、Recall、AP、mAP|YOLO 第二课]]
+> - YOLO 侧对可视化结果的解读见 [[YOLO第二课 IoU、Precision、Recall、AP、mAP|YOLO 第二课]]
 
 ```python
 BGR -> RGB cv2.cvtColor()
@@ -1874,7 +1874,7 @@ HWC -> CHW (OpenCV图片格式为[H,W,C],Pytorch为[C,H,W],需要permute())
 这一章把"怎么判断一个预测框好不好"讲清楚：先用 IoU 衡量框的重叠程度，再用 Precision / Recall / AP / mAP 汇总成指标，最后用 NMS 去掉重复框。
 
 > [!tip] 对应 YOLO 笔记
-> 本章的直觉解释与图示见 [[YOLO学习#第二课：IoU、Precision、Recall、AP、mAP|YOLO 第二课：IoU、Precision、Recall、AP、mAP]]。
+> 本章的直觉解释与图示见 [[YOLO第二课 IoU、Precision、Recall、AP、mAP|YOLO 第二课：IoU、Precision、Recall、AP、mAP]]。
 
 ### 1. IoU 交并比
 
@@ -2016,7 +2016,7 @@ NMS 的基本步骤：
 4. 重复执行，直到没有可删除的框
 
 > [!note] 待深入
-> 本节的 NMS 只讲直觉与步骤。**NMS 的实现原理**（含 `torchvision.ops.nms` 的用法与 YOLO 后处理中的完整解码流程）已在 [[YOLO学习#第四课：YOLO 检测输出、边界框解码与 NMS|YOLO 第四课]] 展开。
+> 本节的 NMS 只讲直觉与步骤。**NMS 的实现原理**（含 `torchvision.ops.nms` 的用法与 YOLO 后处理中的完整解码流程）已在 [[YOLO第四课 检测输出、边界框解码与NMS|YOLO 第四课]] 展开。
 
 ### 本课重点
 
@@ -2041,14 +2041,14 @@ NMS 的基本步骤：
 - **YOLO 数据格式基础**（第 16-18 章）
 - **检测评价指标**：IoU、TP/FP/FN、Precision、Recall、AP、mAP、NMS（第 18 章）
 
-⚠️ **转向 YOLO 后还需学**（在 [[YOLO学习|YOLO 学习笔记]] 中继续）：
-- YOLO 的整体网络结构：Backbone / Neck / Head（对应 [[YOLO学习#第三课：YOLO 整体网络结构|YOLO 第三课]]）
-- 检测输出的解码与边界框预测参数（对应 [[YOLO学习#第四课：YOLO 检测输出、边界框解码与 NMS|YOLO 第四课]]）
+⚠️ **转向 YOLO 后还需学**（在 [[视觉学习/YOLO学习/_MOC|YOLO 学习笔记]] 中继续）：
+- YOLO 的整体网络结构：Backbone / Neck / Head（对应 [[YOLO第三课 YOLO整体网络结构|YOLO 第三课]]）
+- 检测输出的解码与边界框预测参数（对应 [[YOLO第四课 检测输出、边界框解码与NMS|YOLO 第四课]]）
 - 数据格式转换（标注文件）（对应 YOLO 第五课，待完成）
 - YOLO 损失函数设计
 - YOLO 官方模型架构（YOLOv8）
 
-🚀 **现在可以开始学 YOLO 了！** → [[YOLO学习|YOLO 学习笔记]]
+🚀 **现在可以开始学 YOLO 了！** → [[视觉学习/YOLO学习/_MOC|YOLO 学习笔记]]
 
 ---
 
@@ -2245,7 +2245,7 @@ features = backbone(x)  # [4, 64, 56, 56]
 - GPU 训练和模型保存
 - 检测指标：IoU、Precision、Recall、AP、mAP、NMS
 
-**下一个目标**：进入 [[YOLO学习|YOLO 目标检测学习笔记]]，继续学习目标检测；全景路线见 [[视觉学习/_MOC|视觉学习知识库总览]]。
+**下一个目标**：进入 [[视觉学习/YOLO学习/_MOC|YOLO 目标检测学习笔记]]，继续学习目标检测；全景路线见 [[视觉学习/_MOC|视觉学习知识库总览]]。
 
 ---
 

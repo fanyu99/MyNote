@@ -4,24 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "cbc19f83ce7c8b39",
+        "id": "c6372f2be1a0144d",
         "type": "tabs",
         "children": [
           {
-            "id": "c6111a366c345ad6",
+            "id": "8a38faa0a2b6969f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "视觉学习/YOLO学习.md",
+                "file": "视觉学习/YOLO学习/YOLO第八课 训练结果分析,错误诊断与优化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "YOLO学习"
+              "title": "YOLO第八课 训练结果分析,错误诊断与优化"
+            }
+          },
+          {
+            "id": "03da36fa15078cc8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++深入/C++对象模型与虚函数/菱形继承与虚继承.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "菱形继承与虚继承"
+            }
+          },
+          {
+            "id": "5b80667d2b8e7a12",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "视觉学习/YOLO学习/YOLO第五课 数据集目录,标签格式与标注转换.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "YOLO第五课 数据集目录,标签格式与标注转换"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -210,21 +239,36 @@
   },
   "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md",
+    "视觉学习/YOLO学习/YOLO第八课 训练结果分析,错误诊断与优化.md",
+    "视觉学习/YOLO学习/YOLO第七课 模型加载与图片推理.md",
+    "视觉学习/YOLO学习/YOLO第六课 YOLO训练实战.md",
+    "视觉学习/YOLO学习进度.md.tmp.49020.3427f1ac8620",
+    "视觉学习/YOLO学习进度.md.tmp.49020.17d262fe78a5",
+    "视觉学习/YOLO学习进度.md.tmp.49020.5092b78344c2",
+    "视觉学习/YOLO学习/_MOC.md.tmp.49020.fe660e074722",
+    "视觉学习/YOLO学习/图片/BoxF1_curve.png",
+    "视觉学习/YOLO学习/YOLO第五课 数据集目录,标签格式与标注转换.md",
+    "BoxF1_curve.png",
+    "视觉学习/YOLO学习/图片",
+    "视觉学习/YOLO学习/图片/BoxPR_curve.png",
+    "视觉学习/YOLO学习/图片/confusion_matrix.png",
+    "C++深入/C++对象模型与虚函数/菱形继承与虚继承.md",
+    "C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md",
+    "C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md.tmp.39752.7ddea93215cc",
+    "C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md.tmp.39752.50d4a95e285f",
+    "C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md.tmp.39752.ca64996d093e",
+    "C++深入/C++对象模型与虚函数/菱形继承与虚继承.md.tmp.39752.8a06a43081f8",
+    "C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md.tmp.39752.c62015876196",
     "C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md",
-    "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md.tmp.33280.947e4051febb",
-    "视觉学习/YOLO学习.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第三课 图像几何操作.md",
     "视觉学习/Pytorch学习.md",
-    "视觉学习/OpenCV学习笔记/主题模块/机器学习与深度学习.md.tmp.38600.b8bc7b16fd58",
-    "视觉学习/OpenCV学习笔记/主题模块/机器学习与深度学习.md.tmp.38600.00212dcf11f2",
-    "视觉学习/Pytorch学习.md.tmp.38600.fc8871f69b3a",
-    "视觉学习/Pytorch学习.md.tmp.38600.44c43e486a68",
-    "视觉学习/YOLO学习.md.tmp.38600.d1624a4705ed",
-    "视觉学习/YOLO学习.md.tmp.38600.85b918905774",
-    "视觉学习/YOLO学习.md.tmp.38600.2ae0cefe4009",
-    "视觉学习/YOLO学习.md.tmp.38600.e7e12d1c3b8b",
-    "视觉学习/YOLO学习.md.tmp.38600.f43e60af714a",
+    "视觉学习/YOLO学习/YOLO第四课 检测输出、边界框解码与NMS.md",
+    "视觉学习/YOLO学习/YOLO第一课 从图像分类进入目标检测.md",
+    "视觉学习/YOLO学习/YOLO第二课 IoU、Precision、Recall、AP、mAP.md",
+    "视觉学习/YOLO学习/YOLO第三课 YOLO整体网络结构.md",
+    "视觉学习/YOLO学习/_MOC.md",
+    "视觉学习/YOLO学习/YOLO学习.md",
+    "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md",
+    "视觉学习/OpenCV学习笔记/OpenCV第三课 图像几何操作.md",
     "视觉学习/YOLO学习进度.md",
     "C++深入/学习进度.md",
     "C++深入/C++新特性/C++新特性.md",
@@ -235,21 +279,10 @@
     "视觉学习/优化清单.md",
     "上位机学习/Modbus协议.md",
     "仓库管理系统/04_UI开发/Qt Quick Controls库.md",
-    "仓库管理系统/04_UI开发/C++与QML互相通信.md",
-    "仓库管理系统/04_UI开发/QML的表格显示.md",
-    "仓库管理系统/04_UI开发/Model View.md",
-    "仓库管理系统/04_UI开发/QML入门.md",
-    "仓库管理系统/04_UI开发/QT坐标体系.md",
     "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块.canvas",
-    "仓库管理系统/04_UI开发/QT对话框的WA_DeleteOnClose.md",
-    "仓库管理系统/02_实施记录/日记/UI模块/2026-09-11 Day25 完成InventoryPage及其基础板块的编写.md",
-    "仓库管理系统/02_实施记录/日记/数据库相关模块/2026-08-09 Day18 单位与分类基础服务.md",
-    "仓库管理系统/02_实施记录/日记/UI模块/未命名.md",
     "仓库管理系统/02_实施记录/白板/系统基础模块/Day5 事务与affectedRows守卫.canvas",
-    "视觉学习/OpenCV学习笔记/OpenCV第十课 图像几何变换.md",
     "仓库管理系统/02_实施记录/白板/UI模块/Day19 InboundPage.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day22 LoginPage基础功能.canvas",
-    "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其基础模块编写.md",
     "仓库管理系统/02_实施记录/白板/UI模块/Day24 完成MainWindow.canvas",
     "视觉学习/OpenCV学习笔记/图片/Pasted image 20260907154345.png",
     "视觉学习/OpenCV学习笔记/图片/Pasted image 20260907152320.png",
@@ -260,10 +293,6 @@
     "仓库管理系统/02_实施记录/白板/UI模块/Day13 物资CRUD UI纵向切片.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day12 ProductTableModel与列表页.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day20 页面测试和问题修复及功能优化.canvas",
-    "仓库管理系统/03_架构设计/CMake各模块依赖关系.canvas",
-    "MySQL数据库（lxj）/图片/Pasted image 20260811143421.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260811145355.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260805150505.png",
-    "MySQL数据库（lxj）/图片/Pasted image 20260811115909.png"
+    "仓库管理系统/03_架构设计/CMake各模块依赖关系.canvas"
   ]
 }
