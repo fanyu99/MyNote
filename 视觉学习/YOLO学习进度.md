@@ -449,3 +449,33 @@
 - 当前能力：能够独立完成模型训练与验证，阅读主要指标，并根据误检、漏检、重叠目标、重复框和领域偏移判断后续优化方向。
 - 尚未实践：摄像头/视频推理、亲自采集并标注一套新数据集、模型导出与部署。
 - 下一学习阶段建议：视频推理与目标跟踪，或者亲自制作一个小型自定义数据集并完成第二轮数据驱动优化训练。
+
+
+## 十六点五、第九课：视频推理与目标跟踪（进行中）
+
+- 日期：2026年9月21日
+- 状态：进行中
+- 对应笔记：[[YOLO学习/YOLO第九课 视频分析]]
+
+### 已完成内容
+
+- [x] 理解视频逐帧处理和 `stream=True`
+- [x] 理解 `imgsz`、`vid_stride`、`model.predict()` 和 `model.track()`
+- [x] 理解 `persist=True` 对连续帧跟踪状态的作用
+- [x] 使用 `time.perf_counter()` 改进 FPS 计时
+- [x] 每个视频重新加载模型，并将模型加载时间排除在 FPS 之外
+- [x] 每个视频重新初始化 FPS 统计，避免跨视频污染
+- [x] 区分整体 FPS 与推理 FPS / 跟踪 FPS
+- [x] 比较旧模型和新模型在 `imgsz=640`、`imgsz=960` 下的表现
+
+### 当前实验结论
+
+- 旧模型：`D:\python\YOLO\runs\detect\wildlife_yolo26n_b50\weights\best.pt`
+- 新模型：`D:\python\YOLO\runs\detect\wildlife_yolo26n_train_imgsz960\weights\best.pt`
+- `imgsz=640`：旧模型表现更佳；
+- `imgsz=960`：新模型明显更强；新模型 Recall 为 `0.934`，旧模型为 `0.882`；新模型 mAP50-95 为 `0.794`，旧模型为 `0.726`；
+- 新模型 Precision 略低，但整体检测和定位质量在高分辨率下更好。
+
+### 下一步
+
+继续学习 `track_id`、`boxes.id`、轨迹连续性、ID Switch、ByteTrack、BoT-SORT、目标计数和越线计数。
