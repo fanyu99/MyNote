@@ -36,6 +36,6 @@ void InboundPage::onCreateClicked()
 }
 ```
 
-退出函数后，会自动销毁 `dialog` 这个局部栈上的对象，而前面的 `WA_DeleteOnClose` 已经析构了一次，造成了重复释放，导致崩溃！
+退出函数后，会自动销毁 `dialog` 这个局部栈上的对象，而前面的 `WA_DeleteOnClose` 已经析构了一次，造成了重复释放，导致崩溃！ ^e9c434
 
 > 详细分析及避免方法见 [[QT对话框的WA_DeleteOnClose]]
