@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++深入/C++内存管理/C++内存管理.md",
+                "file": "视觉学习/YOLO学习/常见训练参数及问题汇总.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++内存管理"
+              "title": "常见训练参数及问题汇总"
+            }
+          },
+          {
+            "id": "6977e4850ae4be3c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "视觉学习/深度学习基础.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "深度学习基础"
             }
           },
           {
@@ -27,16 +41,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "视觉学习/YOLO学习/YOLO第九课 视频分析.md",
+                "file": "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "YOLO第九课 视频分析"
+              "title": "对象大小,内存对齐和继承布局"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -70,7 +83,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "double free",
+                "query": "8400",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -95,8 +108,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 384.5,
-    "collapsed": true
+    "width": 384.5
   },
   "right": {
     "id": "32a6421c5c0f1c0c",
@@ -174,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "视觉学习/YOLO学习/YOLO第九课 视频分析.md",
+                "file": "视觉学习/YOLO学习/YOLO第八课 训练结果分析,错误诊断与优化.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -227,28 +239,38 @@
   },
   "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
+    "视觉学习/YOLO学习/常见训练参数及问题汇总.md.tmp.36840.9ef965547dfe",
+    "视觉学习/深度学习基础.md",
+    "视觉学习/YOLO学习/常见训练参数及问题汇总.md",
+    "视觉学习/_MOC.md.tmp.48384.26c5bd17099f",
+    "视觉学习/_MOC.md.tmp.48384.eb9fa00d1e0a",
+    "视觉学习/_MOC.md.tmp.48384.0e3e624642bf",
+    "视觉学习/_MOC.md.tmp.48384.00039281d56b",
+    "视觉学习/深度学习基础.md.tmp.48384.63748e8d9e48",
+    "上位机学习/QT+ONNXRuntime项目/检测结果返回以及UI显示.md",
+    "上位机学习/QT+ONNXRuntime项目/整体架构.md",
+    "视觉学习/ONNXRuntime/OpenCV+ONNXRuntime.md",
+    "上位机学习/QT+ONNXRuntime项目",
+    "视觉学习/YOLO学习进度.md",
+    "C++深入/C++模板/C++ 函数模板与类型推导.md",
+    "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md",
+    "视觉学习/YOLO学习/YOLO第八课 训练结果分析,错误诊断与优化.md",
+    "视觉学习/ONNXRuntime",
+    "视觉学习/YOLO学习/YOLO第十课 ONNX导出以及ONNXRuntime.md",
+    "C++深入/C++模板/C++ 函数模板与类型推导.md.tmp.21656.d81a5370ba18",
+    "C++深入/C++新特性/其他关键特性.md",
+    "C++深入/C++模板",
+    "视觉学习/YOLO学习/YOLO第九课 视频分析.md",
+    "C++深入/C++新特性/右值引用,移动语义,完美转发.md",
     "C++深入/C++内存管理/C++内存管理.md",
     "仓库管理系统/02_实施记录/日记/UI模块/2026-09-11 Day25 完成InventoryPage及其基础板块的编写.md",
     "C++深入/C++对象模型与虚函数/菱形继承与虚继承.md",
     "C++深入/C++新特性/RAII,资源所有权与unique_ptr.md",
     "C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md",
     "C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md",
-    "C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md",
     "C++深入/C++内存管理",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.d7352893cac8",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.1df95b576cf1",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.1d9fe3e8ad5e",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.52b694d4a14d",
-    "视觉学习/YOLO学习/seduKH9Bk",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.230c71d014b4",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.9eefe1a73331",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.6edaba1f1ebf",
-    "视觉学习/YOLO学习/YOLO第九课 视频分析.md.tmp.40836.880df1b1d6b0",
     "C++深入/学习进度.md",
-    "视觉学习/YOLO学习进度.md",
     "视觉学习/YOLO学习/YOLO第十课.md",
-    "视觉学习/YOLO学习/YOLO第八课 训练结果分析,错误诊断与优化.md",
     "视觉学习/YOLO学习/YOLO第五课 数据集目录,标签格式与标注转换.md",
     "视觉学习/YOLO学习/YOLO第七课 模型加载与图片推理.md",
     "视觉学习/YOLO学习/YOLO第六课 YOLO训练实战.md",
@@ -257,17 +279,7 @@
     "视觉学习/YOLO学习/图片/BoxPR_curve.png",
     "视觉学习/YOLO学习/图片/confusion_matrix.png",
     "视觉学习/Pytorch学习.md",
-    "视觉学习/YOLO学习/YOLO第四课 检测输出、边界框解码与NMS.md",
-    "视觉学习/YOLO学习/YOLO第一课 从图像分类进入目标检测.md",
-    "视觉学习/YOLO学习/YOLO第二课 IoU、Precision、Recall、AP、mAP.md",
-    "视觉学习/YOLO学习/YOLO第三课 YOLO整体网络结构.md",
-    "视觉学习/YOLO学习/_MOC.md",
-    "视觉学习/YOLO学习/YOLO学习.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第三课 图像几何操作.md",
-    "C++深入/C++新特性/C++新特性.md",
-    "视觉学习/_MOC.md",
     "视觉学习/图片/Pasted image 20260917213338.png",
-    "README.md",
     "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块.canvas",
     "仓库管理系统/02_实施记录/白板/系统基础模块/Day5 事务与affectedRows守卫.canvas",
     "仓库管理系统/02_实施记录/白板/UI模块/Day19 InboundPage.canvas",
