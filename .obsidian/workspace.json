@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "视觉学习/YOLO学习/常见训练参数及问题汇总.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "视觉学习/深度学习基础.md",
+                "file": "C++深入/C++多线程/线程池.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "深度学习基础"
+              "title": "线程池"
             }
           },
           {
@@ -49,7 +49,8 @@
               "title": "对象大小,内存对齐和继承布局"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -224,7 +225,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "markdown-importer:打开 Markdown 格式转换器": false,
       "workspaces:管理工作区布局": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
@@ -239,9 +239,17 @@
   },
   "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "视觉学习/YOLO学习/常见训练参数及问题汇总.md.tmp.36840.9ef965547dfe",
+    "C++深入/C++多线程/C++多线程核心常见问题.md",
+    "C++深入/C++多线程/线程池.md",
+    "C++深入/C++多线程/C++多线程基础常见问题.md",
+    "C++深入/C++多线程",
+    "上位机学习/协议/Modbus协议.md",
+    "上位机学习/协议",
+    "视觉学习/_MOC.md",
     "视觉学习/深度学习基础.md",
+    "视觉学习/Pytorch学习.md",
     "视觉学习/YOLO学习/常见训练参数及问题汇总.md",
+    "视觉学习/YOLO学习/常见训练参数及问题汇总.md.tmp.36840.9ef965547dfe",
     "视觉学习/_MOC.md.tmp.48384.26c5bd17099f",
     "视觉学习/_MOC.md.tmp.48384.eb9fa00d1e0a",
     "视觉学习/_MOC.md.tmp.48384.0e3e624642bf",
@@ -257,9 +265,7 @@
     "视觉学习/YOLO学习/YOLO第八课 训练结果分析,错误诊断与优化.md",
     "视觉学习/ONNXRuntime",
     "视觉学习/YOLO学习/YOLO第十课 ONNX导出以及ONNXRuntime.md",
-    "C++深入/C++模板/C++ 函数模板与类型推导.md.tmp.21656.d81a5370ba18",
     "C++深入/C++新特性/其他关键特性.md",
-    "C++深入/C++模板",
     "视觉学习/YOLO学习/YOLO第九课 视频分析.md",
     "C++深入/C++新特性/右值引用,移动语义,完美转发.md",
     "C++深入/C++内存管理/C++内存管理.md",
@@ -268,17 +274,11 @@
     "C++深入/C++新特性/RAII,资源所有权与unique_ptr.md",
     "C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md",
     "C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md",
-    "C++深入/C++内存管理",
     "C++深入/学习进度.md",
-    "视觉学习/YOLO学习/YOLO第十课.md",
-    "视觉学习/YOLO学习/YOLO第五课 数据集目录,标签格式与标注转换.md",
-    "视觉学习/YOLO学习/YOLO第七课 模型加载与图片推理.md",
-    "视觉学习/YOLO学习/YOLO第六课 YOLO训练实战.md",
     "视觉学习/YOLO学习/图片/BoxF1_curve.png",
     "BoxF1_curve.png",
     "视觉学习/YOLO学习/图片/BoxPR_curve.png",
     "视觉学习/YOLO学习/图片/confusion_matrix.png",
-    "视觉学习/Pytorch学习.md",
     "视觉学习/图片/Pasted image 20260917213338.png",
     "仓库管理系统/02_实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块.canvas",
     "仓库管理系统/02_实施记录/白板/系统基础模块/Day5 事务与affectedRows守卫.canvas",
