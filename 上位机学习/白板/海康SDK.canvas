@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"61a1b2c3d4e5f601","type":"file","file":"上位机学习/海康SDK/入门.md","x":-1700,"y":-560,"width":450,"height":660,"color":"1"},
+		{"id":"62b2c3d4e5f60712","type":"file","file":"上位机学习/海康SDK/GenICam参数树.md","x":-1700,"y":180,"width":450,"height":700,"color":"1"},
+		{"id":"63c3d4e5f6071823","type":"file","file":"上位机学习/海康SDK/SDK缓冲区,图像数据生命周期.md","x":-1700,"y":960,"width":450,"height":580,"color":"1"},
+		{"id":"64d4e5f607182934","type":"text","text":"# 取图流程主线\n初始化 SDK → 枚举相机 → 选择/创建句柄 → 打开设备 → 设置参数 → 开始采集 → 获取图像 → 处理（显示/保存/OpenCV/Halcon）→ 停止采集 → 关闭设备 → 释放资源\n\n**两/三种取图方式**\n- 轮询取图 `grab()`：简单，易阻塞线程\n- 回调取图：新图即处理，需注意共享内存保护\n\n**关键抽象**：`Camera` 接口（open/start/grab/stop/close）—— 让 Qt 不直接依赖海康 SDK，换品牌只换底层实现。","x":-1180,"y":-560,"width":450,"height":660,"color":"3"},
+		{"id":"65e5f60718293a45","type":"text","text":"# GenICam 参数树与触发\n参数系统本质是一棵 **GenICam 节点树**，C++ 侧按 **Node Name** 读写。\n\n**六种节点类型**：Integer / Float / Enumeration / Boolean / String / Command\n（获取用 `MV_CC_GetXxxValue`，设置用 `MV_CC_SetXxxValue`；Command 只能触发）\n\n**推荐配置顺序**\n采集模式 → 触发模式 → 触发源 → 像素格式 → ROI → 关自动曝光 → 曝光时间 → 关自动增益 → 增益 → 取流 → 读取确认\n\n**三种触发**：连续（Trigger Off）/ 软触发（Software）/ 硬触发（Line0）。`AcquisitionMode` 管「采多少张」，`TriggerMode` 管「是否外部触发」。","x":-1180,"y":180,"width":450,"height":700,"color":"3"},
+		{"id":"66f60718293a4b56","type":"text","text":"# 图像数据生命周期\n`MV_CC_GetImageBuffer` 返回的是 **指向 SDK 内部缓冲区的指针**，所有权不归你，**不能长期持有**。\n\n| 方式 | 内存归属 | 是否需归还 | 异步 |\n|---|---|---|---|\n| `GetImageBuffer` | SDK | 需 `FreeImageBuffer` | 先复制 |\n| `GetOneFrameTimeout` | 你的程序 | 否（已是副本） | 可直接 |\n| 图像回调 | SDK | 否 | 先复制 |\n\n**必须复制的场景**：跨线程、入队、回调返回后使用、存成员、交 OpenCV/Halcon。\n工程骨架：采集线程 → 复制到 `ImageFrame` → 有界阻塞队列 → 算法线程。","x":-1180,"y":960,"width":450,"height":580,"color":"3"},
+		{"id":"67a1b2c3d4e5f601","type":"text","text":"# 关联笔记（跨板块）\n- [[上位机学习/QT+ONNXRuntime项目/整体架构]] —— `FrameSource` / `HikCameraFrameSource` 抽象与 7 层架构\n- [[上位机学习/QT+ONNXRuntime项目/检测结果返回以及UI显示]] —— 取到的帧交给 Worker 检测、UI 显示\n- [[上位机学习/QT底层原理深入/信号与槽]] —— 回调/异步与线程安全（QueuedConnection）\n- [[上位机学习/视觉标定]] —— 取图后先做内参/畸变标定，再做像素→mm 测量\n- [[上位机学习/协议]] —— 硬触发常由 PLC（Modbus）给信号\n\n↩ [[上位机学习/白板/上位机学习总览.canvas|返回总览白板]]","x":-660,"y":-560,"width":450,"height":2100,"color":"4"}
+	],
+	"edges":[
+		{"id":"71a1b2c3d4e5f601","fromNode":"61a1b2c3d4e5f601","fromSide":"right","toNode":"64d4e5f607182934","toSide":"left"},
+		{"id":"72b2c3d4e5f60712","fromNode":"62b2c3d4e5f60712","fromSide":"right","toNode":"65e5f60718293a45","toSide":"left"},
+		{"id":"73c3d4e5f6071823","fromNode":"63c3d4e5f6071823","fromSide":"right","toNode":"66f60718293a4b56","toSide":"left"},
+		{"id":"74d4e5f607182934","fromNode":"64d4e5f607182934","fromSide":"right","toNode":"67a1b2c3d4e5f601","toSide":"left"},
+		{"id":"75e5f60718293a45","fromNode":"65e5f60718293a45","fromSide":"right","toNode":"67a1b2c3d4e5f601","toSide":"left"},
+		{"id":"76f60718293a4b56","fromNode":"66f60718293a4b56","fromSide":"right","toNode":"67a1b2c3d4e5f601","toSide":"left"},
+		{"id":"770718293a4b5c67","fromNode":"64d4e5f607182934","fromSide":"bottom","toNode":"65e5f60718293a45","toSide":"top"},
+		{"id":"7818293a4b5c6d78","fromNode":"65e5f60718293a45","fromSide":"bottom","toNode":"66f60718293a4b56","toSide":"top"}
+	]
+}

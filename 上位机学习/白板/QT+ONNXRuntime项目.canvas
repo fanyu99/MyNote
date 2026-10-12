@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"a1c4e7f20b3d8951","type":"file","file":"上位机学习/QT+ONNXRuntime项目/整体架构.md","x":-1520,"y":-520,"width":460,"height":620,"color":"4"},
+		{"id":"b2d5f8a13c4e9062","type":"file","file":"上位机学习/QT+ONNXRuntime项目/QML+CPP的联动知识.md","x":-1520,"y":160,"width":460,"height":560,"color":"5"},
+		{"id":"c3e6a9b24d5f0173","type":"file","file":"上位机学习/QT+ONNXRuntime项目/检测结果返回以及UI显示.md","x":-1520,"y":780,"width":460,"height":440,"color":"5"},
+		{"id":"d4f7b0c35e6a1284","type":"text","text":"# 项目架构主线\n\n**7 层分层（自上而下）**\n1. 顶层 UI（QML）\n2. DetectionApp —— 与 QML 交互，暴露结果/进度/错误\n3. DetectionManager —— 把任务下发 Worker，管理结果\n4. DetectionWorker —— 执行层，工作线程跑任务\n5. Detector —— 最底层检测，返回 DetectionResult\n6. ImageProvider / DetectionRenderer —— 供图 + 画框\n7. FrameSource —— 提供 `cv::Mat`（文件 / 海康相机）\n\n**数据流（自下而上）**\nDetector 出结果 → Worker 工作线程画 QImage 后拷贝 → Manager 上报进度 → App 交 UI 显示\n\n> 关键：**结果数据跨线程逐层向上拷贝**，UI 永远在主线程。","x":-1000,"y":-520,"width":450,"height":620,"color":"3"},
+		{"id":"e5a8c1d46f7b2395","type":"text","text":"# QML ↔ C++ 桥接要点\n- `QML_ELEMENT`：类型注册进 QML，可 `import` 后用\n- `setContextProperty`：实例塞进全局上下文，**全局唯一**\n- `Q_GADGET`：非 QObject 的纯数据类型（坐标/配置/错误码）\n- `Q_PROPERTY`：暴露可绑定属性，NOTIFY 触发 QML 自动刷新\n- `Q_INVOKABLE` / 槽：让 C++ 函数被 QML 直接调用\n\n> 本项目 App 层用 `Q_PROPERTY` 把「进度 / 结果 / 错误」暴露给 QML，QML 用 `onSignalChanged` 响应。","x":-1000,"y":160,"width":450,"height":560,"color":"3"},
+		{"id":"f6b9d2e57a8c3406","type":"text","text":"# 结果返回与进度\n**按 Job 分类**：单任务（图片/视频）与批量任务（多图/多视频/混合）。\n\n四种「保存/不保存 × 单任务/批量」策略决定结果如何回传 UI。\n\n**进度公式**\n```\njobProgress =\n (taskCompleted + taskUnitCompleted / taskUnitTotal)\n / taskTotal\n```\n> 视频类 Task 的 `taskUnit*` 按「帧」计。","x":-1000,"y":780,"width":450,"height":440,"color":"3"},
+		{"id":"07ca3e6b8d1f4527","type":"text","text":"# 关联笔记（跨板块）\n- [[上位机学习/QT底层原理深入/信号与槽]] —— Worker↔Manager↔App 跨线程投递用 **QueuedConnection**；结果传回主线程\n- [[上位机学习/QT底层原理深入/QObject属性系统]] —— `Q_PROPERTY` 暴露进度/结果给 QML 绑定\n- [[上位机学习/海康SDK/入门]] —— `FrameSource` 的 `HikCameraFrameSource` 实现\n- [[上位机学习/海康SDK/SDK缓冲区,图像数据生命周期]] —— Worker 取图后必须 clone/复制再跨线程\n- [[上位机学习/视觉标定]] —— 检测框像素坐标 → 真实 mm 换算\n\n↩ [[上位机学习/白板/上位机学习总览.canvas|返回总览白板]]","x":-480,"y":-520,"width":440,"height":1740,"color":"6"}
+	],
+	"edges":[
+		{"id":"11a1b2c3d4e5f601","fromNode":"a1c4e7f20b3d8951","fromSide":"right","toNode":"d4f7b0c35e6a1284","toSide":"left"},
+		{"id":"12b2c3d4e5f60712","fromNode":"b2d5f8a13c4e9062","fromSide":"right","toNode":"e5a8c1d46f7b2395","toSide":"left"},
+		{"id":"13c3d4e5f6071823","fromNode":"c3e6a9b24d5f0173","fromSide":"right","toNode":"f6b9d2e57a8c3406","toSide":"left"},
+		{"id":"14d4e5f607182934","fromNode":"d4f7b0c35e6a1284","fromSide":"right","toNode":"07ca3e6b8d1f4527","toSide":"left"},
+		{"id":"15e5f60718293a45","fromNode":"e5a8c1d46f7b2395","fromSide":"right","toNode":"07ca3e6b8d1f4527","toSide":"left"},
+		{"id":"16f60718293a4b56","fromNode":"f6b9d2e57a8c3406","fromSide":"right","toNode":"07ca3e6b8d1f4527","toSide":"left"},
+		{"id":"170718293a4b5c67","fromNode":"d4f7b0c35e6a1284","fromSide":"bottom","toNode":"f6b9d2e57a8c3406","toSide":"top"}
+	]
+}

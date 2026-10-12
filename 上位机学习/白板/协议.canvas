@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"41a1b2c3d4e5f601","type":"file","file":"上位机学习/协议/Modbus协议.md","x":-1000,"y":-420,"width":470,"height":720,"color":"2"},
+		{"id":"42b2c3d4e5f60712","type":"text","text":"# Modbus 协议要点\n**三种传输模式**\n- RTU：串口 RS-485/232，二进制，最常用\n- ASCII：串口，十六进制文本\n- TCP：以太网 **502 端口**，无 CRC（TCP 自带校验）\n\n**主从架构**：主站唯一，从站 0~247（0 为广播），从站间不能直连。\n\n**四张寄存器表**\n| 对象 | 读/写 | 位宽 | 功能码读 |\n|---|---|---|---|\n| 线圈 | 读写 | 1 | 01 |\n| 离散输入 | 只读 | 1 | 02 |\n| 保持寄存器 | 读写 | 16 | 03 |\n| 输入寄存器 | 只读 | 16 | 04 |\n\n**上位机要点**：地址映射（40001→偏移 0）、字节序、轮询重试、`pymodbus`/`libmodbus`。","x":-480,"y":-420,"width":450,"height":720,"color":"3"},
+		{"id":"43c3d4e5f6071823","type":"text","text":"# 关联笔记（跨板块）\n- [[上位机学习/海康SDK/GenICam参数树]] —— **硬触发** `TriggerSource = Line0` 由 PLC 电信号触发；Modbus 常是上位机 ↔ PLC 的通道\n- [[上位机学习/海康SDK/入门]] —— 硬件触发取图流程\n- [[上位机学习/QT+ONNXRuntime项目/整体架构]] —— 上位机作为 **Modbus 主站**轮询 PLC 后驱动检测\n- [[上位机学习/QT底层原理深入/信号与槽]] —— 通信线程与 UI 线程的解耦\n\n↩ [[上位机学习/白板/上位机学习总览.canvas|返回总览白板]]","x":20,"y":-420,"width":450,"height":720,"color":"4"}
+	],
+	"edges":[
+		{"id":"51a1b2c3d4e5f601","fromNode":"41a1b2c3d4e5f601","fromSide":"right","toNode":"42b2c3d4e5f60712","toSide":"left"},
+		{"id":"52b2c3d4e5f60712","fromNode":"42b2c3d4e5f60712","fromSide":"right","toNode":"43c3d4e5f6071823","toSide":"left"}
+	]
+}

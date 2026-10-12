@@ -1,5 +1,4 @@
 
-# 1.`constexpr` 编译期常量
 `constexpr`用来告诉编译器,这个值在编译阶段就已经确定(必须为字面量类型且必须立即初始化,例如标量/引用/指针/带`constexpr`构造函数的类),减少花销
 ## 与`const`区别
 `const`表示变量在初始化之后不能被修改,但是初始值可以在运行时进行计算;
@@ -174,4 +173,33 @@ struct Resource {
         // 清理逻辑
     }
 };
+```
+# `consteval`(C++20)强制编译期校验、字面量类型
+
+```C++
+// 利用 consteval 在编译期做参数校验
+consteval int checked_port(int p) {
+    if (p < 1 || p > 65535) throw "端口不合法";   // 编译期就能报错
+    return p;
+}
+
+
+constexpr int square(int x) { return x * x; }
+consteval int c_square(int x) { return x * x; }   // C++20
+
+int runtime = 5;
+int a = square(runtime);    // ✓ 合法：退化为普通运行时函数
+// int b = c_square(runtime); // ✗ 编译错误：consteval 只接受编译期参数
+int c = c_square(5);        // ✓
+
+```
+
+# `constinit`保证动态初始化时已初始化
+例如：
+```C++
+extern int g_config_value;
+int g_derived = g_config_value * 2; // 有可能读到0
+
+// 解决方法：
+constinit int g_derived = 100; // 保证静态初始化 
 ```

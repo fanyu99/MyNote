@@ -1,0 +1,23 @@
+{
+	"nodes":[
+		{"id":"a001b2c3d4e5f601","type":"text","text":"# 上位机学习 · 知识总览\n\n本板块按 **5 个子板块**整理，每块各有一张白板白做综合展示；白板之间通过「关联笔记」节点互相跳转。\n\n> 主线：**协议/采集（海康SDK）→ 处理与架构（QT + ONNXRuntime）→ 测量（视觉标定）**，底层由 **QT 原理**支撑。","x":-700,"y":-760,"width":900,"height":200,"color":"6"},
+		{"id":"a002b2c3d4e5f612","type":"file","file":"上位机学习/白板/QT+ONNXRuntime项目.canvas","x":-1700,"y":-420,"width":520,"height":560,"color":"4"},
+		{"id":"a003b2c3d4e5f623","type":"file","file":"上位机学习/白板/QT底层原理深入.canvas","x":-1130,"y":-420,"width":520,"height":560,"color":"6"},
+		{"id":"a004b2c3d4e5f634","type":"file","file":"上位机学习/白板/协议.canvas","x":-560,"y":-420,"width":520,"height":560,"color":"2"},
+		{"id":"a005b2c3d4e5f645","type":"file","file":"上位机学习/白板/海康SDK.canvas","x":10,"y":-420,"width":520,"height":560,"color":"1"},
+		{"id":"a006b2c3d4e5f656","type":"file","file":"上位机学习/白板/视觉标定.canvas","x":580,"y":-420,"width":520,"height":560,"color":"5"},
+		{"id":"a007b2c3d4e5f667","type":"text","text":"# 跨板块关联索引\n\n**采集 → 处理**\n- [[上位机学习/海康SDK/入门]] 的 `Camera` 抽象 → [[上位机学习/QT+ONNXRuntime项目/整体架构]] 的 `HikCameraFrameSource`\n- [[上位机学习/海康SDK/SDK缓冲区,图像数据生命周期]] 的复制/生命周期 → Worker 跨线程传图\n\n**原理 → 架构**\n- [[上位机学习/QT底层原理深入/QObject属性系统]] 的 `Q_PROPERTY` → [[上位机学习/QT+ONNXRuntime项目/QML+CPP的联动知识]] 与 QML 绑定\n- [[上位机学习/QT底层原理深入/信号与槽]] 的 QueuedConnection → Worker→Manager→App 跨线程回传\n\n**协议 → 采集**\n- [[上位机学习/协议/Modbus协议]] 的上位机主站轮询 → 驱动海康相机硬触发（PLC 给 Line0 信号）\n\n**处理 → 测量**\n- [[上位机学习/QT+ONNXRuntime项目/检测结果返回以及UI显示]] 的检测框像素 → [[上位机学习/视觉标定]] 换算为真实 mm","x":-1700,"y":280,"width":2800,"height":560,"color":"3"}
+	],
+	"edges":[
+		{"id":"b001b2c3d4e5f601","fromNode":"a001b2c3d4e5f601","fromSide":"bottom","toNode":"a002b2c3d4e5f612","toSide":"top"},
+		{"id":"b002b2c3d4e5f612","fromNode":"a001b2c3d4e5f601","fromSide":"bottom","toNode":"a003b2c3d4e5f623","toSide":"top"},
+		{"id":"b003b2c3d4e5f623","fromNode":"a001b2c3d4e5f601","fromSide":"bottom","toNode":"a004b2c3d4e5f634","toSide":"top"},
+		{"id":"b004b2c3d4e5f634","fromNode":"a001b2c3d4e5f601","fromSide":"bottom","toNode":"a005b2c3d4e5f645","toSide":"top"},
+		{"id":"b005b2c3d4e5f645","fromNode":"a001b2c3d4e5f601","fromSide":"bottom","toNode":"a006b2c3d4e5f656","toSide":"top"},
+		{"id":"b006b2c3d4e5f656","fromNode":"a002b2c3d4e5f612","fromSide":"bottom","toNode":"a007b2c3d4e5f667","toSide":"top"},
+		{"id":"b007b2c3d4e5f667","fromNode":"a003b2c3d4e5f623","fromSide":"bottom","toNode":"a007b2c3d4e5f667","toSide":"top"},
+		{"id":"b008b2c3d4e5f678","fromNode":"a004b2c3d4e5f634","fromSide":"bottom","toNode":"a007b2c3d4e5f667","toSide":"top"},
+		{"id":"b009b2c3d4e5f689","fromNode":"a005b2c3d4e5f645","fromSide":"bottom","toNode":"a007b2c3d4e5f667","toSide":"top"},
+		{"id":"b010b2c3d4e5f690","fromNode":"a006b2c3d4e5f656","fromSide":"bottom","toNode":"a007b2c3d4e5f667","toSide":"top"}
+	]
+}

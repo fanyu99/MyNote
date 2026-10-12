@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"21a1b2c3d4e5f601","type":"file","file":"上位机学习/QT底层原理深入/QObject属性系统.md","x":-1180,"y":-480,"width":460,"height":560,"color":"6"},
+		{"id":"22b2c3d4e5f60712","type":"file","file":"上位机学习/QT底层原理深入/信号与槽.md","x":-1180,"y":160,"width":460,"height":520,"color":"6"},
+		{"id":"23c3d4e5f6071823","type":"text","text":"# QObject 属性系统要点\n- `Q_PROPERTY` 完整语法：READ / WRITE / NOTIFY / RESET / STORED / CONSTANT / FINAL / SCRIPTABLE / DESIGNABLE / USER\n- `MEMBER` 简写：直接绑定成员变量，但**无变更守卫**，仅适合纯数据/快速原型\n- `Q_ENUM`：枚举注册进元对象系统，支持枚举↔字符串转换（序列化 / QML 绑定）\n- 动态属性：`setProperty` / `property` —— 未声明名走内部 QHash，灵活但**有哈希开销**\n- `QMetaProperty` 反射：`read()` / `write()` 在不知属性名时动态读写","x":-660,"y":-480,"width":450,"height":560,"color":"3"},
+		{"id":"24d4e5f607182934","type":"text","text":"# 信号与槽要点\n**连接类型（`Qt::ConnectionType`）**\n- Auto：同线程同步 / 跨线程自动排队\n- Direct：强制同步，最危险\n- Queued：强制异步（接收者事件循环 + 参数需注册元类型）\n- BlockingQueued：跨线程取返回值，**同线程使用必死锁**\n- Unique：防重复连接（仅新式语法有效）\n\n**两大陷阱**\n1. BlockingQueuedConnection 同线程 → 死锁\n2. Lambda `[&]` 捕获栈变量 → 悬空引用；改按值捕获或上下文 connect\n\n`connect()` 返回 `QMetaObject::Connection`，可精确 `disconnect`。","x":-660,"y":160,"width":450,"height":520,"color":"3"},
+		{"id":"25e5f60718293a45","type":"text","text":"# 关联笔记（跨板块）\n- [[上位机学习/QT+ONNXRuntime项目/QML+CPP的联动知识]] —— 属性系统的落地实践：`Q_PROPERTY`/`Q_INVOKABLE` 暴露给 QML\n- [[上位机学习/QT+ONNXRuntime项目/整体架构]] —— Worker→Manager→App 的跨线程槽投递\n- [[上位机学习/QT+ONNXRuntime项目/检测结果返回以及UI显示]] —— 结果回传主线程后刷新 UI\n- [[上位机学习/海康SDK/SDK缓冲区,图像数据生命周期]] —— 回调/异步处理与线程安全\n\n↩ [[上位机学习/白板/上位机学习总览.canvas|返回总览白板]]","x":-140,"y":-480,"width":440,"height":1160,"color":"4"}
+	],
+	"edges":[
+		{"id":"31a1b2c3d4e5f601","fromNode":"21a1b2c3d4e5f601","fromSide":"right","toNode":"23c3d4e5f6071823","toSide":"left"},
+		{"id":"32b2c3d4e5f60712","fromNode":"22b2c3d4e5f60712","fromSide":"right","toNode":"24d4e5f607182934","toSide":"left"},
+		{"id":"33c3d4e5f6071823","fromNode":"23c3d4e5f6071823","fromSide":"right","toNode":"25e5f60718293a45","toSide":"left"},
+		{"id":"34d4e5f607182934","fromNode":"24d4e5f607182934","fromSide":"right","toNode":"25e5f60718293a45","toSide":"left"},
+		{"id":"35e5f60718293a45","fromNode":"21a1b2c3d4e5f601","fromSide":"bottom","toNode":"22b2c3d4e5f60712","toSide":"top"}
+	]
+}
