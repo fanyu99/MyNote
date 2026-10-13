@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++深入/C++新特性/lambda和可变参数模板.md",
+                "file": "C++深入/C++新特性/范围for和ranges库和filesystem.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "lambda和可变参数模板"
+              "title": "范围for和ranges库和filesystem"
             }
           }
         ]
@@ -211,6 +211,10 @@
   },
   "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
+    "C++深入/C++新特性/lambda和可变参数模板.md",
+    "C++深入/C++新特性/范围for和ranges库和filesystem.md",
+    "C++深入/C++新特性/lambda和可变参数模板.md.tmp.40408.933fa24ba32a",
+    "C++深入/C++新特性/lambda和可变参数模板.md.tmp.40408.bf331481afe7",
     "README.md.tmp.38072.457cc767f07c",
     "视觉学习/OpenCV学习笔记/_MOC.md.tmp.38072.be885144105a",
     "上位机学习/_MOC.md",
@@ -220,13 +224,9 @@
     "上位机学习/海康SDK/GenICam参数树.md.tmp.38072.6873e43d196c",
     "上位机学习/海康SDK/GenICam参数树.md.tmp.38072.c325ff8c0d97",
     "上位机学习/海康SDK/GenICam参数树.md.tmp.38072.7f8697c0bc51",
-    "上位机学习/QT+ONNXRuntime项目/检测结果返回以及UI显示.md.tmp.38072.9254aae60d43",
-    "上位机学习/QT+ONNXRuntime项目/检测结果返回以及UI显示.md.tmp.38072.b30af99c6274",
-    "上位机学习/QT+ONNXRuntime项目/整体架构.md.tmp.38072.0b9b748e7527",
     "模板/_模板-通用笔记.md",
     "模板/_模板-主题笔记.md",
     "模板/_模板-课程笔记.md",
-    "C++深入/C++新特性/lambda和可变参数模板.md",
     "MySQL数据库/锁.md",
     "MySQL数据库/MySQL数据库 MOC.md",
     "上位机学习/QT底层原理深入/信号与槽.md",
@@ -246,7 +246,6 @@
     "C++深入/C++多线程/C++多线程核心常见问题.md",
     "C++深入/C++多线程/C++多线程基础常见问题.md",
     "C++深入/C++多线程/线程池.md",
-    "C++深入/C++模板/C++ 函数模板与类型推导.md",
     "C++深入/白板/C++深入学习总览.canvas",
     "C++深入/白板/C++对象模型与虚函数.canvas",
     "C++深入/白板/C++多线程.canvas",
