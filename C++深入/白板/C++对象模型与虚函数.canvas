@@ -1,0 +1,29 @@
+{
+	"nodes":[
+		{"id":"e1a1b2c3d4e5f601","type":"file","file":"C++深入/C++对象模型与虚函数/C++对象模型和虚函数.md","x":-1520,"y":-520,"width":460,"height":640,"color":"6"},
+		{"id":"e1a2b2c3d4e5f612","type":"file","file":"C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局.md","x":-1520,"y":200,"width":460,"height":640,"color":"6"},
+		{"id":"e1a3b2c3d4e5f623","type":"file","file":"C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast.md","x":-1520,"y":920,"width":460,"height":640,"color":"6"},
+		{"id":"e1a4b2c3d4e5f634","type":"file","file":"C++深入/C++对象模型与虚函数/菱形继承与虚继承.md","x":-1520,"y":1640,"width":460,"height":640,"color":"6"},
+		{"id":"e1a5b2c3d4e5f645","type":"text","text":"# 对象模型与虚函数要点\n**一条调用链**：`对象 → vptr → 虚函数表 → 函数地址 → 调用`\n- 静态类型看声明（编译期），动态类型看实际对象（运行期）；虚函数按**动态类型**选版本\n- `vtable` 是**每个类一份、同类对象共享**；每个对象只存一个 `vptr`\n- 虚调用比普通调用**多一次间接寻址**，且对象多一个 `vptr` 开销\n- **多态基类必须有虚析构**，否则通过基类指针 `delete` 不析构派生部分（UB）\n- **构造/析构期间不构成多态**：动态类型被降级为当前正在构造/析构的那一层\n- RTTI：`dynamic_cast`（要求多态类型；指针失败 = `nullptr`，引用失败抛 `std::bad_cast`）、`typeid`\n- 多继承可能有**多个 `vptr`**，基类指针会做**指针调整**","x":-1000,"y":-520,"width":450,"height":640,"color":"3"},
+		{"id":"e1a6b2c3d4e5f656","type":"text","text":"# 对象大小与布局要点\n**核心式子**：对象大小 = 非静态数据成员 + 隐藏数据（`vptr`） + 对齐填充（成员间 + 尾部）\n- `sizeof` 统计非静态数据成员 + 隐藏数据 + 填充；**不计**普通成员函数、静态成员、局部变量\n- 空类 = 1 字节（保证不同完整对象拥有不同地址）\n- 内存对齐：按最大成员对齐；**成员声明顺序影响大小**（`char/int/char` = 12 → `int/char/char` = 8）\n- 工具：`alignof` 查对齐要求、`offsetof` 查成员偏移\n- 多态类多一个 `vptr`（常见 64 位：8 字节 + 填充）→ `sizeof` 变大；**增加虚函数个数不增加 `vptr`**\n- 单继承复用基类子对象的 `vptr`；派生类指针指向整体，基类指针指向内部基类子对象\n- `this` 不是数据成员，不占对象空间","x":-1000,"y":200,"width":450,"height":640,"color":"3"},
+		{"id":"e1a7b2c3d4e5f667","type":"text","text":"# 对象切片与类型转换要点\n**主线**：多态对象必须通过指针 / 引用传递\n- 切片：派生对象**按值**构造 / 赋值基类对象 → 派生部分被丢弃，多态消失\n- 触发点：初始化、赋值、**按值传参 / 按值返回**；指针 / 引用**不切片**\n- `std::vector<Base>` 存值必切片 → 改用 `std::vector<std::unique_ptr<Base>>`\n- 向下转型 `static_cast` **不校验动态类型**，错误即 UB\n- `dynamic_cast` 运行期校验真实类型：指针失败 = `nullptr`，引用失败抛 `std::bad_cast`；要求源类型是多态类型\n- 形参写 `void f(Animal a)` 是最隐蔽的切片来源 → 改 `const Animal&`","x":-1000,"y":920,"width":450,"height":640,"color":"3"},
+		{"id":"e1a8b2c3d4e5f678","type":"text","text":"# 菱形继承与虚继承要点\n**病根**：同一份基类子对象在对象里出现两次 → 数据冗余 + 访问二义性\n- `return a;` 的二义性是**编译期**错误；`B::a` / `C::a` 只是消歧（两份 `A` 依然存在）\n- 根治：`class B : virtual public A` → 整个对象只保留**一份**虚基类子对象\n- 构造顺序：**虚基类最先**且只构造一次；随后非虚基类（按声明顺序），最后派生类\n- **虚基类只由最终派生类初始化**：中间类的 `A(x)` 会被忽略，但语法上**必须能写**\n- 代价：每个虚继承子对象多一个 `vbptr`、访问多一次间接寻址 → **通常更大，不是省内存**\n- 从虚基类向下转型：`static_cast` 编译错误，**必须 `dynamic_cast`**","x":-1000,"y":1640,"width":450,"height":640,"color":"3"},
+		{"id":"e1a9b2c3d4e5f689","type":"text","text":"# 关联笔记（跨板块）\n- [[C++深入/C++内存管理/C++内存管理]] —— `new`/`delete` 的两步流程与对象生命周期；`vptr` 属于对象内存\n- [[C++深入/C++新特性/RAII,资源所有权与unique_ptr]] —— 多态容器用 `unique_ptr<Base>`，基类需**虚析构**\n- [[C++深入/C++新特性/optional、string_view、variant、span]] —— `variant` 与虚函数多态的取舍\n- [[C++深入/学习进度.md]] —— A1 对象模型学习记录\n\n↩ [[C++深入/白板/C++深入学习总览.canvas|返回总览白板]]","x":-480,"y":-520,"width":450,"height":2800,"color":"4"}
+	],
+	"edges":[
+		{"id":"f1b1b2c3d4e5f601","fromNode":"e1a1b2c3d4e5f601","fromSide":"right","toNode":"e1a5b2c3d4e5f645","toSide":"left"},
+		{"id":"f1b2b2c3d4e5f612","fromNode":"e1a2b2c3d4e5f612","fromSide":"right","toNode":"e1a6b2c3d4e5f656","toSide":"left"},
+		{"id":"f1b3b2c3d4e5f623","fromNode":"e1a3b2c3d4e5f623","fromSide":"right","toNode":"e1a7b2c3d4e5f667","toSide":"left"},
+		{"id":"f1b4b2c3d4e5f634","fromNode":"e1a4b2c3d4e5f634","fromSide":"right","toNode":"e1a8b2c3d4e5f678","toSide":"left"},
+		{"id":"f1b5b2c3d4e5f645","fromNode":"e1a5b2c3d4e5f645","fromSide":"right","toNode":"e1a9b2c3d4e5f689","toSide":"left"},
+		{"id":"f1b6b2c3d4e5f656","fromNode":"e1a6b2c3d4e5f656","fromSide":"right","toNode":"e1a9b2c3d4e5f689","toSide":"left"},
+		{"id":"f1b7b2c3d4e5f667","fromNode":"e1a7b2c3d4e5f667","fromSide":"right","toNode":"e1a9b2c3d4e5f689","toSide":"left"},
+		{"id":"f1b8b2c3d4e5f678","fromNode":"e1a8b2c3d4e5f678","fromSide":"right","toNode":"e1a9b2c3d4e5f689","toSide":"left"},
+		{"id":"f1b9b2c3d4e5f689","fromNode":"e1a1b2c3d4e5f601","fromSide":"bottom","toNode":"e1a2b2c3d4e5f612","toSide":"top"},
+		{"id":"f1b10b2c3d4e5f690","fromNode":"e1a2b2c3d4e5f612","fromSide":"bottom","toNode":"e1a3b2c3d4e5f623","toSide":"top"},
+		{"id":"f1b11b2c3d4e5f701","fromNode":"e1a3b2c3d4e5f623","fromSide":"bottom","toNode":"e1a4b2c3d4e5f634","toSide":"top"},
+		{"id":"f1b12b2c3d4e5f712","fromNode":"e1a5b2c3d4e5f645","fromSide":"bottom","toNode":"e1a6b2c3d4e5f656","toSide":"top"},
+		{"id":"f1b13b2c3d4e5f723","fromNode":"e1a6b2c3d4e5f656","fromSide":"bottom","toNode":"e1a7b2c3d4e5f667","toSide":"top"},
+		{"id":"f1b14b2c3d4e5f734","fromNode":"e1a7b2c3d4e5f667","fromSide":"bottom","toNode":"e1a8b2c3d4e5f678","toSide":"top"}
+	]
+}

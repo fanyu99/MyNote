@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"a3c1b2c3d4e5f601","type":"file","file":"C++深入/C++多线程/C++多线程基础常见问题.md","x":-1700,"y":-560,"width":450,"height":660,"color":"2"},
+		{"id":"a3c2b2c3d4e5f612","type":"file","file":"C++深入/C++多线程/C++多线程核心常见问题.md","x":-1700,"y":180,"width":450,"height":660,"color":"2"},
+		{"id":"a3c3b2c3d4e5f623","type":"file","file":"C++深入/C++多线程/线程池.md","x":-1700,"y":920,"width":450,"height":660,"color":"2"},
+		{"id":"a3c4b2c3d4e5f634","type":"text","text":"# 多线程基础要点\n**并发三问**：谁拥有数据 / 哪些操作必须整体完成 / 线程间怎么传状态\n- 锁用 RAII：`lock_guard`（简单作用域）、`unique_lock`（配条件变量 / 延迟加锁 / 转移所有权）\n- 条件变量 = 互斥锁 + 共享状态 + **谓词**；必须用 `while` / 谓词防**虚假唤醒**\n- 生产者-消费者：push 后**锁外** `notify_one`；stop 时 `notify_all`\n- 原子变量只解决**单个**变量的原子读写；复合逻辑（`if(count<limit) ++count`）仍需锁或 CAS\n- 内存序：发布/订阅用 `release` / `acquire`；`relaxed` 只保原子性；拿不稳就用默认 `seq_cst`\n- `joinable` 线程对象析构会 `std::terminate` → 用 `std::jthread`（C++20）\n- 死锁：统一锁顺序或用 `std::scoped_lock`；读多写少用 `std::shared_mutex`","x":-1180,"y":-560,"width":450,"height":660,"color":"3"},
+		{"id":"a3c5b2c3d4e5f645","type":"text","text":"# 线程安全队列要点\n**主线**：接口应封装完整的**状态转换逻辑**\n- 朴素 `try_pop` → 调用方忙等 / CPU 空转 → 改用条件变量阻塞等待\n- 阻塞队列：`wait(lock, 谓词)` + 关闭标志 `closed_`；唤醒后**永远假设队列可能为空**\n- 关键：`wait` 等待时**释放锁**，被唤醒后**重新持锁**\n- **单个成员函数线程安全 ≠ 组合后线程安全**：`if(!q.empty()) q.pop();` 仍有竞态\n- 正解：提供表达完整操作的接口（如线程安全的 `pop`，内部已含等待非空）","x":-1180,"y":180,"width":450,"height":660,"color":"3"},
+		{"id":"a3c6b2c3d4e5f656","type":"text","text":"# 线程池要点\n**本质**：固定工作线程 + 共享任务队列 + 条件变量同步\n- `submit`：打包任务（`packaged_task` / `bind` / `apply`）+ 入队 + 通知；返回 `future`\n- `worker`：等待唤醒 → **持锁取任务** → **解锁执行**（锁外执行防死锁）\n- `shutdown`：置停止标志 → `notify_all` → `join` 等待退出\n- `packaged_task` **不可复制** → 用移动或 `shared_ptr` 包装\n- **工程陷阱**：任务饥饿死锁（工作线程互相等待）、嵌套 `future.get()` 停滞、无界队列内存暴涨\n- 有界队列背压：阻塞提交 / 拒绝 / 丢弃旧 / 调用者自行执行\n- 原则：不在锁内执行任务；不让所有线程同步等其它任务；异常不能逃出线程入口","x":-1180,"y":920,"width":450,"height":660,"color":"3"},
+		{"id":"a3c7b2c3d4e5f667","type":"text","text":"# 关联笔记（跨板块）\n- [[C++深入/C++模板/C++ 函数模板与类型推导]] —— `submit` 用模板 + 参数包 + `std::invoke_result_t` + `if constexpr` 实现\n- [[C++深入/C++新特性/右值引用,移动语义,完美转发]] —— `submit` 的 `F&&` / `Args&&` 万能引用与完美转发\n- [[C++深入/C++新特性/RAII,资源所有权与unique_ptr]] —— 任务 / 线程对象的资源管理与所有权\n- [[C++深入/C++内存管理/C++内存管理]] —— 跨线程缓冲区的生命周期与 use-after-free\n- [[C++深入/学习进度.md]] —— A6 并发学习记录\n\n↩ [[C++深入/白板/C++深入学习总览.canvas|返回总览白板]]","x":-660,"y":-560,"width":450,"height":2140,"color":"4"}
+	],
+	"edges":[
+		{"id":"c3d1b2c3d4e5f601","fromNode":"a3c1b2c3d4e5f601","fromSide":"right","toNode":"a3c4b2c3d4e5f634","toSide":"left"},
+		{"id":"c3d2b2c3d4e5f612","fromNode":"a3c2b2c3d4e5f612","fromSide":"right","toNode":"a3c5b2c3d4e5f645","toSide":"left"},
+		{"id":"c3d3b2c3d4e5f623","fromNode":"a3c3b2c3d4e5f623","fromSide":"right","toNode":"a3c6b2c3d4e5f656","toSide":"left"},
+		{"id":"c3d4b2c3d4e5f634","fromNode":"a3c4b2c3d4e5f634","fromSide":"right","toNode":"a3c7b2c3d4e5f667","toSide":"left"},
+		{"id":"c3d5b2c3d4e5f645","fromNode":"a3c5b2c3d4e5f645","fromSide":"right","toNode":"a3c7b2c3d4e5f667","toSide":"left"},
+		{"id":"c3d6b2c3d4e5f656","fromNode":"a3c6b2c3d4e5f656","fromSide":"right","toNode":"a3c7b2c3d4e5f667","toSide":"left"},
+		{"id":"c3d7b2c3d4e5f667","fromNode":"a3c4b2c3d4e5f634","fromSide":"bottom","toNode":"a3c5b2c3d4e5f645","toSide":"top"},
+		{"id":"c3d8b2c3d4e5f678","fromNode":"a3c5b2c3d4e5f645","fromSide":"bottom","toNode":"a3c6b2c3d4e5f656","toSide":"top"}
+	]
+}

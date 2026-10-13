@@ -1,0 +1,23 @@
+{
+	"nodes":[
+		{"id":"c1a1b2c3d4e5f601","type":"text","text":"# C++深入学习 · 知识总览\n\n本板块按 **5 个子板块**整理，每块各有一张白板做综合展示；白板之间通过「关联笔记」节点互相跳转。\n\n> 主线：**对象模型与虚函数（多态底层）→ 内存管理（对象生命周期）→ 现代 C++ 新特性（RAII / 移动语义 / 类型推导 / constexpr）→ 模板（泛型）→ 并发（线程池）**。","x":-700,"y":-760,"width":900,"height":200,"color":"6"},
+		{"id":"c1a2b2c3d4e5f612","type":"file","file":"C++深入/白板/C++对象模型与虚函数.canvas","x":-1700,"y":-420,"width":520,"height":560,"color":"6"},
+		{"id":"c1a3b2c3d4e5f623","type":"file","file":"C++深入/白板/C++内存管理.canvas","x":-1130,"y":-420,"width":520,"height":560,"color":"5"},
+		{"id":"c1a4b2c3d4e5f634","type":"file","file":"C++深入/白板/C++新特性.canvas","x":-560,"y":-420,"width":520,"height":560,"color":"4"},
+		{"id":"c1a5b2c3d4e5f645","type":"file","file":"C++深入/白板/C++模板.canvas","x":10,"y":-420,"width":520,"height":560,"color":"1"},
+		{"id":"c1a6b2c3d4e5f656","type":"file","file":"C++深入/白板/C++多线程.canvas","x":580,"y":-420,"width":520,"height":560,"color":"2"},
+		{"id":"c1a7b2c3d4e5f667","type":"text","text":"# 跨板块关联索引\n\n**对象模型 → 内存管理**\n- [[C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局]] 的 `vptr` 开销 → [[C++深入/C++内存管理/C++内存管理]] 里 `new`/`delete` 的两步流程\n- 多态基类**虚析构** → 通过基类指针 `delete` 派生对象时的正确销毁\n\n**内存管理 → 新特性**\n- 裸指针的泄漏 / double free → [[C++深入/C++新特性/RAII,资源所有权与unique_ptr]] 的 RAII 与智能指针\n- `new` 里的 placement new 构造 → 移动构造/移动赋值接管资源\n\n**新特性 → 模板**\n- [[C++深入/C++新特性/右值引用,移动语义,完美转发]] 的万能引用 / 引用折叠 → [[C++深入/C++模板/C++ 函数模板与类型推导]] 的完美转发\n- [[C++深入/C++新特性/类型推导和编译期计算]] 的 `auto`/`decltype` → 模板实参推导；`constexpr` → 编译期实例化\n\n**模板 → 并发**\n- [[C++深入/C++模板/C++ 函数模板与类型推导]] 的 `submit` 模板 → [[C++深入/C++多线程/线程池]] 的任务提交（参数包 + `std::invoke_result_t`）\n\n**并发 → 内存管理**\n- [[C++深入/C++多线程/线程池]] 跨线程传递对象 / 图像缓冲 → use-after-free 与生命周期管理\n\n**对象模型 → 新特性**\n- [[C++深入/C++新特性/optional、string_view、variant、span]] 中 `variant` 与虚函数多态的取舍（未覆盖类型会静默返回）\n\n**对象模型 ↔ 并发**\n- [[C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast]] 的多态容器 → 线程安全队列 / 线程池里的对象所有权","x":-1700,"y":280,"width":2800,"height":560,"color":"3"}
+	],
+	"edges":[
+		{"id":"d1b1b2c3d4e5f601","fromNode":"c1a1b2c3d4e5f601","fromSide":"bottom","toNode":"c1a2b2c3d4e5f612","toSide":"top"},
+		{"id":"d1b2b2c3d4e5f612","fromNode":"c1a1b2c3d4e5f601","fromSide":"bottom","toNode":"c1a3b2c3d4e5f623","toSide":"top"},
+		{"id":"d1b3b2c3d4e5f623","fromNode":"c1a1b2c3d4e5f601","fromSide":"bottom","toNode":"c1a4b2c3d4e5f634","toSide":"top"},
+		{"id":"d1b4b2c3d4e5f634","fromNode":"c1a1b2c3d4e5f601","fromSide":"bottom","toNode":"c1a5b2c3d4e5f645","toSide":"top"},
+		{"id":"d1b5b2c3d4e5f645","fromNode":"c1a1b2c3d4e5f601","fromSide":"bottom","toNode":"c1a6b2c3d4e5f656","toSide":"top"},
+		{"id":"d1b6b2c3d4e5f656","fromNode":"c1a2b2c3d4e5f612","fromSide":"bottom","toNode":"c1a7b2c3d4e5f667","toSide":"top"},
+		{"id":"d1b7b2c3d4e5f667","fromNode":"c1a3b2c3d4e5f623","fromSide":"bottom","toNode":"c1a7b2c3d4e5f667","toSide":"top"},
+		{"id":"d1b8b2c3d4e5f678","fromNode":"c1a4b2c3d4e5f634","fromSide":"bottom","toNode":"c1a7b2c3d4e5f667","toSide":"top"},
+		{"id":"d1b9b2c3d4e5f689","fromNode":"c1a5b2c3d4e5f645","fromSide":"bottom","toNode":"c1a7b2c3d4e5f667","toSide":"top"},
+		{"id":"d1b10b2c3d4e5f690","fromNode":"c1a6b2c3d4e5f656","fromSide":"bottom","toNode":"c1a7b2c3d4e5f667","toSide":"top"}
+	]
+}

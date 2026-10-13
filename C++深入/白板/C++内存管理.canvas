@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"a2c1b2c3d4e5f601","type":"file","file":"C++深入/C++内存管理/C++内存管理.md","x":-1520,"y":-480,"width":460,"height":1000,"color":"5"},
+		{"id":"a2c2b2c3d4e5f612","type":"text","text":"# 内存分区与 new/delete\n**程序内存分区**：栈 → 堆 → 全局/静态（`.data`/`.bss`）→ 常量（`.rodata`）→ 代码（`.text`）\n- 易错：**指针变量在栈上，`new` 的对象在堆上**\n**分配内存 ≠ 创建对象**\n- `new` = `operator new` 申请原始内存 + placement new 调构造函数\n- `delete` = 调析构函数 + `operator delete` 释放内存（顺序与 `new` 相反）\n- `malloc`/`free` 只管原始内存，**不调构造/析构**；失败：`new` 抛 `std::bad_alloc` vs `malloc` 返回 `NULL`\n- 混用 `new`↔`free`、`malloc`↔`delete`、`new[]`↔`delete` 都是 **UB**\n- `placement new` 在已有内存上构造对象，**需手动调析构**，不能用 `delete`/`free`","x":-1000,"y":-480,"width":450,"height":520,"color":"3"},
+		{"id":"a2c3b2c3d4e5f623","type":"text","text":"# 经典内存陷阱\n- **内存泄漏**：申请后没释放且丢失指针（忘记 `delete` / 异常提前返回跳过了释放）\n- **悬空指针**：对象已释放，指针仍保存旧地址（删除后置 `nullptr` 是不错的防御）\n- **野指针**：指针从未初始化，指向随机地址\n- **use-after-free**：释放后继续访问那块内存（跨线程缓冲区尤其隐蔽）\n- **double free**：同一内存释放两次（所有权不清，如 Qt `WA_DeleteOnClose` + 栈对象）\n> 根本解法：**栈对象 + 标准容器 + RAII / 智能指针**；类自持资源要按 **Rule of Three / Five** 明确拷贝、移动、析构行为","x":-1000,"y":100,"width":450,"height":420,"color":"3"},
+		{"id":"a2c4b2c3d4e5f634","type":"text","text":"# 关联笔记（跨板块）\n- [[C++深入/C++对象模型与虚函数/C++对象模型和虚函数]] —— 对象由数据成员 + 隐藏成员构成；虚析构决定能否正确销毁派生对象\n- [[C++深入/C++对象模型与虚函数/对象大小,内存对齐和继承布局]] —— 内存对齐、填充、`sizeof` 统计什么\n- [[C++深入/C++新特性/RAII,资源所有权与unique_ptr]] —— RAII 把释放交给析构函数；智能指针接管裸指针\n- [[C++深入/C++多线程/线程池]] —— 跨线程传递对象 / 缓冲区的生命周期与 use-after-free\n- [[C++深入/学习进度.md]] —— A2 资源管理学习记录（含 ASan 实践）\n\n↩ [[C++深入/白板/C++深入学习总览.canvas|返回总览白板]]","x":-480,"y":-480,"width":450,"height":1000,"color":"4"}
+	],
+	"edges":[
+		{"id":"b2d1b2c3d4e5f601","fromNode":"a2c1b2c3d4e5f601","fromSide":"right","toNode":"a2c2b2c3d4e5f612","toSide":"left"},
+		{"id":"b2d2b2c3d4e5f612","fromNode":"a2c1b2c3d4e5f601","fromSide":"right","toNode":"a2c3b2c3d4e5f623","toSide":"left"},
+		{"id":"b2d3b2c3d4e5f623","fromNode":"a2c2b2c3d4e5f612","fromSide":"right","toNode":"a2c4b2c3d4e5f634","toSide":"left"},
+		{"id":"b2d4b2c3d4e5f634","fromNode":"a2c3b2c3d4e5f623","fromSide":"right","toNode":"a2c4b2c3d4e5f634","toSide":"left"},
+		{"id":"b2d5b2c3d4e5f645","fromNode":"a2c2b2c3d4e5f612","fromSide":"bottom","toNode":"a2c3b2c3d4e5f623","toSide":"top"}
+	]
+}

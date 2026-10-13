@@ -1,9 +1,11 @@
 ---
 title: GenICam 参数树
 type: 主题笔记
+系列: 上位机学习
 created: 2026-10-07
-updated: 2026-10-08
+updated: 2026-10-13
 tags:
+  - 上位机
   - 海康SDK
   - 主题笔记
 status: 进行中
@@ -78,7 +80,7 @@ C++设置参数时,通常传入的是节点名称
 |软触发命令|`TriggerSoftware`|Command|
 |开启 Chunk 数据|`ChunkModeActive`|Boolean|
 例如: 
-```C++
+```cpp
 MV_CC_SetFloatValue(handle, 
 "ExposureTime", // 参数名
  10000.0f);
@@ -86,7 +88,7 @@ MV_CC_SetFloatValue(handle,
 ### 六种参数类型
 1. Integer: 整数,例如宽度长度等
 2. Float: 浮点数.例如ExposureTime,Gain等
-```C++
+```cpp
 MVCC_FLOATVALUE stFloatValue = { 0 };
 
 int nRet = MV_CC_GetFloatValue( // 获取浮点数类型
@@ -116,7 +118,7 @@ TriggerMode:
 4. Boolean: 布尔值,例如`ChunkModeActive`等
 5. String: 字符串,例如`DeviceUserID`等
 6. Command: 命令,例如`TriggerSoftware`软件触发
-```C++
+```cpp
 int nRet = MV_CC_SetCommandValue(
 	handle,
 	"TriggerSoftware"
@@ -156,7 +158,7 @@ StartGrabbing 之前
 - `PixelFormat`
 - 部分触发参数
 - 部分采集模式参数
-```C++
+```cpp
 MV_CC_CreateHandle(&handle, &deviceInfo);
 MV_CC_OpenDevice(handle);
 
@@ -207,7 +209,7 @@ MVS中可见:
 13. 读取并确认参数
 ```
 
-```C++
+```cpp
 // 1. 打开设备
 int nRet = MV_CC_OpenDevice(handle);
 
@@ -280,7 +282,7 @@ nRet = MV_CC_SetFloatValue(
 );
 ```
 设置参数封装
-```C++
+```cpp
 int SetFloatParameter(
     void* handle,
     const char* nodeName,
@@ -309,7 +311,7 @@ int SetFloatParameter(
 
 ```
 
-> [!重要的结论表]
+> [!note] 重要的结论表
 >
 >|参数类型|获取函数|设置函数|
 |---|---|---|
@@ -331,7 +333,7 @@ AcquisitionMode = Continuous
 TriggerMode = Off
 ```
 伪代码
-```C++
+```cpp
 // 设备已经打开，且尚未开始取流
 
 int nRet = MV_CC_SetEnumValue(
@@ -412,7 +414,7 @@ StartGrabbing
 等待并取回图像
 ```
 配置示例:
-```C++
+```cpp
 // 设备已经打开，但尚未开始取流
 
 int nRet = MV_CC_SetEnumValue(
@@ -448,7 +450,7 @@ if (nRet != MV_OK)
 }
 ```
 发出一次触发再取一帧
-```C++
+```cpp
 // 1. 告诉相机采一帧
 int nRet = MV_CC_SetCommandValue(
     handle,
@@ -501,7 +503,7 @@ TriggerMode = On
 TriggerSource = Line0 / Line1 / 其他输入源
 ```
 示例
-```C++
+```cpp
 // 设备已经打开，尚未开始取流
 
 int nRet = MV_CC_SetEnumValue(
@@ -586,3 +588,19 @@ AcquisitionMode = Continuous // 连续采集
 TriggerMode = On // 开启外部触发
 TriggerSource = Software // 软触发
 ```
+
+---
+
+## 相关笔记
+
+- [[上位机学习/海康SDK/入门]] —— 相机初始化与取图整体流程
+- [[上位机学习/海康SDK/SDK缓冲区,图像数据生命周期]] —— 取图缓冲区与图像数据生命周期
+
+---
+
+- **知识库总览**：[[上位机学习/_MOC]]
+- **仓库主页**：[[README]]
+
+---
+
+*本页随学习进度持续更新。*

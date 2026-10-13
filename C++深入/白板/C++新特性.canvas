@@ -1,0 +1,35 @@
+{
+	"nodes":[
+		{"id":"a4c1b2c3d4e5f601","type":"file","file":"C++深入/C++新特性/RAII,资源所有权与unique_ptr.md","x":-1700,"y":-560,"width":450,"height":620,"color":"4"},
+		{"id":"a4c2b2c3d4e5f612","type":"file","file":"C++深入/C++新特性/右值引用,移动语义,完美转发.md","x":-1700,"y":140,"width":450,"height":620,"color":"4"},
+		{"id":"a4c3b2c3d4e5f623","type":"file","file":"C++深入/C++新特性/类型推导和编译期计算.md","x":-1700,"y":840,"width":450,"height":620,"color":"4"},
+		{"id":"a4c4b2c3d4e5f634","type":"file","file":"C++深入/C++新特性/constexpr编译常量.md","x":-1700,"y":1540,"width":450,"height":620,"color":"4"},
+		{"id":"a4c5b2c3d4e5f645","type":"file","file":"C++深入/C++新特性/optional、string_view、variant、span.md","x":-1700,"y":2240,"width":450,"height":620,"color":"4"},
+		{"id":"a4c6b2c3d4e5f656","type":"text","text":"# RAII 与智能指针要点\n**RAII**：构造获取资源、析构释放资源；把释放交给析构函数（异常路径也安全）\n- 所有权编码进类型：`unique_ptr` 独占 / `shared_ptr` 共享 / `weak_ptr` 观察\n- `unique_ptr`：**不能复制、只能移动**；`get()` 观察 / `release()` 弃权不释放 / `reset()` 释放并可替换\n- 只能管堆对象：用 `&栈变量` 构造 → 析构时 `delete` 栈地址 = **UB**\n- `shared_ptr`：引用计数，计数为 0 释放；**循环引用**泄漏 → 一个方向改 `weak_ptr`\n- `weak_ptr` 非拥有、不计数，`lock()` 提升为 `shared_ptr` 后判空访问\n- 多态基类需**虚析构**，否则 `unique_ptr<Base>` 销毁派生对象不完整","x":-1180,"y":-560,"width":450,"height":620,"color":"3"},
+		{"id":"a4c7b2c3d4e5f667","type":"text","text":"# 移动语义与完美转发要点\n- 左值：有名字、可取地址；右值：临时对象 / 字面量\n- `std::move` **不移动任何东西**，只是类型转换；真正移动靠**移动构造 / 移动赋值**\n- 移动后**源对象置空**，避免重复释放；被移动对象只能析构或重新赋值\n- 右值引用变量**本身是左值**，需再 `std::move` 才能继续按右值传递\n- 引用折叠：**有一个 `&` 结果就是 `&`**，只有 `&& &&` 折叠为 `&&`\n- 万能引用 = 模板推导下的 `T&&`（或 `auto&&`）；`const T&&` / 具体类型都**不是**\n- `std::forward` 只配万能引用，保留实参左值 / 右值属性 → 完美转发","x":-1180,"y":140,"width":450,"height":620,"color":"3"},
+		{"id":"a4c8b2c3d4e5f678","type":"text","text":"# 类型推导要点\n**auto**\n- 按值推导丢引用、丢顶层 `const`；数组 / 函数退化为指针\n- `auto i = {1,2,3}` → `initializer_list<int>`；`auto j{1}` C++17 为 `int`\n- `auto&&` 是万能引用；`auto` + 代理对象（如 `vector<bool>::reference`）易产生悬空引用\n**decltype**\n- `decltype(变量名)` = 声明类型；`decltype((x))` 左值表达式 → `T&`；`decltype(1+1)` → `T`\n- `decltype(auto)` 忠实保留返回值类型（转发场景）\n- 结构化绑定 `auto [id,name] = p`；配合 `if (init; cond)`\n\n（编译期计算见右侧 constexpr 板）","x":-1180,"y":840,"width":450,"height":620,"color":"3"},
+		{"id":"a4c9b2c3d4e5f689","type":"text","text":"# constexpr 要点\n- `constexpr` 要求**编译期确定**（比 `const` 强，`const` 可运行期初始化）\n- `constexpr` 函数在编译期 / 运行期两种上下文都能用；`consteval`（C++20）**强制编译期**\n- `static_assert` 第一参数须常量表达式，天然搭配 constexpr 做编译期断言\n- `if constexpr` 编译期分支\n- 字面类型：标量 / 引用 / 指针，或带 `constexpr` 构造、析构平凡的类（如 `Point`）\n- 典型用法：编译期生成 **CRC-32 查找表**；BCD 编解码；`constinit` 避免初始化顺序问题\n- C++11→14→17：局部变量 / 循环 / if-else / 成员修改 / lambda 逐版放开","x":-1180,"y":1540,"width":450,"height":620,"color":"3"},
+		{"id":"a4c10b2c3d4e5f690","type":"text","text":"# optional / variant / string_view / span 要点\n**值的不确定性**\n- `optional<T>`：\"有 / 没有\"；`value_or()` 最安全；空不构造对象但**占 T 大小**，超大对象用 `optional<unique_ptr<T>>`\n- `variant<...>`：替代 `union`，\"是其中之一\"；`get<T>` 失败抛 `bad_variant_access`；`visit` + `overloaded` 分支处理；**未覆盖类型静默返回**是相对虚函数的劣势\n**已有数据的视图（不拥有、不能作返回值 / 成员）**\n- `string_view`：双指针，零拷贝；**不保证 NUL 结尾、不延长生命周期**\n- `span<T>`：连续内存视图，`vector`/`array`/C 数组都能接；**不检查越界**\n- 选型：拥有数据用 optional / variant，视图用 string_view / span","x":-1180,"y":2240,"width":450,"height":620,"color":"3"},
+		{"id":"a4c11b2c3d4e5f701","type":"text","text":"# 关联笔记（跨板块）\n- [[C++深入/C++对象模型与虚函数/对象切片,类型转换,dynamic_cast]] —— 多态容器用 `unique_ptr<Base>`；`variant` 是虚函数多态的替代方案\n- [[C++深入/C++内存管理/C++内存管理]] —— RAII 解决异常路径泄漏；智能指针接管裸指针\n- [[C++深入/C++模板/C++ 函数模板与类型推导]] —— `auto`/`decltype` 与模板实参推导；`constexpr` 与编译期实例化\n- [[C++深入/C++多线程/线程池]] —— 移动语义：`packaged_task` / lambda 只能移动，需 `std::move` 入队\n- [[C++深入/学习进度.md]] —— A2 / A4 / A7 学习记录\n\n↩ [[C++深入/白板/C++深入学习总览.canvas|返回总览白板]]","x":-660,"y":-560,"width":450,"height":3420,"color":"4"}
+	],
+	"edges":[
+		{"id":"d4e1b2c3d4e5f601","fromNode":"a4c1b2c3d4e5f601","fromSide":"right","toNode":"a4c6b2c3d4e5f656","toSide":"left"},
+		{"id":"d4e2b2c3d4e5f612","fromNode":"a4c2b2c3d4e5f612","fromSide":"right","toNode":"a4c7b2c3d4e5f667","toSide":"left"},
+		{"id":"d4e3b2c3d4e5f623","fromNode":"a4c3b2c3d4e5f623","fromSide":"right","toNode":"a4c8b2c3d4e5f678","toSide":"left"},
+		{"id":"d4e4b2c3d4e5f634","fromNode":"a4c4b2c3d4e5f634","fromSide":"right","toNode":"a4c9b2c3d4e5f689","toSide":"left"},
+		{"id":"d4e5b2c3d4e5f645","fromNode":"a4c5b2c3d4e5f645","fromSide":"right","toNode":"a4c10b2c3d4e5f690","toSide":"left"},
+		{"id":"d4e6b2c3d4e5f656","fromNode":"a4c6b2c3d4e5f656","fromSide":"right","toNode":"a4c11b2c3d4e5f701","toSide":"left"},
+		{"id":"d4e7b2c3d4e5f667","fromNode":"a4c7b2c3d4e5f667","fromSide":"right","toNode":"a4c11b2c3d4e5f701","toSide":"left"},
+		{"id":"d4e8b2c3d4e5f678","fromNode":"a4c8b2c3d4e5f678","fromSide":"right","toNode":"a4c11b2c3d4e5f701","toSide":"left"},
+		{"id":"d4e9b2c3d4e5f689","fromNode":"a4c9b2c3d4e5f689","fromSide":"right","toNode":"a4c11b2c3d4e5f701","toSide":"left"},
+		{"id":"d4e10b2c3d4e5f690","fromNode":"a4c10b2c3d4e5f690","fromSide":"right","toNode":"a4c11b2c3d4e5f701","toSide":"left"},
+		{"id":"d4e11b2c3d4e5f701","fromNode":"a4c1b2c3d4e5f601","fromSide":"bottom","toNode":"a4c2b2c3d4e5f612","toSide":"top"},
+		{"id":"d4e12b2c3d4e5f712","fromNode":"a4c2b2c3d4e5f612","fromSide":"bottom","toNode":"a4c3b2c3d4e5f623","toSide":"top"},
+		{"id":"d4e13b2c3d4e5f723","fromNode":"a4c3b2c3d4e5f623","fromSide":"bottom","toNode":"a4c4b2c3d4e5f634","toSide":"top"},
+		{"id":"d4e14b2c3d4e5f734","fromNode":"a4c4b2c3d4e5f634","fromSide":"bottom","toNode":"a4c5b2c3d4e5f645","toSide":"top"},
+		{"id":"d4e15b2c3d4e5f745","fromNode":"a4c6b2c3d4e5f656","fromSide":"bottom","toNode":"a4c7b2c3d4e5f667","toSide":"top"},
+		{"id":"d4e16b2c3d4e5f756","fromNode":"a4c7b2c3d4e5f667","fromSide":"bottom","toNode":"a4c8b2c3d4e5f678","toSide":"top"},
+		{"id":"d4e17b2c3d4e5f767","fromNode":"a4c8b2c3d4e5f678","fromSide":"bottom","toNode":"a4c9b2c3d4e5f689","toSide":"top"},
+		{"id":"d4e18b2c3d4e5f778","fromNode":"a4c9b2c3d4e5f689","fromSide":"bottom","toNode":"a4c10b2c3d4e5f690","toSide":"top"}
+	]
+}
