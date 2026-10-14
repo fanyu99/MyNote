@@ -192,19 +192,28 @@ private:
 ```
 
 
-```
+```mermaid
 flowchart TD
-    S1[Mat 内存布局] --> S2[NCHW 一维索引]
-    S2 --> S3[ORT API 绑 tensor]
-    S2 --> S4[letterbox/归一化]
-    S4 --> S6[坐标逆映射]
-    S5[输出张量解读] --> S6
-    S6 --> S7[IoU/NMS]
-    S3 --> S5
-    S7 --> S8[Detector 封装]
-    A3[A轨 RAII/智能指针] -.支撑.-> S8
-    A4[A轨 move-only] -.支撑.-> S8
-    M1[M1 训练一致性] -.约束.-> S4
-    S8 --> M3[相机送图进 Detector]
-    S8 --> M6[Qt 推理线程]
+    S1["Mat 内存布局"] --> S2["NCHW 一维索引"]
+    S2 --> S3["ORT API 绑 tensor"]
+    S2 --> S4["letterbox / 归一化"]
+    S3 --> S5["输出张量解读"]
+    S4 --> S6["坐标逆映射"]
+    S5 --> S6
+    S6 --> S7["IoU / NMS"]
+    S7 --> S8["Detector 封装"]
+    S8 --> M3["相机送图进 Detector"]
+    S8 --> M6["Qt 推理线程"]
+    A3["A 轨 RAII / 智能指针"] -.支撑.-> S8
+    A4["A 轨 move-only"] -.支撑.-> S8
+    M1["M1 训练一致性"] -.约束.-> S4
+
+    classDef pre fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1;
+    classDef post fill:#e8f5e9,stroke:#43a047,color:#1b5e20;
+    classDef sup fill:#f3e5f5,stroke:#8e24aa,color:#4a148c;
+    classDef app fill:#fff3e0,stroke:#ef6c00,color:#e65100;
+    class S1,S2,S3,S4 pre;
+    class S5,S6,S7,S8 post;
+    class A3,A4,M1 sup;
+    class M3,M6 app;
 ```

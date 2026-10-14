@@ -31,17 +31,33 @@
 ## 知识关联图
 
 ```mermaid
-graph LR
-    A[InnoDB] --> B[锁]
-    A --> C[SQL优化]
-    A --> D[B+树]
-    C --> E[索引优化]
+flowchart TD
+    A["InnoDB<br/>存储引擎"]
+    D["B+树<br/>索引结构"]
+    E["索引优化"]
+    C["SQL 优化"]
+    B["锁<br/>并发控制"]
+    F["存储过程"]
+    G["视图"]
+
+    A --> D
+    A --> C
+    A --> B
+    C --> E
     E --> D
-    C --> B
-    F[存储过程] --> C
-    F --> G[视图]
-    B --> C
     E --> B
+    C --> B
+    F --> C
+    F --> G
+
+    classDef core fill:#ede7f6,stroke:#5e35b1,stroke-width:2px,color:#311b92;
+    classDef idx fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1;
+    classDef conc fill:#ffebee,stroke:#e53935,color:#b71c1c;
+    classDef obj fill:#e8f5e9,stroke:#43a047,color:#1b5e20;
+    class A core;
+    class D,E,C idx;
+    class B conc;
+    class F,G obj;
 ```
 
 ---

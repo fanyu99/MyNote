@@ -20,9 +20,16 @@ date: 2026-10-13
 ## 一、lambda 的本质：编译器生成的闭包类
 
 ```mermaid
-flowchart LR
+flowchart TB
     A["lambda 表达式<br/>[a, &b](int x){ ... }"] -->|编译器展开| B["编译器生成的唯一类<br/>每写一个 lambda 就生成一个"]
     B --> C["class __lambda_1 {<br/>  int     a_;  // [a]  值捕获 → 成员<br/>  double& b_;  // [&b] 引用捕获 → 引用成员<br/>public:<br/>  double operator()(int x) const {<br/>    return a_ + b_ + x;  // 函数体<br/>  }<br/>};"]
+
+    classDef src fill:#fff3e0,stroke:#ef6c00,color:#e65100;
+    classDef gen fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1;
+    classDef code fill:#ede7f6,stroke:#5e35b1,color:#311b92;
+    class A src;
+    class B gen;
+    class C code;
 ```
 
 由此可以推出下面几条结论。

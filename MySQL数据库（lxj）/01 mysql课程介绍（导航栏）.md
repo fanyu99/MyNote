@@ -19,9 +19,15 @@
 ## 🎯 学习路线
 
 ```mermaid
-graph LR
-    A[🏗️ 基础篇] --> B[🚀 进阶篇]
-    B --> C[🔧 运维篇]
+flowchart TB
+    A["🏗️ 基础篇"] --> B["🚀 进阶篇"] --> C["🔧 运维篇"]
+
+    classDef s1 fill:#e8f5e9,stroke:#43a047,color:#1b5e20;
+    classDef s2 fill:#fff8e1,stroke:#fbc02d,color:#8d6e00;
+    classDef s3 fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1;
+    class A s1;
+    class B s2;
+    class C s3;
 ```
 
 > **建议：** 先拿下基础篇，能用 SQL 干活了，再啃进阶篇的原理，最后到运维篇搞定生产环境。

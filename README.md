@@ -8,15 +8,39 @@
 ## 🗺️ 知识地图
 
 ```mermaid
-graph LR
-    A[C++ 学习笔记<br/>语言基础] --> B[OpenCV<br/>计算机视觉]
-    A --> C[仓库管理系统<br/>C++/Qt 项目]
-    A --> G[上位机学习<br/>Qt · 相机 · 项目实战]
-    B --> D[OpenCV 与 Qt 集成]
+flowchart TD
+    A["C++ 学习笔记<br/>语言基础"]
+
+    subgraph VISION["视觉 / 上位机"]
+        B["OpenCV<br/>计算机视觉"]
+        D["OpenCV 与 Qt 集成"]
+        G["上位机学习<br/>Qt · 相机 · 项目实战"]
+    end
+    subgraph PROJECT["项目 / 数据"]
+        C["仓库管理系统<br/>C++/Qt 项目"]
+        E["MySQL 数据库"]
+    end
+    subgraph COURSE["课程"]
+        F["MySQL 课程<br/>基础/进阶/运维"]
+    end
+
+    A --> B
+    A --> C
+    A --> G
+    B --> D
     B --> G
     C --> D
-    C --> E[MySQL 数据库]
-    F[MySQL 课程<br/>基础/进阶/运维] --> E
+    C --> E
+    F --> E
+
+    classDef base fill:#e8f5e9,stroke:#43a047,stroke-width:2px,color:#1b5e20;
+    classDef mid fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1;
+    classDef proj fill:#fff3e0,stroke:#ef6c00,color:#e65100;
+    classDef course fill:#ede7f6,stroke:#5e35b1,color:#311b92;
+    class A base;
+    class B,D,G mid;
+    class C,E proj;
+    class F course;
 ```
 
 > **核心关系**：
