@@ -15,6 +15,12 @@
       "ctime": 1791965127775,
       "url": "https://www.bilibili.com/list/ml3071633858?oid=70156862&bvid=BV1YE411D7nH&p=8",
       "title": "1.3.3_系统调用 - 王道计算机考研 操作系统"
+    },
+    {
+      "type": "file",
+      "ctime": 1792157873338,
+      "path": "操作系统/内存.md",
+      "subpath": "#六、分段存储与段页式"
     }
   ]
 }
