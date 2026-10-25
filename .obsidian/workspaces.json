@@ -1,6 +1,6 @@
 {
   "workspaces": {
-    "计网+操作系统": {
+    "计算机网络、操作系统": {
       "main": {
         "id": "19f6a1e06966fc89",
         "type": "split",
@@ -8,7 +8,7 @@
           {
             "id": "80732346a060ac70",
             "type": "tabs",
-            "dimension": 34.149326805385556,
+            "dimension": 43.49775784753363,
             "children": [
               {
                 "id": "9a35a6eec6a50d22",
@@ -43,7 +43,7 @@
           {
             "id": "73c701c1693e0c0c",
             "type": "tabs",
-            "dimension": 65.85067319461444,
+            "dimension": 56.502242152466366,
             "children": [
               {
                 "id": "eb539e19f5d9d3e5",
@@ -65,12 +65,12 @@
                 "state": {
                   "type": "webviewer",
                   "state": {
-                    "url": "https://www.bilibili.com/video/BV19E411D78Q/?spm_id_from=333.788.player.switch&vd_source=d146572d0d7e880e667647fe5535055a&p=51",
-                    "title": "4.2.6 网络地址转换 NAT（咸鱼版） - 王道计算机考研 计算机网络",
+                    "url": "https://www.bilibili.com/video/BV19E411D78Q/?spm_id_from=333.788.player.switch&vd_source=d146572d0d7e880e667647fe5535055a&p=56",
+                    "title": "4.3_1 IPv6地址（咸鱼版） - 王道计算机考研 计算机网络",
                     "mode": "webview"
                   },
                   "icon": "globe-2",
-                  "title": "4.2.6 网络地址转换 NAT（咸鱼版） - 王道计算机考研 计算机网络"
+                  "title": "4.3_1 IPv6地址（咸鱼版） - 王道计算机考研 计算机网络"
                 }
               }
             ],
@@ -136,7 +136,8 @@
           }
         ],
         "direction": "horizontal",
-        "width": 242.5
+        "width": 242.5,
+        "collapsed": true
       },
       "right": {
         "id": "32a6421c5c0f1c0c",
@@ -244,7 +245,7 @@
                 }
               }
             ],
-            "currentTab": 5
+            "currentTab": 6
           }
         ],
         "direction": "horizontal",
@@ -268,8 +269,8 @@
         }
       },
       "active": "d1aa7f9f49636229",
-      "mtime": "2026-10-17T19:45:52+08:00"
+      "mtime": "2026-10-18T21:09:25+08:00"
     }
   },
-  "active": "计网+操作系统"
+  "active": "计算机网络、操作系统"
 }
