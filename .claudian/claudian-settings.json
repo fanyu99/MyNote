@@ -2,7 +2,7 @@
   "userName": "",
   "permissionMode": "auto",
   "model": "haiku",
-  "effortLevel": "low",
+  "effortLevel": "medium",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
   "titleGenerationLocale": "",
@@ -190,7 +190,7 @@
     "claude": "haiku"
   },
   "savedProviderEffort": {
-    "claude": "low"
+    "claude": "medium"
   },
   "savedProviderServiceTier": {},
   "savedProviderPermissionMode": {
@@ -204,7 +204,10 @@
   "expandFileEditsByDefault": false,
   "chatViewPlacement": "right-sidebar",
   "enableZenMode": true,
-  "zenModePosition": null,
+  "zenModePosition": {
+    "x": 0.0063,
+    "y": 0.8911
+  },
   "enableDualPane": true,
   "dualPaneSide": "right",
   "restoreTabsOnStartup": true,
