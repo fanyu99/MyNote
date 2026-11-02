@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "92237555024e6f2e",
+      "type": "text",
+      "text": "# 计算机基础知识库总览\n\n主题总览 · 点击节点进入子白板",
+      "x": 0,
+      "y": -260,
+      "width": 700,
+      "height": 150
+    },
+    {
+      "id": "6ca692fd611f2ea0",
+      "type": "file",
+      "file": "计算机基础/白板/操作系统.canvas",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "bda0d42ac4d23aaa",
+      "type": "file",
+      "file": "计算机基础/白板/计算机网络.canvas",
+      "x": 460,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "495a3390e3a2378d",
+      "type": "file",
+      "file": "计算机基础/白板/路由.canvas",
+      "x": 920,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "99bf00b121efa25f",
+      "fromNode": "92237555024e6f2e",
+      "fromSide": "bottom",
+      "toNode": "6ca692fd611f2ea0",
+      "toSide": "top"
+    },
+    {
+      "id": "37d801dd5af6599b",
+      "fromNode": "92237555024e6f2e",
+      "fromSide": "bottom",
+      "toNode": "bda0d42ac4d23aaa",
+      "toSide": "top"
+    },
+    {
+      "id": "641eb781582cdfd7",
+      "fromNode": "92237555024e6f2e",
+      "fromSide": "bottom",
+      "toNode": "495a3390e3a2378d",
+      "toSide": "top"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "d6e5770ed65d0b9f",
+      "type": "text",
+      "text": "# C++ 知识库总览\n\n主题总览 · 点击节点进入子白板",
+      "x": 0,
+      "y": -260,
+      "width": 700,
+      "height": 150
+    },
+    {
+      "id": "ec044834e060965c",
+      "type": "file",
+      "file": "C++/白板/C++内存管理.canvas",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "9c751f5c3d87c19e",
+      "type": "file",
+      "file": "C++/白板/C++多线程.canvas",
+      "x": 460,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "2ad1bf612c1b2a6c",
+      "type": "file",
+      "file": "C++/白板/C++对象模型与虚函数.canvas",
+      "x": 920,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "55401bf428c41f89",
+      "type": "file",
+      "file": "C++/白板/C++新特性.canvas",
+      "x": 0,
+      "y": 380,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "37a64dd00603c102",
+      "type": "file",
+      "file": "C++/白板/C++模板.canvas",
+      "x": 460,
+      "y": 380,
+      "width": 420,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "b71f39330f5464fb",
+      "fromNode": "d6e5770ed65d0b9f",
+      "fromSide": "bottom",
+      "toNode": "ec044834e060965c",
+      "toSide": "top"
+    },
+    {
+      "id": "2b07a7a6974ef381",
+      "fromNode": "d6e5770ed65d0b9f",
+      "fromSide": "bottom",
+      "toNode": "9c751f5c3d87c19e",
+      "toSide": "top"
+    },
+    {
+      "id": "51f059f33c8554fd",
+      "fromNode": "d6e5770ed65d0b9f",
+      "fromSide": "bottom",
+      "toNode": "2ad1bf612c1b2a6c",
+      "toSide": "top"
+    },
+    {
+      "id": "c63d52a8200d0766",
+      "fromNode": "d6e5770ed65d0b9f",
+      "fromSide": "bottom",
+      "toNode": "55401bf428c41f89",
+      "toSide": "top"
+    },
+    {
+      "id": "ef2856bb7f81cc51",
+      "fromNode": "d6e5770ed65d0b9f",
+      "fromSide": "bottom",
+      "toNode": "37a64dd00603c102",
+      "toSide": "top"
+    }
+  ]
+}

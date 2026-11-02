@@ -4,24 +4,81 @@
     "type": "split",
     "children": [
       {
-        "id": "4d1d50ae0767ccef",
+        "id": "caef3117b55f91a8",
         "type": "tabs",
         "children": [
           {
-            "id": "5f336d06bbfffd5c",
+            "id": "b0a7b3042e0603da",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "音视频ffmpeg/前置知识/命令实操.md",
+                "file": "file:D:/Desktop/GPU处理流程优化_优化版.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "命令实操"
+              "title": "GPU处理流程优化_优化版"
+            }
+          },
+          {
+            "id": "1eabfc8a4049fcc2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "音视频ffmpeg/开发相关/初步认识ffmpeg库.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "初步认识ffmpeg库"
+            }
+          },
+          {
+            "id": "e5fa57b80aa4e06f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "file:D:/Desktop/项目ffmpeg拉流嵌入方案.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "项目ffmpeg拉流嵌入方案"
+            }
+          },
+          {
+            "id": "cf2235d77010d0d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "视觉与上位机/上位机学习/视觉标定.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "视觉标定"
+            }
+          },
+          {
+            "id": "b87c7bd12f733f8c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -83,7 +140,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 242.5
+    "width": 289.5
   },
   "right": {
     "id": "32a6421c5c0f1c0c",
@@ -99,7 +156,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/线程.md",
+                "file": "计算机网络/传输层：UDP与TCP.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +218,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "音视频ffmpeg/前置知识/命令实操.md",
+                "file": "file:D:/Desktop/YOLO_QT/docs/整体拉流架构.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -181,7 +238,7 @@
             }
           },
           {
-            "id": "2ca7211d3ca7cca6",
+            "id": "5272c2b7c40785e5",
             "type": "leaf",
             "state": {
               "type": "claudian-view",
@@ -190,13 +247,11 @@
                   "version": 1,
                   "openTabs": [
                     {
-                      "tabId": "tab-1792853511873-uq92a3b",
-                      "conversationId": null,
-                      "draftModel": "haiku",
-                      "providerId": "claude"
+                      "tabId": "tab-1792333773241-fhmmwht",
+                      "conversationId": "conv-1793579087089-6z8fqgbor"
                     }
                   ],
-                  "activeTabId": "tab-1792853511873-uq92a3b"
+                  "activeTabId": "tab-1792333773241-fhmmwht"
                 }
               },
               "icon": "bot",
@@ -208,11 +263,10 @@
       }
     ],
     "direction": "horizontal",
-    "width": 537.5
+    "width": 393.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "workspaces:管理工作区布局": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
@@ -224,66 +278,67 @@
       "realclaudian:Open Claudian": false,
       "bases:新建数据库": false,
       "media-extended:打开媒体库": false,
-      "media-extended:打开媒体快速切换器": false
+      "media-extended:打开媒体快速切换器": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "585e0a0c0d69a130",
   "lastOpenFiles": [
-    "音视频ffmpeg/_MOC.md",
-    "音视频ffmpeg/前置知识/命令实操.md",
-    "音视频ffmpeg/前置知识/编码原理与帧类型.md",
-    "音视频ffmpeg/前置知识/时间轴与同步.md",
-    "音视频ffmpeg/前置知识/编码标准与编码器.md",
-    "音视频ffmpeg/前置知识/视频参数.md",
-    "音视频ffmpeg/前置知识/音频基础.md",
-    "音视频ffmpeg/前置知识/基础概念.md",
-    "音视频ffmpeg/前置知识/容器与封装.md",
-    "操作系统/内存.md",
-    "计算机网络/IP地址.md",
-    "file:D:/Desktop/学习计划.md",
+    "视觉与上位机/上位机学习/视觉标定.md",
+    "README.md.tmp.28068.35fbba282033",
+    "模板/_模板-通用笔记.md.tmp.28068.b8055f308afc",
+    "模板/_模板-主题笔记.md.tmp.28068.ee75454a7f0b",
+    "模板/_模板-课程笔记.md.tmp.28068.2f1ac60bf5e9",
+    "C++/C++深入/深入索引.md",
+    "计算机基础/_MOC.md",
+    "视觉与上位机/_MOC.md",
+    "MySQL/_MOC.md",
+    "C++/_MOC.md",
+    "项目实战/白板/_总览.canvas",
+    "音视频/白板/_总览.canvas",
+    "计算机基础/白板/_总览.canvas",
+    "视觉与上位机/白板/_总览.canvas",
+    "MySQL/白板/_总览.canvas",
+    "C++/白板/_总览.canvas",
+    "视觉与上位机/白板/YOLO.canvas",
+    "视觉与上位机/白板/OpenCV.canvas",
+    "视觉与上位机/白板/视觉学习.canvas",
+    "音视频/白板/RTSP协议.canvas",
+    "项目实战/白板",
+    "音视频/白板",
+    "计算机基础/白板",
+    "MySQL/白板",
+    "视觉与上位机/白板",
+    "C++/白板",
+    "视觉与上位机/上位机学习/上位机学习索引.md",
+    "视觉与上位机/上位机学习/协议/Modbus协议.md",
+    "计算机基础/操作系统/调度.md",
+    "计算机基础/操作系统/信号量机制.md",
+    "计算机基础/操作系统/操作系统的特征和运行机制.md",
+    "计算机基础/操作系统/内存.md",
+    "file:D:/Desktop/YOLO_QT/docs/整体拉流架构.md",
+    "file:D:/Desktop/项目ffmpeg拉流嵌入方案.md",
+    "音视频/开发相关/初步认识ffmpeg库.md",
     "file:D:/Desktop/GPU处理流程优化_优化版.md",
-    "file:D:/Desktop/GPU处理流程优化.md",
-    "音视频ffmpeg/前置知识/易错点与排错.md",
-    "音视频ffmpeg/前置知识",
-    "音视频ffmpeg/编码原理与帧类型.md.tmp.11784.1c08eb6d4349",
-    "音视频ffmpeg/_MOC.md.tmp.11784.ba7f398c0e7e",
-    "音视频ffmpeg/_MOC.md.tmp.11784.3185b2bbe40d",
-    "音视频ffmpeg/命令实操.md.tmp.11784.f7b56bc2b1b7",
-    "音视频ffmpeg/音频基础.md.tmp.11784.25114fb3767c",
-    "音视频ffmpeg/时间轴与同步.md.tmp.11784.d359f1d72130",
-    "音视频ffmpeg/编码原理与帧类型.md.tmp.11784.edc9143bdf58",
-    "音视频ffmpeg/视频参数.md.tmp.11784.686aee49cfa7",
-    "音视频ffmpeg/编码标准与编码器.md.tmp.11784.f5d69d09a202",
-    "模板/_模板-通用笔记.md",
-    "音视频ffmpeg/图片/Pasted image 20261022111048.png",
-    "音视频ffmpeg/图片/Pasted image 20261022110628.png",
-    "计算机网络/HTTP与HTTPS.md",
-    "视觉学习/halcon/从OpenCV迁移到halcon的相关知识点.md",
-    "计算机网络/计算机网络分层.md",
-    "计算机网络/传输层：UDP与TCP.md",
+    "file:D:/Desktop/学习计划.md",
+    "音视频/RTSP协议.md",
+    "音视频/前置知识/编码原理与帧类型.md",
+    "计算机基础/计算机网络/路由/路由协议.md",
+    "计算机基础/图片/mx-img-x7ikbedthv6cr4dqj276xobd-pt14_49s.jpg",
+    "media-lib/bilibili BV19E411D78Q (p66).md",
+    "计算机基础/图片/Pasted image 20261027210602.png",
+    "Pasted image 20261027202321.png",
+    "计算机基础/图片/Drawing 2026-10-26 18.30.43.excalidraw.md",
+    "计算机基础/图片/mx-img-t32qwpdb1ynxp45hsi2cukg2-pt16m9_43s-1siefev.jpg",
+    "media-lib/bilibili BV19E411D78Q (p65).md",
     "未命名.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第四课 阈值处理和二值化.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第十课 图像几何变换.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第十一课 自动文档矫正综合实战.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第五课 图像平滑与滤波.md",
-    "视觉学习/OpenCV学习笔记/OpenCV第六课 形态学处理.md",
-    "计算机网络/图片/mx-img-x9sjuu58cprc04f5uke0pi45-pt24m50_99s.jpg",
-    "计算机网络/图片/Pasted image 20261017161417.png",
-    "计算机网络/图片/mx-img-lktpn8ihrlet22tpphdzfs7x-pt13m30_33s-1nkoywd.jpg",
-    "计算机网络/图片/mx-img-lktpn8ihrlet22tpphdzfs7x-pt5m50_91s-jh77zf.jpg",
-    "计算机网络/图片/mx-img-drssd3wvkaybkstaubzc1gv8-pt11m46_66s-12xn2lc.jpg",
-    "mx-img-znhbk2b69p6gxcd7sua88ijh-pt1m48_55s.jpg",
-    "计算机网络/图片/mx-img-ttjfc39d9ef04fz5afx12ig7-pt21m4_95s.jpg",
-    "计算机网络/图片/mx-img-ttjfc39d9ef04fz5afx12ig7-pt9m3_21s-e402t1.jpg",
-    "C++深入/白板/C++深入学习总览.canvas",
-    "C++深入/白板/C++对象模型与虚函数.canvas",
-    "C++深入/白板/C++多线程.canvas",
-    "C++深入/白板/C++模板.canvas",
-    "C++深入/白板/C++新特性.canvas",
-    "C++深入/白板/C++内存管理.canvas",
-    "上位机学习/白板/海康SDK.canvas",
-    "上位机学习/白板/视觉标定.canvas",
-    "上位机学习/白板/上位机学习总览.canvas",
-    "上位机学习/白板/协议.canvas"
+    "计算机基础/计算机网络/路由/路由算法.md",
+    "计算机基础/图片/mx-img-s4b2o45kk359ardji0csx5pl-pt18m13_37s.jpg",
+    "media-lib/bilibili BV19E411D78Q (p57).md",
+    "音视频ffmpeg/图片/Pasted image 20261022111048.png",
+    "音视频/图片/Pasted image 20261022110628.png",
+    "计算机基础/图片/mx-img-x9sjuu58cprc04f5uke0pi45-pt24m50_99s.jpg",
+    "计算机基础/图片/Pasted image 20261017161417.png",
+    "计算机基础/图片/mx-img-lktpn8ihrlet22tpphdzfs7x-pt13m30_33s-1nkoywd.jpg"
   ]
 }

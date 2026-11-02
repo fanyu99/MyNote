@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "id": "7aa87158676d8b2a",
+      "type": "file",
+      "file": "MySQL/MySQL课程/运维篇/运维篇概览.md",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": "5d1f5486cf37c1df",
+      "type": "file",
+      "file": "MySQL/MySQL课程/进阶篇/进阶篇概览.md",
+      "x": 380,
+      "y": 0,
+      "width": 320,
+      "height": 240
+    }
+  ],
+  "edges": []
+}

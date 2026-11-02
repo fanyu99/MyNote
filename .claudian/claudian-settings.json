@@ -2,7 +2,7 @@
   "userName": "",
   "permissionMode": "auto",
   "model": "haiku",
-  "effortLevel": "medium",
+  "effortLevel": "low",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
   "titleGenerationLocale": "",
@@ -183,14 +183,14 @@
   "settingsProvider": "claude",
   "lastSelectedChatModel": {
     "providerId": "claude",
-    "model": "haiku"
+    "model": "sonnet"
   },
   "inlineEditModel": null,
   "savedProviderModel": {
     "claude": "haiku"
   },
   "savedProviderEffort": {
-    "claude": "medium"
+    "claude": "low"
   },
   "savedProviderServiceTier": {},
   "savedProviderPermissionMode": {
@@ -205,8 +205,8 @@
   "chatViewPlacement": "right-sidebar",
   "enableZenMode": true,
   "zenModePosition": {
-    "x": 0.0063,
-    "y": 0.8911
+    "x": -0.2723,
+    "y": 0
   },
   "enableDualPane": true,
   "dualPaneSide": "right",

@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "4c60746599cbb97e",
+      "type": "text",
+      "text": "# 音视频 ffmpeg 知识地图\n\n主题总览 · 点击节点进入子白板",
+      "x": 0,
+      "y": -260,
+      "width": 700,
+      "height": 150
+    },
+    {
+      "id": "8fbeeeb8a3c33978",
+      "type": "file",
+      "file": "音视频/白板/前置知识.canvas",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "40e1d216e2e3b89a",
+      "type": "file",
+      "file": "音视频/白板/开发相关.canvas",
+      "x": 460,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "83d7f057ec13efce",
+      "type": "file",
+      "file": "音视频/白板/RTSP协议.canvas",
+      "x": 920,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "feade61888ae29fd",
+      "fromNode": "4c60746599cbb97e",
+      "fromSide": "bottom",
+      "toNode": "8fbeeeb8a3c33978",
+      "toSide": "top"
+    },
+    {
+      "id": "812db8adc18524b2",
+      "fromNode": "4c60746599cbb97e",
+      "fromSide": "bottom",
+      "toNode": "40e1d216e2e3b89a",
+      "toSide": "top"
+    },
+    {
+      "id": "de797764a1e51a92",
+      "fromNode": "4c60746599cbb97e",
+      "fromSide": "bottom",
+      "toNode": "83d7f057ec13efce",
+      "toSide": "top"
+    }
+  ]
+}

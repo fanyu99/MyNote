@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "13ca75f9e32ff835",
+      "type": "text",
+      "text": "# MySQL 知识库总览\n\n主题总览 · 点击节点进入子白板",
+      "x": 0,
+      "y": -260,
+      "width": 700,
+      "height": 150
+    },
+    {
+      "id": "2deb41e0a2ff88c9",
+      "type": "file",
+      "file": "MySQL/白板/MySQL知识.canvas",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "ae671731da561fa0",
+      "type": "file",
+      "file": "MySQL/白板/MySQL课程基础.canvas",
+      "x": 460,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "a17800bb725e6107",
+      "type": "file",
+      "file": "MySQL/白板/MySQL课程进阶运维.canvas",
+      "x": 920,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "284d52e7ffc99094",
+      "fromNode": "13ca75f9e32ff835",
+      "fromSide": "bottom",
+      "toNode": "2deb41e0a2ff88c9",
+      "toSide": "top"
+    },
+    {
+      "id": "e6e1ad3bb0a1a8a9",
+      "fromNode": "13ca75f9e32ff835",
+      "fromSide": "bottom",
+      "toNode": "ae671731da561fa0",
+      "toSide": "top"
+    },
+    {
+      "id": "f13d570bb3228c67",
+      "fromNode": "13ca75f9e32ff835",
+      "fromSide": "bottom",
+      "toNode": "a17800bb725e6107",
+      "toSide": "top"
+    }
+  ]
+}

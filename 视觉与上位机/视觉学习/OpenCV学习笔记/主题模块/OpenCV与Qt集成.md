@@ -1,0 +1,82 @@
+---
+title: OpenCV 与 Qt 集成
+type: 主题笔记
+topic: 视觉与上位机
+status: 学习中
+created: 2026-09-01
+updated: 2026-09-01
+tags:
+  - opencv
+  - qt
+series: OpenCV 主题模块
+canvas: 白板/OpenCV.canvas
+---
+
+# OpenCV 与 Qt 集成
+
+> 归纳：OpenCV 与 Qt 结合时的格式转换与显示方案。
+
+---
+
+## 一、核心概念
+
+### 红蓝互换问题
+
+- OpenCV 读出的彩色图片通常是 **BGR**，而 Qt 常用 **RGB**。
+- 直接传给 Qt 会发生**红蓝互换**错误。
+
+### 解决思路
+
+用 `cv::cvtColor` 将 BGR 转为 RGB，再构造 `QImage` 显示。
+
+---
+
+## 二、关键 API / 函数
+
+```cpp
+// BGR -> RGB
+// void cvtColor(InputArray src, OutputArray dst, int code, int dstCn = 0)
+cv::Mat rgbImage;
+cv::cvtColor(image, rgbImage, cv::COLOR_BGR2RGB);
+
+// 构造 QImage
+QImage qImage(
+    rgbImage.data,                      // const uchar*
+    rgbImage.cols,                      // int
+    rgbImage.rows,                      // int
+    static_cast<int>(rgbImage.step),    // int（行步长）
+    QImage::Format_RGB888               // Format
+);
+```
+
+---
+
+## 三、易错点 / 注意事项
+
+- 忘记转换 → 图像红蓝互换。
+- `QImage` 构造需使用 RGB 格式与 `step` 步长。
+
+---
+
+## 四、引用自哪些课程笔记
+
+- [[基础入门]]
+- [[cv_Mat模型]] —— Qt + OpenCV 浅拷贝的危险
+
+---
+
+## 五、相关主题
+
+- [[图像基础与色彩空间]]
+- [[cv_Mat核心]]
+
+---
+
+## 六、关联：Qt 实战（仓库管理系统）
+
+Qt 显示相关的更多实践见 [[项目实战/_MOC|仓库管理系统（C++/Qt）知识库]]：
+
+- [[项目实战/UI开发/QT坐标体系|QT 坐标体系]] —— 坐标与 `QImage` 显示密切相关
+- [[项目实战/UI开发/QT对象树的注意事项|QT 对象树]] —— 对象生命周期管理
+- [[项目实战/UI开发/Model View|Model View]] —— 图像数据在列表/视图中展示的模式
+- [[项目实战/UI开发/QT连接MySQL|QT 连接 MySQL]] —— Qt 中数据库连接（配套 OpenCV 应用）

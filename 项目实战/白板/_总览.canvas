@@ -1,0 +1,399 @@
+{
+  "nodes": [
+    {
+      "id": "71e239a161087641",
+      "type": "text",
+      "text": "# 仓库管理系统知识库总览\n\n主题总览 · 点击节点进入子白板",
+      "x": 0,
+      "y": -260,
+      "width": 700,
+      "height": 150
+    },
+    {
+      "id": "0d360ce4b03dc8d0",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day12 ProductTableModel与列表页.canvas",
+      "x": 0,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "893d2f22e96b19e2",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day13 物资CRUD UI纵向切片.canvas",
+      "x": 460,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "4f2705f4d269af22",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day19 InboundPage.canvas",
+      "x": 920,
+      "y": 0,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "ab6dedf71c780a57",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day20 页面测试和问题修复及功能优化.canvas",
+      "x": 0,
+      "y": 380,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "dfadeb6da0102956",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day21 计划整理并开始outbound模块.canvas",
+      "x": 460,
+      "y": 380,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "2fe4fd90e8b977c4",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day22 LoginPage基础功能.canvas",
+      "x": 920,
+      "y": 380,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "ed783ce882a5c90f",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day24 完成MainWindow.canvas",
+      "x": 0,
+      "y": 760,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "e59e09413e288fb9",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块.canvas",
+      "x": 460,
+      "y": 760,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "2388dfd6ea97caca",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day10 Product领域模型与契约.canvas",
+      "x": 920,
+      "y": 760,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "eaeee33663808910",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day11 MySQL ProductRepository.canvas",
+      "x": 0,
+      "y": 1140,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "3981639588fcaf7b",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day14 入库单领域模型.canvas",
+      "x": 460,
+      "y": 1140,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "7773cb695591bc31",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day15 入库Repository与事务.canvas",
+      "x": 920,
+      "y": 1140,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "d101ef0bfcff88a8",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day16 入库确认与库存一致性.canvas",
+      "x": 0,
+      "y": 1520,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "8f3e9920e5e29f58",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day17 入库真实链路测试.canvas",
+      "x": 460,
+      "y": 1520,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "2c2ea07c9e8ab944",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day18 单位与分类基础服务.canvas",
+      "x": 920,
+      "y": 1520,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "f1dca93a10ebe721",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day7 数据库Schema与迁移.canvas",
+      "x": 0,
+      "y": 1900,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "955f4a349494b6a4",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/数据库相关模块/Day8 密码哈希PBKDF2.canvas",
+      "x": 460,
+      "y": 1900,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "c60f842c05b98e33",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/系统基础模块/Day2 数据库协议与执行器状态机.canvas",
+      "x": 920,
+      "y": 1900,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "39a85a366330add8",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/系统基础模块/Day23 完成基础各项测试.canvas",
+      "x": 0,
+      "y": 2280,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "d962b90399867457",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/系统基础模块/Day3 Worker初始化与ODBC连接.canvas",
+      "x": 460,
+      "y": 2280,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "0a2f2fa6db573346",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/系统基础模块/Day4 队列与requestId映射.canvas",
+      "x": 920,
+      "y": 2280,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "4aab4a05ceb05777",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/系统基础模块/Day5 事务与affectedRows守卫.canvas",
+      "x": 0,
+      "y": 2660,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "a8a5203948887e0e",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/系统基础模块/Day6 配置读取与ConfigManager.canvas",
+      "x": 460,
+      "y": 2660,
+      "width": 420,
+      "height": 300
+    },
+    {
+      "id": "208a937510ebb118",
+      "type": "file",
+      "file": "项目实战/实施记录/白板/系统基础模块/Day9 认证模型与权限边界.canvas",
+      "x": 920,
+      "y": 2660,
+      "width": 420,
+      "height": 300
+    }
+  ],
+  "edges": [
+    {
+      "id": "d2085784d625c56d",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "0d360ce4b03dc8d0",
+      "toSide": "top"
+    },
+    {
+      "id": "0844e361ff1dd694",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "893d2f22e96b19e2",
+      "toSide": "top"
+    },
+    {
+      "id": "dd597cb07ccc0102",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "4f2705f4d269af22",
+      "toSide": "top"
+    },
+    {
+      "id": "670b08725012adb7",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "ab6dedf71c780a57",
+      "toSide": "top"
+    },
+    {
+      "id": "7221e9b500701920",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "dfadeb6da0102956",
+      "toSide": "top"
+    },
+    {
+      "id": "0893fc9584f1c45e",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "2fe4fd90e8b977c4",
+      "toSide": "top"
+    },
+    {
+      "id": "02117970d2cd855b",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "ed783ce882a5c90f",
+      "toSide": "top"
+    },
+    {
+      "id": "3112d2c6d44ee1ae",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "e59e09413e288fb9",
+      "toSide": "top"
+    },
+    {
+      "id": "edc01a2f4098659f",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "2388dfd6ea97caca",
+      "toSide": "top"
+    },
+    {
+      "id": "e47f5d7d565a82e6",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "eaeee33663808910",
+      "toSide": "top"
+    },
+    {
+      "id": "0e9ae5d1c99d59d3",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "3981639588fcaf7b",
+      "toSide": "top"
+    },
+    {
+      "id": "8aa0d7ca0d5b72f4",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "7773cb695591bc31",
+      "toSide": "top"
+    },
+    {
+      "id": "909ef02c8ef0abe4",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "d101ef0bfcff88a8",
+      "toSide": "top"
+    },
+    {
+      "id": "e10e6b8471130b47",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "8f3e9920e5e29f58",
+      "toSide": "top"
+    },
+    {
+      "id": "ea562a2aaabcd726",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "2c2ea07c9e8ab944",
+      "toSide": "top"
+    },
+    {
+      "id": "de52b79939977e22",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "f1dca93a10ebe721",
+      "toSide": "top"
+    },
+    {
+      "id": "7086ab1006fc718b",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "955f4a349494b6a4",
+      "toSide": "top"
+    },
+    {
+      "id": "888b84d883b66daf",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "c60f842c05b98e33",
+      "toSide": "top"
+    },
+    {
+      "id": "1efb96c3ca06d98c",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "39a85a366330add8",
+      "toSide": "top"
+    },
+    {
+      "id": "f9b6e46ce904e1a7",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "d962b90399867457",
+      "toSide": "top"
+    },
+    {
+      "id": "da51ac403b0e316e",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "0a2f2fa6db573346",
+      "toSide": "top"
+    },
+    {
+      "id": "7f377943857f171a",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "4aab4a05ceb05777",
+      "toSide": "top"
+    },
+    {
+      "id": "616c2c20492cf464",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "a8a5203948887e0e",
+      "toSide": "top"
+    },
+    {
+      "id": "5597245dc76f36f5",
+      "fromNode": "71e239a161087641",
+      "fromSide": "bottom",
+      "toNode": "208a937510ebb118",
+      "toSide": "top"
+    }
+  ]
+}

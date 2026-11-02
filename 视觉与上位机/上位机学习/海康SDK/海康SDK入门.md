@@ -1,0 +1,314 @@
+---
+title: 海康 SDK 入门
+type: 主题笔记
+topic: 视觉与上位机
+status: 学习中
+created: 2026-10-07
+updated: 2026-10-13
+tags:
+  - 上位机
+  - 海康SDK
+  - 海康sdk
+series: 上位机学习
+canvas: 白板/海康SDK.canvas
+---
+
+# 海康 SDK 入门
+
+> 概述：海康 MVS SDK 的入门主线——从初始化到取图的完整流程、核心相机参数、轮询与回调两种取图方式，以及为解耦而设计的 Camera 抽象接口。
+
+---
+
+## 一、完整的流程图
+
+```text
+启动程序
+  │
+  ▼
+初始化 SDK
+  │
+  ▼
+枚举相机
+  │
+  ├── 没有相机 → 报错并退出
+  │
+  ▼
+选择相机
+  │
+  ▼
+创建相机句柄
+  │
+  ▼
+打开相机
+  │
+  ▼
+设置参数
+  │
+  ├── 曝光时间
+  ├── 增益
+  ├── 像素格式
+  ├── 触发模式
+  └── 采集模式
+  │
+  ▼
+开始采集
+  │
+  ▼
+获取图像
+  │
+  ▼
+处理图像
+  │
+  ├── 显示
+  ├── 保存
+  ├── OpenCV处理
+  └── Halcon处理
+  │
+  ▼
+停止采集
+  │
+  ▼
+关闭设备
+  │
+  ▼
+释放资源
+  │
+  ▼
+程序结束
+```
+
+---
+
+## 二、相机参数
+
+### 1. 曝光时间
+
+决定传感器接受光线的时间：
+
+```text
+曝光时间长 -> 图像更亮，但运动拖影可能增加
+时间短     -> 图像可能变暗，但运动拖影少
+```
+
+例如：
+
+```text
+流水线高速运动物体      → 通常需要较短曝光时间
+静止且光线不足的物体    → 可以适当增加曝光时间
+```
+
+### 2. 增益
+
+类似于放大图像信号，**使图像亮度更亮**。
+
+### 3. 触发模式
+
+分为三种：
+
+1. **连续模式**：相机不断采集，适合实时预览等。
+2. **软件触发**：程序发送指令后采集。
+3. **硬件触发**：由外部信号（例如 PLC）触发相机。
+
+```text
+连续采集 = 相机自己连续拍
+软件触发 = 程序命令相机拍
+硬件触发 = 外部电信号命令相机拍
+```
+
+三者对比：
+
+| 模式 | 谁决定拍照 | 适用场景 |
+| --- | --- | --- |
+| 连续模式 | 相机持续拍摄 | 实时预览、连续检测 |
+| 软件触发 | 程序命令相机拍摄 | 一件一拍、程序控制 |
+| 硬件触发 | 外部电信号 | 高速产线、精准同步 |
+
+---
+
+## 三、轮询取图与回调取图
+
+### 1. 轮询取图
+
+```cpp
+while (running)
+{
+    cv::Mat frame;
+
+    if (camera->grab(frame))
+    {
+        process(frame);
+    }
+}
+```
+
+缺点：容易阻塞当前线程。
+
+### 2. 回调取图
+
+```cpp
+camera->setFrameCallback(
+    [](const cv::Mat& frame)
+    {
+        process(frame);
+    }
+);
+```
+
+优点：能减少主动等待，新图到达时立即处理；
+但需要特别注意共享内存等的保护。
+
+---
+
+## 四、伪代码示例
+
+```cpp
+int main()
+{
+    // 1. 枚举设备
+    MV_CC_DEVICE_INFO_LIST deviceList;
+    MV_CC_EnumDevices(..., &deviceList);
+
+    // 2. 判断有没有相机
+    if (deviceList.nDeviceNum == 0)
+    {
+        std::cout << "没有找到相机" << std::endl;
+        return -1;
+    }
+
+    // 3. 创建相机句柄
+    void* handle = nullptr;
+    MV_CC_CreateHandle(&handle, deviceList.pDeviceInfo[0]);
+
+    // 4. 打开相机
+    MV_CC_OpenDevice(handle);
+
+    // 5. 设置相机参数
+    // 例如设置连续采集、曝光时间、触发模式等
+
+    // 6. 开始采集
+    MV_CC_StartGrabbing(handle);
+
+    // 7. 获取一帧图像
+    unsigned char* imageBuffer = ...;
+    MV_FRAME_OUT_INFO_EX frameInfo;
+
+    MV_CC_GetOneFrameTimeout(
+        handle,
+        imageBuffer,
+        bufferSize,
+        &frameInfo,
+        1000
+    );
+
+    // 8. 使用图像
+    // 显示、保存、交给 OpenCV 或 Halcon 处理
+
+    // 9. 停止采集
+    MV_CC_StopGrabbing(handle);
+
+    // 10. 关闭设备
+    MV_CC_CloseDevice(handle);
+
+    // 11. 销毁句柄
+    MV_CC_DestroyHandle(handle);
+
+    return 0;
+}
+```
+
+> [!warning] 需要注意的地方
+> 自己实现的 Detector 可能更倾向于获取 `cv::Mat`，这时需要进行转换。注意：**`cv::Mat` 必须进行深拷贝内存（`clone()`）**，否则会长时间引用缓冲区的内存，可能造成悬空引用等问题。
+
+---
+
+## 五、MVS SDK 与 OpenCV 的分工
+
+**MVS SDK 主要负责：**
+
+```text
+发现相机
+连接相机
+设置相机参数
+开始采集
+接受图像
+停止采集
+关闭设备
+```
+
+**OpenCV 主要负责：**
+
+```text
+颜色转换
+缩放、裁剪、旋转等图像操作
+滤波、边缘检测、轮廓分析
+显示、保存
+深度学习推理的预处理
+```
+
+二者关系：
+
+```text
+MVS SDK：采集层
+OpenCV：算法和图像处理层
+```
+
+---
+
+## 六、最重要的抽象：Camera 接口
+
+为了让 Qt 不依赖海康 SDK，需要自定义一个相机接口：Qt 仅依赖 `Camera` 基类，而不依赖某个具体相机类。这样后续增加 / 更换相机品牌时，只需替换底层实现，而上层 API 不动。
+
+```cpp
+// 抽象接口
+class Camera
+{
+public:
+    virtual ~Camera() = default;
+
+    virtual bool open() = 0;
+
+    virtual bool start() = 0;
+
+    virtual bool grab(cv::Mat& image) = 0;
+
+    virtual bool stop() = 0;
+
+    virtual void close() = 0;
+
+    virtual bool isOpened() const = 0;
+};
+
+// 海康相机
+class HikCamera : public Camera
+{
+public:
+    bool open() override;
+    bool start() override;
+    bool grab(cv::Mat& image) override;
+    bool stop() override;
+    void close() override;
+    bool isOpened() const override;
+
+private:
+    void* handle_ = nullptr;
+    bool opened_ = false;
+    bool grabbing_ = false;
+};
+```
+
+---
+
+## 相关笔记
+
+- [[GenICam参数树]] —— 相机参数的节点体系与设置顺序
+- [[SDK缓冲区与图像数据生命周期]] —— 取图缓冲区与图像数据生命周期（`clone()` 问题的根源）
+- [[整体架构]] —— FrameSource 与 Camera 抽象在项目中的位置
+
+---
+
+- **知识库总览**：[[上位机学习索引]]
+- **仓库主页**：[[README]]
+
+---
+
+*本页随学习进度持续更新。*
