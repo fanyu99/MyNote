@@ -2,7 +2,7 @@
 title: YOLO 整体网络结构
 type: 课程笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-18
 updated: 2026-09-19
 tags:
@@ -17,7 +17,7 @@ canvas: 白板/YOLO.canvas
 
 # YOLO 整体网络结构
 
-> 本课围绕「YOLO 整体网络结构」展开：核心概念、关键操作与易错点整理。
+> YOLO 的 Backbone、Neck、Head 三部分职责与整体数据流。
 
 > [!abstract] 本课目标
 > 理解 Backbone / Neck / Head 三部分的职责，以及多尺度特征对小目标、大目标检测的意义。

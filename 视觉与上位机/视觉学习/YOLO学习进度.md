@@ -2,7 +2,7 @@
 title: YOLO 学习进度记忆
 type: 主题笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-11-02
 tags:
   - 视觉

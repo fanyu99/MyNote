@@ -2,7 +2,7 @@
 title: 数据库Schema与迁移
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-22
 tags:
   - wms
@@ -16,7 +16,7 @@ canvas: 实施记录/白板/数据库相关模块/Day7 数据库Schema与迁移.
 
 # 数据库Schema与迁移
 
-> 记录「数据库Schema与迁移」当天的任务、实现过程与结论。
+> 建立可追踪、可验证、可回滚的数据库迁移基础，并交付首个 Schema 版本。
 
 [[项目实战/计划/优化版详细实施计划]]
 版本化数据库 Schema 与 `001_initial.sql`（当前任务）

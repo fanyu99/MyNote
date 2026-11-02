@@ -2,7 +2,7 @@
 title: Canny边缘检测
 type: 课程笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-06
 updated: 2026-09-06
 tags:
@@ -45,9 +45,9 @@ G = sqrt(Gx^2 + Gy^2)   // L2 范数
 ```
 
 ### Sobel算子(一阶)
-![Canny边缘检测 图示 1](../../图片/Pasted image 20260907152116.png)
+![Canny边缘检测 图示 1](<../../图片/Pasted image 20260907152116.png>)
 #### 作用
-```C++
+```cpp
 cv::Sobel(
 	src,
 	dst,
@@ -83,7 +83,7 @@ cv::Sobel(
 ```
 
 ### 合并边缘
-```C++
+```cpp
 cv::AddWeighted(
 	sobelX,
 	fx,
@@ -99,15 +99,15 @@ cv::AddWeighted(
 灰度图类型一般为: CV_8U
 但是梯度的计算结果可能会为负数
 所以通常先使用CV_16S保存负数后再转换为8位图
-```C++
+```cpp
 cv::convertScaleAbs(sobelX16,sobelX); // 从16位转为8位
 ```
 
 ### Scharr 算子(一阶)
-![Canny边缘检测 图示 3](../../图片/Pasted image 20260907152239.png)
+![Canny边缘检测 图示 3](<../../图片/Pasted image 20260907152239.png>)
 专为3 * 3 卷积核设计,相比Sobel,计算更加精准
 一般如果需要更加精准的3 * 3一阶导数时使用Scharr
-```C++
+```cpp
 cv::Scharr(
 	src,
 	dst,
@@ -118,8 +118,8 @@ cv::Scharr(
 ```
 
 ### Laplacian 算子(二阶)
-![Canny边缘检测 图示 5](../../图片/Pasted image 20260907152320.png)
-```C++
+![Canny边缘检测 图示 5](<../../图片/Pasted image 20260907152320.png>)
+```cpp
 cv::Laplacian(
 	InputArray src,
 	outputArray dst,
@@ -146,7 +146,7 @@ Canny是一种边缘检测算法,
 3. 非极大值抑制,使边缘变细
 4. 双阈值检测
 5. 滞后边缘连接
-```C++
+```cpp
 cv::Canny(
 	inputArray image,
 	outputArray edges,
@@ -161,7 +161,7 @@ cv::Canny(
 
 #### 非极大值抑制
 线性插值法:
-![Canny边缘检测 图示 7](../../图片/Pasted image 20260907154345.png)
+![Canny边缘检测 图示 7](<../../图片/Pasted image 20260907154345.png>)
 一般简化为八方向模型,不使用线性插值法
 
 #### 高低阈值

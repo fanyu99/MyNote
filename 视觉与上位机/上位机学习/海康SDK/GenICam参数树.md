@@ -2,7 +2,7 @@
 title: GenICam 参数树
 type: 主题笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-10-07
 updated: 2026-10-13
 tags:

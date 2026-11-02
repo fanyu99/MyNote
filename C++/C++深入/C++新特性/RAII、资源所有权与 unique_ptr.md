@@ -2,7 +2,7 @@
 title: RAII、资源所有权与 unique_ptr
 type: 主题笔记
 topic: C++
-status: 学习中
+status: 已完成
 created: 2026-09-21
 tags:
   - cpp
@@ -14,7 +14,7 @@ canvas: 白板/C++新特性.canvas
 
 # RAII、资源所有权与 unique_ptr
 
-> 梳理「RAII、资源所有权与 unique_ptr」的核心概念、原理与工程实践要点。
+> RAII 与资源所有权思想，unique_ptr、shared_ptr、weak_ptr 的职责与使用场景。
 
 承接 [[对象切片、类型转换与 dynamic_cast|对象切片、类型转换与 dynamic_cast]] 中"多态容器应保存指针"的结论，本篇回答这些指针"由谁负责释放"：先讲 RAII 与资源所有权的思想，再依次说明 `unique_ptr`（独占）、`shared_ptr`（共享）与 `weak_ptr`（观察）如何使用，以及各自最容易踩的坑。
 

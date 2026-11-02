@@ -2,7 +2,7 @@
 title: 使用 QSS 与 QPalette 管理样式
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-17
 tags:
   - wms
@@ -14,7 +14,7 @@ series: WMS UI 开发
 
 # 使用 QSS 与 QPalette 管理样式
 
-> 梳理「使用 QSS 与 QPalette 管理样式」的核心概念、原理与工程实践要点。
+> 用 QSS 管理部件样式与盒子模型，用 QPalette 管理颜色，以及两者的分工。
 
 #相关: [[项目实战/计划/优化版详细实施计划#阶段 1 Qt 核心技术补齐 (Day 1-4)]]
 ***1.盒子模型***
@@ -82,7 +82,7 @@ QTextEdit:focus /*指定伪状态focus时的形态*/{
 | ......          |       ......        |                     ......                      |
 
 ***2.相关示例***
-```C++
+```cpp
 QString path = (theme == Theme::Light) ? "../theme/light.json" : "../theme/dark.json";//使用json文件保存Role相关的颜色/字体设置
     QFile f(path);
     if (!f.open(QFile::ReadOnly)) {

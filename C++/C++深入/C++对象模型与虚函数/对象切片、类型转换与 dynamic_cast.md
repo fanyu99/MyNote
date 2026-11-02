@@ -2,7 +2,7 @@
 title: 对象切片、类型转换与 dynamic_cast
 type: 主题笔记
 topic: C++
-status: 学习中
+status: 已完成
 created: 2026-09-20
 tags:
   - cpp
@@ -14,7 +14,7 @@ canvas: 白板/C++对象模型与虚函数.canvas
 
 # 对象切片、类型转换与 dynamic_cast
 
-> 梳理「对象切片、类型转换与 dynamic_cast」的核心概念、原理与工程实践要点。
+> 对象切片的成因与常见场景、static_cast 向下转型的风险，以及 dynamic_cast 与 RTTI 的正确用法。
 
 承接 [[对象大小、内存对齐与继承布局|对象大小、内存对齐与继承布局]]，本篇聚焦多态对象最容易踩坑的两个环节：用派生类对象**按值**构造/赋值基类对象导致的**对象切片**，以及向下转型时 `static_cast` 与 `dynamic_cast` 的选择。菱形继承与虚继承另见 [[菱形继承与虚继承]]。
 

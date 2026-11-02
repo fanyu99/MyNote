@@ -15,7 +15,7 @@ canvas: 白板/MySQL知识.canvas
 
 # SQL 优化
 
-> 梳理「SQL 优化」的核心概念、原理与工程实践要点。
+> 插入、主键、排序、Count、Limit 与 Update 的 SQL 优化策略，以及页分裂与页合并问题。
 
 ## 插入数据优化
 

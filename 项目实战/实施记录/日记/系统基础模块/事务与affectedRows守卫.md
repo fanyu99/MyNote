@@ -2,7 +2,7 @@
 title: 事务与affectedRows守卫
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-21
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/系统基础模块/Day5 事务与affectedRows守卫.
 
 # 事务与affectedRows守卫
 
-> 记录「事务与affectedRows守卫」当天的任务、实现过程与结论。
+> 事务任务、affectedRows 守卫、排队取消、软超时与异步 shutdown 的实现记录。
 
 [[项目实战/计划/优化版详细实施计划]]
 ## 事务任务、affectedRows 守卫、排队取消、软超时、异步 shutdown

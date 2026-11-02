@@ -20,7 +20,7 @@ canvas: 白板/MySQL课程基础.canvas
 
 > **DQL**（Data Query Language）用来查询数据库表中的**数据记录**，是 SQL 中使用频率最高、内容最丰富的部分。
 
-![DQL（数据查询语言） 图示 1](../../图片/Pasted image 20260804110019.png)
+![DQL（数据查询语言） 图示 1](<../../图片/Pasted image 20260804110019.png>)
 
 ---
 
@@ -65,7 +65,7 @@ INSERT INTO employee (id, work_no, name, gender, age, id_card, work_address, ent
 
 ## 一、基础查询
 
-![DQL（数据查询语言） 图示 3](../../图片/Pasted image 20260804110323.png)
+![DQL（数据查询语言） 图示 3](<../../图片/Pasted image 20260804110323.png>)
 
 ### 1.1 查询指定字段
 
@@ -97,7 +97,7 @@ SELECT * FROM employee;
 
 ### 1.3 字段起别名（AS）
 
-```sql
+```text
 -- 语法
 SELECT 字段1 AS 别名, 字段2 AS 别名 FROM 表名;
 
@@ -138,9 +138,9 @@ SELECT DISTINCT gender, work_address FROM employee;
 
 ## 二、条件查询（WHERE）
 
-![DQL（数据查询语言） 图示 5](../../图片/Pasted image 20260804152206.png)
+![DQL（数据查询语言） 图示 5](<../../图片/Pasted image 20260804152206.png>)
 
-```sql
+```text
 -- 语法
 SELECT 字段列表 FROM 表名 WHERE 条件;
 ```
@@ -262,7 +262,7 @@ SELECT * FROM employee WHERE work_address IS NOT NULL;
 
 ## 三、聚合函数
 
-![DQL（数据查询语言） 图示 7](../../图片/Pasted image 20260804155522.png)
+![DQL（数据查询语言） 图示 7](<../../图片/Pasted image 20260804155522.png>)
 
 > 聚合函数将一列数据作为整体进行**纵向统计计算**，返回**单个值**。
 
@@ -308,7 +308,7 @@ SELECT MIN(age) AS 最小年龄 FROM employee;            -- 22
 
 ## 四、分组查询（GROUP BY）
 
-![DQL（数据查询语言） 图示 9](../../图片/Pasted image 20260804160752.png)
+![DQL（数据查询语言） 图示 9](<../../图片/Pasted image 20260804160752.png>)
 
 ```sql
 -- 语法
@@ -346,7 +346,7 @@ GROUP BY gender;
 
 ### 4.2 WHERE 与 HAVING 的区别
 
-![DQL（数据查询语言） 图示 11](../../图片/Pasted image 20260804162248.png)
+![DQL（数据查询语言） 图示 11](<../../图片/Pasted image 20260804162248.png>)
 
 | 对比项 | `WHERE` | `HAVING` |
 |:-------|:--------|:---------|
@@ -387,7 +387,7 @@ HAVING AVG(age) > 25;             -- 分组后：过滤平均年龄 > 25 的城�
 
 ## 五、排序查询（ORDER BY）
 
-![DQL（数据查询语言） 图示 13](../../图片/Pasted image 20260805111314.png)
+![DQL（数据查询语言） 图示 13](<../../图片/Pasted image 20260805111314.png>)
 
 ```sql
 -- 语法
@@ -427,9 +427,9 @@ ORDER BY COUNT(*) DESC;
 
 ## 六、分页查询（LIMIT）
 
-![DQL（数据查询语言） 图示 15](../../图片/Pasted image 20260805114552.png)
+![DQL（数据查询语言） 图示 15](<../../图片/Pasted image 20260805114552.png>)
 
-```sql
+```text
 -- 语法
 SELECT 字段列表 FROM 表名 LIMIT 起始索引, 查询记录数;
 
@@ -515,7 +515,7 @@ ORDER BY 年龄 DESC;             -- 正确！ORDER BY 在 SELECT 之后执行
 
 ## 📊 综合练习
 
-![DQL（数据查询语言） 图示 17](../../图片/Pasted image 20260805120910.png)
+![DQL（数据查询语言） 图示 17](<../../图片/Pasted image 20260805120910.png>)
 
 ```sql
 -- ==================== 综合练习 ====================
@@ -588,7 +588,7 @@ LIMIT 5;
 
 ### 练习 1：基础查询
 
-```sql
+```text
 -- ① 使用别名查询所有员工的姓名、年龄、工号（别名分别为"姓名"、"年龄"、"工号"）
 -- ② 查询所有不重复的性别（去重）
 -- ③ 查询前 5 条记录
@@ -596,7 +596,7 @@ LIMIT 5;
 
 ### 练习 2：条件查询
 
-```sql
+```text
 -- ① 查询年龄在 25~30 岁之间的员工（用 BETWEEN 和 AND 各写一次）
 -- ② 查询住址为空或不在北京、上海的员工
 -- ③ 查询姓"刘"且名字只有两个字的员工
@@ -605,7 +605,7 @@ LIMIT 5;
 
 ### 练习 3：聚合和分组
 
-```sql
+```text
 -- ① 分别统计男员工和女员工的平均年龄
 -- ② 统计每个城市的员工人数，按人数降序排列
 -- ③ 查询员工人数大于等于 3 的城市（HAVING）
@@ -613,7 +613,7 @@ LIMIT 5;
 
 ### 练习 4：综合查询
 
-```sql
+```text
 -- ① 查询北京地区年龄最大的男员工信息
 -- ② 查询入职时间最晚的 3 名女员工
 -- ③ 查询每个城市 30 岁以上员工的人数，只显示人数 ≥ 2 的城市，按人数升序

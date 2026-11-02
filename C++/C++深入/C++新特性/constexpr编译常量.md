@@ -2,7 +2,7 @@
 title: constexpr 编译期常量
 type: 主题笔记
 topic: C++
-status: 学习中
+status: 已完成
 created: 2026-10-12
 tags:
   - cpp
@@ -14,7 +14,7 @@ canvas: 白板/C++新特性.canvas
 
 # constexpr 编译期常量
 
-> 梳理「constexpr 编译期常量」的核心概念、原理与工程实践要点。
+> constexpr 与 const 的区别、constexpr 函数与构造函数，以及 consteval/constinit 等 C++20 编译期特性。
 
 承接 [[类型推导和编译期计算|类型推导与编译期计算]]，本篇回答"如何把计算从运行期搬到编译期"：先厘清 `constexpr` 与 `const` 的区别，再看 `constexpr` 函数、字面类型与 `constexpr` 构造函数，最后延伸到 C++20 的 `consteval` 与 `constinit`，并用编译期生成 CRC-32 查找表作为综合示例。
 

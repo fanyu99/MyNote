@@ -2,7 +2,7 @@
 title: QT 坐标体系
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-09-07
 tags:
   - wms
@@ -14,7 +14,7 @@ series: WMS UI 开发
 
 # QT 坐标体系
 
-> 梳理「QT 坐标体系」的核心概念、原理与工程实践要点。
+> Qt 设备坐标系、常用坐标 API，以及 mapTo/mapFrom 等坐标转换函数。
 
 ## 设备坐标系(x右正,y下正)
 

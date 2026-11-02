@@ -2,7 +2,7 @@
 title: OpenCV 知识库总览
 type: MOC
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-01
 updated: 2026-09-09
 tags:

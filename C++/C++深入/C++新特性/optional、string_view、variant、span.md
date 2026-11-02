@@ -2,7 +2,7 @@
 title: optional、string_view、variant、span
 type: 主题笔记
 topic: C++
-status: 学习中
+status: 已完成
 created: 2026-10-12
 tags:
   - cpp
@@ -17,7 +17,7 @@ canvas: 白板/C++新特性.canvas
 
 # optional、string_view、variant、span
 
-> 梳理「optional、string_view、variant、span」的核心概念、原理与工程实践要点。
+> optional、variant、string_view、span 四个语义包装类型的用法、区别与选型。
 
 承接 [[RAII、资源所有权与 unique_ptr|RAII、资源所有权与 unique_ptr]] 里"把语义编码进类型"的思路，本篇整理现代 C++ 中四个常用的"语义包装"类型：用 `optional` 表达"有 / 没有"，用 `variant` 表达"是其中之一"，用 `string_view` / `span` 表达"对已有数据的只读视图"。
 

@@ -2,7 +2,7 @@
 title: QT 对象树的注意事项
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-08-27
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/UI模块/Day24 完成MainWindow.canvas
 
 # QT 对象树的注意事项
 
-> 梳理「QT 对象树的注意事项」的核心概念、原理与工程实践要点。
+> Qt 对象树的 parent/children 内存管理机制及其使用注意事项。
 
 ## 1. 什么是对象树?
 	对象树是QT的一种内存管理机制,所有除QObject基类以外的类都能够有两个成员:1-parent父对象 2-children子对象列表;
@@ -29,7 +29,7 @@ canvas: 实施记录/白板/UI模块/Day24 完成MainWindow.canvas
 ## 2.注意事项
 1. 核心机制: **父死子亡**,当parent被析构时,其children列表中的所有成员都会被析构
 2. 注意事项:QT对象尽量在***堆***上进行***new***分配内存,在栈上分配会出现以下问题:
-  ```C++
+  ```cpp
 // ✅ 安全的写法：先父后子
 int main() {
     QWidget window;                    // 父，先构造

@@ -2,7 +2,7 @@
 title: OpenCV + ONNXRuntime
 type: 主题笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-10-14
 tags:
   - 视觉
@@ -13,7 +13,7 @@ canvas: 白板/视觉学习.canvas
 
 # OpenCV + ONNXRuntime
 
-> 梳理「OpenCV + ONNXRuntime」的核心概念、原理与工程实践要点。
+> OpenCV Mat 与 ONNX 张量转换、ORT C++ API、letterbox、输出解码、NMS 与坐标映射。
 
 `Mat`由两部分组成: `header` + `data`
 `header`存储`rows`,`cols`,`step`,`flags`,`type`
@@ -41,13 +41,13 @@ ONNX的输入`shape`是固定的`(1,3,640,640)`,即`(batch,channels,H,W)`
 	v(k,i) = out[k*8400 + i]; // 注意是k*8400+i
 	```
 >[!索引公式(核心)]
->```
+>```text
 >HWC : idx(y,x,c) = (y*W + x)*C+c;
 >CHW : idx(c,y,x) = (c*H*W+y)*W+x;
 >NCHW : idx(n,c,y,x) = ((n*C+c)*H+y)*W+x
 >```
 >通用的stride版(应对非连续矩阵/有padding的张量)
->```
+>```text
 >HWC : idx = y*strideH+x*strideW+c*strideC
 >// OpenCV中strideH = mat.step[0],strideW = C,strideC = 1
 >NCHW : idx = n*sn + c*sc + y*sy + x*sx
@@ -73,7 +73,7 @@ B: 3,6,9,12 // B通道
 线性索引公式: index(c,y,x) = c*(H*W)+y*W+x
 ```
 转换参照形式:
-```C++
+```cpp
 void hwc_to_chw(const float* src, float* dst, int H, int W, int C) {
     const size_t HW = H * W; // 计算像素总数
     for (size_t i = 0; i < HW; ++i) { // 对HWC的每个像素进行遍历
@@ -88,7 +88,7 @@ void hwc_to_chw(const float* src, float* dst, int H, int W, int C) {
 }
 ```
 OpenCV中将HWC快捷转换为CHW的API(生成的`cv::Mat`可以转换为`Ort::Value`后直接送入ONNXRuntime推理):
-```C++
+```cpp
 cv::Mat cv::dnn::blobFromImage(
     InputArray image,          // 输入图像（单张）
     double scalefactor = 1.0,  // 像素值缩放因子（乘）
@@ -101,7 +101,7 @@ cv::Mat cv::dnn::blobFromImage(
 // 返回值为(1,C,H,W)的float32数组
 ```
 ### NCHW ->HWC
-```C++
+```cpp
 // tensor : const float*
 // shape(1,C,H,W)是归一化后的结果
 // 输出 : CV_8UC3,按照RGB排布
@@ -124,7 +124,7 @@ for(int y=0;y<H;++y){
 
 ## 3. ONNX Runtime C++ API
 ## 流程骨架
-```C++
+```cpp
 Ort::Env env(ORT_LOGGIN_LEVEL_WARNING,"det");
 Ort::SessionOptions opts;
 Ort::Session session(env,modelPath.c_str(),opts;
@@ -158,7 +158,7 @@ const float* p = outs[0].GetTensorData<float>();
 
 ## 6. 坐标映射回原图
 模型使用的是`640*640`的letterbox图,最重要在原图上画框等
-```C++
+```cpp
 float scale = 640*640 / imageH / imageW; // 缩放比例
 float x1o = (x1-padX) / scale;
 float y1o = (y1-padY) / scale;
@@ -183,7 +183,7 @@ while 候选集非空:
 >阈值confThresh表示可不可信,高于其的框才保留
 
 ## 8. `Detector`封装与延迟测量
-```C++
+```cpp
 class Detector{
 public:
 	// 配置

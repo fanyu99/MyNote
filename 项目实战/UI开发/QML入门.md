@@ -2,7 +2,7 @@
 title: QML 入门
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-09-12
 tags:
   - wms
@@ -15,12 +15,12 @@ series: WMS UI 开发
 
 # QML 入门
 
-> 梳理「QML 入门」的核心概念、原理与工程实践要点。
+> C++/Qt 加载 QML 的方式、QML 基础语法、绑定断裂问题与 Qt Quick Controls。
 
 QML是一种基于JS和CSS构建的声明式语言
 ## 2. C++QT怎么加载QML?
 ## CMakeLists.txt基础写法
-```CMake
+```cmake
 cmake_minimum_required(VERSION 3.26)
 project(QmlSyntaxDemo VERSION 1.0 LANGUAGES CXX)
 
@@ -45,7 +45,7 @@ target_link_libraries(${PROJECT_NAME}
 )
 ```
 ## 主程序基础写法
-```C++
+```cpp
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>  // 加载qml引擎
 int main(int argc, char *argv[])

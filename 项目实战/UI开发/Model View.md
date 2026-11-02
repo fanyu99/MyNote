@@ -2,7 +2,7 @@
 title: Model 与 View
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-11-02
 tags:
   - wms
@@ -14,7 +14,7 @@ series: WMS UI 开发
 
 # Model 与 View
 
-> 梳理「Model 与 View」的核心概念、原理与工程实践要点。
+> QAbstractTableModel 的必改写函数、数据角色、视图刷新与增量通知机制。
 
 #相关:
 [[项目实战/计划/优化版详细实施计划#阶段 1 Qt 核心技术补齐 (Day 1-4)]]
@@ -45,7 +45,7 @@ series: WMS UI 开发
 | `Qt::WhatsThisRole`  | 5       | `QString`                 | Shift+F1 "这是什么"帮助文本                          |
 | ......               | ....... | .........                 | ..........                                   |
 ***相关示例代码:***
-```C++
+```cpp
 //必须重载: 返回行数
 int StudentTableModel::rowCount(const QModelIndex& parent) const
 {

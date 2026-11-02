@@ -2,7 +2,7 @@
 title: 仓库管理系统知识库总览
 type: MOC
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-09-02
 updated: 2026-09-02
 tags:

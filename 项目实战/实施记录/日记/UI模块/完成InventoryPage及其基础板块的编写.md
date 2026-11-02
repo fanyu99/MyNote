@@ -2,7 +2,7 @@
 title: 完成InventoryPage及其基础板块的编写
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-09-22
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块
 
 # 完成InventoryPage及其基础板块的编写
 
-> 记录「完成InventoryPage及其基础板块的编写」当天的任务、实现过程与结论。
+> 完成 InventoryPage 及其基础板块，并记录 double free 问题的触发与修复。
 
 ## 完成内容
 
@@ -34,7 +34,7 @@ Inventory 板块的架构：
 
 在每个 dialog 构造函数中写了下面的代码：
 
-```C++
+```cpp
 // 关闭弹窗后自动销毁
 this->setAttribute(Qt::WA_DeleteOnClose);
 ```
@@ -42,7 +42,7 @@ this->setAttribute(Qt::WA_DeleteOnClose);
 此时关闭弹窗时，会调用 dialog 类的 `deleteLater()` 函数删除弹窗对象。
 但是在使用对象时：
 
-```C++
+```cpp
 void InboundPage::onCreateClicked()
 {
     // ...

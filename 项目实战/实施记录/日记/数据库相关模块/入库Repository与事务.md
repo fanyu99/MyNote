@@ -2,7 +2,7 @@
 title: 入库Repository与事务
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-08-06
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/数据库相关模块/Day15 入库Repository与事�
 
 # 入库Repository与事务
 
-> 记录「入库Repository与事务」当天的任务、实现过程与结论。
+> 建立入库 Repository 骨架，完成草稿创建、查询与分页映射，并明确确认事务的执行顺序。
 
 [[项目实战/计划/优化版详细实施计划]]
 

@@ -14,29 +14,29 @@ canvas: 白板/MySQL知识.canvas
 
 # InnoDB 存储引擎
 
-> 梳理「InnoDB 存储引擎」的核心概念、原理与工程实践要点。
+> InnoDB 的逻辑存储结构、内存架构、磁盘结构、后台线程与事务机制。
 
 ## 逻辑存储结构
 
-![InnoDB 存储引擎 图示 1](../图片/Pasted image 20260708021739.png)
+![InnoDB 存储引擎 图示 1](<../图片/Pasted image 20260708021739.png>)
 
 ## 架构
 
-![InnoDB 存储引擎 图示 3](../图片/Pasted image 20260708021803.png)
+![InnoDB 存储引擎 图示 3](<../图片/Pasted image 20260708021803.png>)
 
 ## 磁盘结构
 
-![InnoDB 存储引擎 图示 5](../图片/Pasted image 20260708021831.png)
+![InnoDB 存储引擎 图示 5](<../图片/Pasted image 20260708021831.png>)
 
-![InnoDB 存储引擎 图示 7](../图片/Pasted image 20260708021841.png)
+![InnoDB 存储引擎 图示 7](<../图片/Pasted image 20260708021841.png>)
 
 ## 后台线程
 
-![InnoDB 存储引擎 图示 9](../图片/Pasted image 20260708021852.png)
+![InnoDB 存储引擎 图示 9](<../图片/Pasted image 20260708021852.png>)
 
-![InnoDB 存储引擎 图示 11](../图片/Pasted image 20260708021902.png)
+![InnoDB 存储引擎 图示 11](<../图片/Pasted image 20260708021902.png>)
 
-![InnoDB 存储引擎 图示 13](../图片/Pasted image 20260708021911.png)
+![InnoDB 存储引擎 图示 13](<../图片/Pasted image 20260708021911.png>)
 
 ## 事务
 

@@ -2,7 +2,7 @@
 title: QT 对话框的 WA_DeleteOnClose
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-11-02
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/UI模块/Day25 完成InventoryPage及其相关模块
 
 # QT 对话框的 WA_DeleteOnClose
 
-> 梳理「QT 对话框的 WA_DeleteOnClose」的核心概念、原理与工程实践要点。
+> WA_DeleteOnClose 与对象分配方式冲突导致的崩溃，以及正确的对话框生命周期管理。
 
 ## BUG 根源
 本质是 `WA_DeleteOnClose` 与对象的分配方式冲突产生的 BUG。

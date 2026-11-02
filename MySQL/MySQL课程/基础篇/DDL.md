@@ -23,7 +23,7 @@ canvas: 白板/MySQL课程基础.canvas
 
 ## 一、DDL — 数据库操作
 
-![DDL（数据定义语言） 图示 1](../../图片/Pasted image 20260727195713.png)
+![DDL（数据定义语言） 图示 1](<../../图片/Pasted image 20260727195713.png>)
 
 ### 📊 数据库操作语法
 
@@ -62,7 +62,7 @@ DROP DATABASE IF EXISTS company;
 
 ### 🔍 查询表
 
-![DDL（数据定义语言） 图示 3](../../图片/Pasted image 20260728151345.png)
+![DDL（数据定义语言） 图示 3](<../../图片/Pasted image 20260728151345.png>)
 
 ```sql
 -- 查看当前数据库中所有表
@@ -86,7 +86,7 @@ SHOW CREATE TABLE 表名;
 
 ### ✏️ 创建表
 
-![DDL（数据定义语言） 图示 5](../../图片/Pasted image 20260728151627.png)
+![DDL（数据定义语言） 图示 5](<../../图片/Pasted image 20260728151627.png>)
 
 ```sql
 CREATE TABLE 表名 (
@@ -99,7 +99,7 @@ CREATE TABLE 表名 (
 
 #### 实际例子
 
-![DDL（数据定义语言） 图示 7](../../图片/Pasted image 20260728153132.png)
+![DDL（数据定义语言） 图示 7](<../../图片/Pasted image 20260728153132.png>)
 
 ```sql
 CREATE TABLE tb_user (
@@ -118,7 +118,7 @@ CREATE TABLE tb_user (
 
 > MySQL 的数据类型主要分为三类：**数值类型**、**字符串类型**、**日期时间类型**。
 
-![DDL（数据定义语言） 图示 9](../../图片/Pasted image 20260728154135.png)
+![DDL（数据定义语言） 图示 9](<../../图片/Pasted image 20260728154135.png>)
 
 ---
 
@@ -171,7 +171,7 @@ price DECIMAL(10,2);  -- 总长 10 位，小数占 2 位，如 99999999.99
 
 ### 📝 字符串类型
 
-![DDL（数据定义语言） 图示 11](../../图片/Pasted image 20260728160130.png)
+![DDL（数据定义语言） 图示 11](<../../图片/Pasted image 20260728160130.png>)
 
 | 类型 | 大小 | 说明 |
 |------|:---:|------|
@@ -206,7 +206,7 @@ name VARCHAR(10); -- 存 "abc" 只占用 3 个字符空间
 
 ### 📅 日期时间类型
 
-![DDL（数据定义语言） 图示 13](../../图片/Pasted image 20260728161000.png)
+![DDL（数据定义语言） 图示 13](<../../图片/Pasted image 20260728161000.png>)
 
 | 类型 | 格式 | 范围 | 说明 |
 |------|------|------|------|
@@ -244,7 +244,7 @@ CREATE TABLE test_date (
 | 6 | 身份证号（18 位） | 固定长度，可能含 X | `CHAR(18)` |
 | 7 | 入职时间（取年月日） | 只要日期 | `DATE` |
 
-![DDL（数据定义语言） 图示 15](../../图片/Pasted image 20260728162508.png)
+![DDL（数据定义语言） 图示 15](<../../图片/Pasted image 20260728162508.png>)
 
 ```sql
 CREATE TABLE employee (
@@ -264,9 +264,9 @@ CREATE TABLE employee (
 
 ### ➕ 添加字段
 
-![DDL（数据定义语言） 图示 17](../../图片/Pasted image 20260728162905.png)
+![DDL（数据定义语言） 图示 17](<../../图片/Pasted image 20260728162905.png>)
 
-```sql
+```text
 ALTER TABLE 表名 ADD 字段名 数据类型(长度) [COMMENT '注释'] [FIRST | AFTER 已有字段];
 ```
 
@@ -283,9 +283,9 @@ ALTER TABLE employee ADD create_time DATETIME FIRST;               -- 在最前�
 
 ### ✏️ 修改数据类型 / 字段名和类型
 
-![DDL（数据定义语言） 图示 19](../../图片/Pasted image 20260728163623.png)
+![DDL（数据定义语言） 图示 19](<../../图片/Pasted image 20260728163623.png>)
 
-```sql
+```text
 -- 方式 1：MODIFY — 修改字段的数据类型（不改名）
 ALTER TABLE 表名 MODIFY 字段名 新数据类型(长度);
 
@@ -310,9 +310,9 @@ ALTER TABLE employee CHANGE nickname nike_name VARCHAR(30) COMMENT '昵称改名
 
 ### ➖ 删除字段
 
-![DDL（数据定义语言） 图示 21](../../图片/Pasted image 20260728164025.png)
+![DDL（数据定义语言） 图示 21](<../../图片/Pasted image 20260728164025.png>)
 
-```sql
+```text
 ALTER TABLE 表名 DROP 字段名;
 ```
 
@@ -327,9 +327,9 @@ ALTER TABLE employee DROP nickname;
 
 ### 🏷️ 修改表名
 
-![DDL（数据定义语言） 图示 23](../../图片/Pasted image 20260728164551.png)
+![DDL（数据定义语言） 图示 23](<../../图片/Pasted image 20260728164551.png>)
 
-```sql
+```text
 ALTER TABLE 旧表名 RENAME TO 新表名;
 ```
 
@@ -342,9 +342,9 @@ ALTER TABLE employee RENAME TO staff;
 
 ### 🗑️ 删除表
 
-![DDL（数据定义语言） 图示 25](../../图片/Pasted image 20260728164814.png)
+![DDL（数据定义语言） 图示 25](<../../图片/Pasted image 20260728164814.png>)
 
-```sql
+```text
 -- 删除表（如果存在）
 DROP TABLE IF EXISTS 表名;
 
@@ -421,7 +421,7 @@ TRUNCATE TABLE 表名;
 
 在练习 1 的 `student` 表上完成以下操作：
 
-```sql
+```text
 -- ① 添加一个"邮箱"字段 email，类型 VARCHAR(50)
 -- ② 把 phone 字段改成 VARCHAR(15)，因为国际号码可能超过 11 位
 -- ③ 把 email 字段改名为 contact_email
@@ -434,7 +434,7 @@ TRUNCATE TABLE 表名;
 
 ### 练习 4：综合挑战
 
-```sql
+```text
 -- 自己设计一张"图书信息表"（books），包含至少 6 个字段
 -- 要求：
 --   ① 同时使用到 CHAR 和 VARCHAR（说明你为什么选）

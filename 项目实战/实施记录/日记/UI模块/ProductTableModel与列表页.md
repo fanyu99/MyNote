@@ -2,7 +2,7 @@
 title: ProductTableModel与列表页
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-28
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/UI模块/Day12 ProductTableModel与列表页.canvas
 
 # ProductTableModel与列表页
 
-> 记录「ProductTableModel与列表页」当天的任务、实现过程与结论。
+> 建立 Product 列表的 Presentation 层，让 UI 通过 ProductService 查询分页数据而不接触 SQL。
 
 [[项目实战/计划/优化版详细实施计划]]
 [[Model View]]

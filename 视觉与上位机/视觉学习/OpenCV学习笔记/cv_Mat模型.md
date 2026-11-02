@@ -2,7 +2,7 @@
 title: "cv::Mat 内存模型"
 type: 课程笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-01
 updated: 2026-09-02
 tags:

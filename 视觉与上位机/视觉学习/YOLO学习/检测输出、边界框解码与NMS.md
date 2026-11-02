@@ -2,7 +2,7 @@
 title: YOLO 检测输出、边界框解码与 NMS
 type: 课程笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-19
 updated: 2026-09-19
 tags:
@@ -18,7 +18,7 @@ canvas: 白板/YOLO.canvas
 
 # YOLO 检测输出、边界框解码与 NMS
 
-> 本课围绕「YOLO 检测输出、边界框解码与 NMS」展开：核心概念、关键操作与易错点整理。
+> YOLO 检测头输出、stride 与边界框解码、置信度筛选、NMS 及完整后处理流程。
 
 > [!abstract] 本课目标
 > 理解检测头如何产生大量候选预测，如何把原始输出**解码**为原图上的边界框，以及如何用**置信度阈值 + NMS** 得到最终的少量目标。

@@ -2,7 +2,7 @@
 title: Worker初始化与ODBC连接
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-19
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/系统基础模块/Day3 Worker初始化与ODBC连接
 
 # Worker初始化与ODBC连接
 
-> 记录「Worker初始化与ODBC连接」当天的任务、实现过程与结论。
+> 让 DatabaseWorker 完整拥有数据库连接，并确保连接只在 Worker 线程内创建、打开和关闭。
 
 [[项目实战/计划/优化版详细实施计划]]
 Worker 初始化、ODBC 配置、健康检查、连接关闭

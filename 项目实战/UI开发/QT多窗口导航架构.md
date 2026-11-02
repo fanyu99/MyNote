@@ -2,7 +2,7 @@
 title: QT 多窗口导航架构
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-17
 tags:
   - wms
@@ -15,7 +15,7 @@ series: WMS UI 开发
 
 # QT 多窗口导航架构
 
-> 梳理「QT 多窗口导航架构」的核心概念、原理与工程实践要点。
+> 用 QStackedWidget 做页面切换、QListWidget 做侧边菜单的多窗口导航架构。
 
 #相关:[[项目实战/计划/优化版详细实施计划#阶段 1 Qt 核心技术补齐 (Day 1-4)]]
 ## ***1.QStackedWidget页面切换***
@@ -38,7 +38,7 @@ series: WMS UI 开发
 	void currentChanged(int index); // 切页(空栈时返回-1)
 	void widgetRemoved(int index); // 删除页
 3.相关代码示例:
-```C++
+```cpp
 auto page1 = new QWidget;
 stackedWidget = new QStackedWidget;
 stackedWidget->addWidget(page1);

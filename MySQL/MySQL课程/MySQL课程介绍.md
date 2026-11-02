@@ -49,7 +49,7 @@ flowchart TB
 
 ---
 
-![MySQL 课程介绍 图示 1](../图片/Pasted image 20260726193107.png)
+![MySQL 课程介绍 图示 1](<../图片/Pasted image 20260726193107.png>)
 
 ---
 

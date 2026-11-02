@@ -2,7 +2,7 @@
 title: Product领域模型与契约
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-25
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/数据库相关模块/Day10 Product领域模型与�
 
 # Product领域模型与契约
 
-> 记录「Product领域模型与契约」当天的任务、实现过程与结论。
+> 开始物资纵向切片，稳定领域模型、分页请求和 Repository 边界。
 
 [[项目实战/计划/优化版详细实施计划]]
 Product Entity、DTO 与 Repository 契约

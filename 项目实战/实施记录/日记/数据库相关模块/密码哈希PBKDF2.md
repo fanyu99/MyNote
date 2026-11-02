@@ -2,7 +2,7 @@
 title: 密码哈希PBKDF2
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-23
 tags:
   - wms
@@ -16,7 +16,7 @@ canvas: 实施记录/白板/数据库相关模块/Day8 密码哈希PBKDF2.canvas
 
 # 密码哈希PBKDF2
 
-> 记录「密码哈希PBKDF2」当天的任务、实现过程与结论。
+> 完成密码安全模块闭环，为登录认证和 users 表种子数据提供可靠的哈希能力。
 
 [[项目实战/计划/优化版详细实施计划]]
 Day 8：完善 PasswordHasher、PBKDF2 测试与管理员种子数据

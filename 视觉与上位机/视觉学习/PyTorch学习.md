@@ -2,7 +2,7 @@
 title: PyTorch 学习笔记
 type: 主题笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-16
 tags:
   - pytorch
@@ -14,7 +14,7 @@ canvas: 白板/视觉学习.canvas
 
 # PyTorch 学习笔记
 
-> 梳理「PyTorch 学习笔记」的核心概念、原理与工程实践要点。
+> PyTorch 张量、自动求导、nn.Module、损失与优化器、DataLoader，以及 CNN 训练流程。
 
 > [!note] 定位
 > 本笔记目标是**为学习 YOLO 打基础**，只覆盖 PyTorch 中会被 YOLO 训练/推理直接用到的部分（张量、自动求导、`nn.Module`、CNN 三大组件、分类训练循环），不追求覆盖 PyTorch 全部特性。

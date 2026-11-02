@@ -2,7 +2,7 @@
 title: C++ 内存管理
 type: 主题笔记
 topic: C++
-status: 学习中
+status: 已完成
 created: 2026-09-22
 tags:
   - cpp
@@ -14,7 +14,7 @@ canvas: 白板/C++内存管理.canvas
 
 # C++ 内存管理
 
-> 梳理「C++ 内存管理」的核心概念、原理与工程实践要点。
+> 程序内存分区、对象生命周期、new/delete 与 malloc/free、placement new，以及内存泄漏与悬空指针。
 
 承接 [[C++对象模型与虚函数|对象模型与虚函数]] 中"对象由数据成员与隐藏成员构成"的结论，本篇把视角下沉到内存本身：先看一个运行中的程序把内存分成哪些区域，再拆开 `new`/`delete` 与 `malloc`/`free` 的内部流程与区别，然后说明 `placement new` 的特殊之处，最后逐个拆解内存泄漏、悬空指针、use-after-free 与 double free 这几类经典陷阱。资源所有权与智能指针另见 [[RAII、资源所有权与 unique_ptr|RAII、资源所有权与 unique_ptr]]。
 

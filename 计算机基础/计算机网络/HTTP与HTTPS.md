@@ -2,7 +2,7 @@
 title: HTTP 与 HTTPS
 type: 通用笔记
 topic: 计算机基础
-status: 学习中
+status: 已完成
 created: 2026-10-21
 updated: 2026-10-21
 tags:

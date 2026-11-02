@@ -24,7 +24,7 @@ canvas: 白板/MySQL课程基础.canvas
 
 ## 一、字符串函数
 
-![MySQL 函数 图示 1](../../图片/Pasted image 20260806111702.png)
+![MySQL 函数 图示 1](<../../图片/Pasted image 20260806111702.png>)
 
 ### 1.1 常用字符串函数速查
 
@@ -97,7 +97,7 @@ FROM (SELECT 'zhangsan@company.com' AS email) AS tmp;
 
 ## 二、数值函数
 
-![MySQL 函数 图示 3](../../图片/Pasted image 20260806113617.png)
+![MySQL 函数 图示 3](<../../图片/Pasted image 20260806113617.png>)
 
 ### 2.1 常用数值函数速查
 
@@ -156,7 +156,7 @@ SELECT SQRT(25) AS 平方根;              -- 5
 
 ## 三、日期函数
 
-![MySQL 函数 图示 5](../../图片/Pasted image 20260806114243.png)
+![MySQL 函数 图示 5](<../../图片/Pasted image 20260806114243.png>)
 
 ### 3.1 常用日期函数速查
 
@@ -223,7 +223,7 @@ WHERE DATEDIFF(CURDATE(), entry_date) > 1825;
 
 ## 四、流程函数
 
-![MySQL 函数 图示 7](../../图片/Pasted image 20260806121258.png)
+![MySQL 函数 图示 7](<../../图片/Pasted image 20260806121258.png>)
 
 > 流程函数实现了 SQL 中的 **if-else 逻辑**，是条件查询中最常用的函数。
 
@@ -256,7 +256,7 @@ FROM employee;
 > [!tip] 区别
 > `IFNULL` 只处理 NULL，相当于 `IF(expr IS NULL, default, expr)`。
 
-![MySQL 函数 图示 9](../../图片/Pasted image 20260806122121.png)
+![MySQL 函数 图示 9](<../../图片/Pasted image 20260806122121.png>)
 
 ### 4.3 CASE WHEN（重点）
 
@@ -278,7 +278,7 @@ CASE
 END
 ```
 
-![MySQL 函数 图示 11](../../图片/Pasted image 20260806121743.png)
+![MySQL 函数 图示 11](<../../图片/Pasted image 20260806121743.png>)
 
 ```sql
 -- ==================== CASE WHEN 示例 ====================
@@ -363,7 +363,7 @@ FROM employee;
 
 ### 练习 1：字符串函数
 
-```sql
+```text
 -- ① 将 employee 表中员工的姓名统一转为大写输出
 -- ② 将 id 格式化为 4 位，左侧补零（如 1 → 0001, 12 → 0012）
 -- ③ 从 id_card 中提取出生年月日（第 7~14 位）
@@ -372,7 +372,7 @@ FROM employee;
 
 ### 练习 2：数值函数
 
-```sql
+```text
 -- ① 查询 employee 表的平均年龄，保留 1 位小数
 -- ② 查询 id 为偶数的所有员工（用 MOD 函数）
 -- ③ 随机抽取 3 名员工（用作抽奖）
@@ -380,7 +380,7 @@ FROM employee;
 
 ### 练习 3：日期函数
 
-```sql
+```text
 -- ① 查询每位员工的入职日期，以及入职距今的天数
 -- ② 查询入职超过 2000 天的员工
 -- ③ 查询 2020 年入职的员工（用 YEAR 函数）
@@ -389,7 +389,7 @@ FROM employee;
 
 ### 练习 4：流程函数
 
-```sql
+```text
 -- ① 用 IF 函数判断员工年龄是否 >= 30，输出"中年"或"青年"
 -- ② 用 IFNULL 处理 work_address 为 NULL 的情况，显示"待分配"
 -- ③ 用 CASE WHEN 按工作地址分组为：华东、华南、华北、其他
@@ -398,7 +398,7 @@ FROM employee;
 
 ### 练习 5：综合挑战
 
-```sql
+```text
 -- 查询员工报表，输出以下字段：
 -- ① 姓名（大写）
 -- ② 性别

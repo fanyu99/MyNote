@@ -2,7 +2,7 @@
 title: Qt Quick Controls 库
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-09-12
 tags:
   - wms
@@ -14,7 +14,7 @@ series: WMS UI 开发
 
 # Qt Quick Controls 库
 
-> 梳理「Qt Quick Controls 库」的核心概念、原理与工程实践要点。
+> Button、TextField、ComboBox、CheckBox、Slider 等控件，以及 Column/Row 布局系统。
 
 ```qml
 import QtQuick

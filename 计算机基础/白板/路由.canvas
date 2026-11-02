@@ -1,23 +1,9 @@
 {
-  "nodes": [
-    {
-      "id": "836859e43b650243",
-      "type": "file",
-      "file": "计算机基础/计算机网络/路由/路由协议.md",
-      "x": 0,
-      "y": 0,
-      "width": 320,
-      "height": 240
-    },
-    {
-      "id": "be39b2d63ce69601",
-      "type": "file",
-      "file": "计算机基础/计算机网络/路由/路由算法.md",
-      "x": 380,
-      "y": 0,
-      "width": 320,
-      "height": 240
-    }
-  ],
-  "edges": []
+	"nodes":[
+		{"id":"be39b2d63ce69601","type":"file","file":"计算机基础/计算机网络/路由/路由算法.md","x":380,"y":0,"width":760,"height":920},
+		{"id":"836859e43b650243","type":"file","file":"计算机基础/计算机网络/路由/路由协议.md","x":-520,"y":0,"width":820,"height":920}
+	],
+	"edges":[
+		{"id":"2ea3cdf8a75ac262","fromNode":"be39b2d63ce69601","fromSide":"left","toNode":"836859e43b650243","toSide":"right"}
+	]
 }

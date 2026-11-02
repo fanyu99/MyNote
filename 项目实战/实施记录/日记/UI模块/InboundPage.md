@@ -2,7 +2,7 @@
 title: InboundPage
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-08-10
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/UI模块/Day19 InboundPage.canvas
 
 # InboundPage
 
-> 记录「InboundPage」当天的任务、实现过程与结论。
+> 在入库事务和基础资料服务稳定后，准备入库页面的数据联动和真实 Repository 接入。
 
 [[项目实战/计划/优化版详细实施计划]]
 

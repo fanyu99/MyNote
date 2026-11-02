@@ -2,7 +2,7 @@
 title: YOLO 学习总览
 type: MOC
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-16
 updated: 2026-09-21
 tags:
@@ -17,7 +17,7 @@ canvas: 白板/YOLO.canvas
 
 # YOLO 学习总览
 
-> 本页是「YOLO 学习总览」的索引与学习路径入口。
+> YOLO 课程的知识结构、逐课进度与快速导航。
 
 > [!note] 前置要求
 > 本笔记假设你已完成：

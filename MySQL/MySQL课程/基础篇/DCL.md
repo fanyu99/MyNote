@@ -28,7 +28,7 @@ canvas: 白板/MySQL课程基础.canvas
 
 ## 一、用户管理
 
-![DCL（数据控制语言） 图示 1](../../图片/Pasted image 20260805150505.png)
+![DCL（数据控制语言） 图示 1](<../../图片/Pasted image 20260805150505.png>)
 
 ### 1.1 用户信息存储在哪？
 
@@ -48,7 +48,7 @@ SELECT Host, User FROM mysql.user;
 
 ### 1.2 创建用户
 
-```sql
+```text
 -- 语法
 CREATE USER '用户名'@'主机名' IDENTIFIED BY '密码';
 ```
@@ -113,8 +113,8 @@ DROP USER 'app'@'%';
 
 ## 二、权限控制
 
-![DCL（数据控制语言） 图示 3](../../图片/Pasted image 20260805155749.png)
-![DCL（数据控制语言） 图示 5](../../图片/Pasted image 20260805155918.png)
+![DCL（数据控制语言） 图示 3](<../../图片/Pasted image 20260805155749.png>)
+![DCL（数据控制语言） 图示 5](<../../图片/Pasted image 20260805155918.png>)
 
 > 用户创建好后，默认**没有任何权限**（连查看数据库都不行），需要管理员手动分配。
 
@@ -135,7 +135,7 @@ DROP USER 'app'@'%';
 
 ### 2.2 授予权限（GRANT）
 
-```sql
+```text
 -- 语法
 GRANT 权限列表 ON 数据库名.表名 TO '用户名'@'主机名';
 ```
@@ -287,7 +287,7 @@ DROP USER 'guest'@'%';
 
 ### 练习 1：用户管理
 
-```sql
+```text
 -- ① 创建一个只在本地登录的用户 local_user，密码自定
 -- ② 创建一个可以在任意主机登录的用户 remote_user，密码自定
 -- ③ 查看 mysql.user 表，确认这两个用户是否存在
@@ -297,7 +297,7 @@ DROP USER 'guest'@'%';
 
 ### 练习 2：权限管理
 
-```sql
+```text
 -- ① 创建数据库 test_dcl 和一张表 users(id INT, name VARCHAR(20))
 -- ② 创建用户 test_dcl_user@'%'，密码自定
 -- ③ 给 test_dcl_user 分配对 test_dcl 库的全部权限
@@ -308,7 +308,7 @@ DROP USER 'guest'@'%';
 
 ### 练习 3：综合思考
 
-```sql
+```text
 -- 场景：你是一家公司的 DBA，需要管理三个角色
 
 -- ① 开发人员 dev_user：需要本地登录，对开发库有全部权限
@@ -324,4 +324,4 @@ DROP USER 'guest'@'%';
 
 ---
 
-📚 **课程导航**：[[DQL|← 上一课]] · [[MySQL/MySQL课程/基础篇/函数|下一课 →]] ｜ [[基础篇概览|返回基础篇]] · [[MySQL课程介绍|课程导航]]
+📚 **课程导航**：[[DQL|← 上一课]] · [[MySQL 函数|下一课 →]] ｜ [[基础篇概览|返回基础篇]] · [[MySQL课程介绍|课程导航]]

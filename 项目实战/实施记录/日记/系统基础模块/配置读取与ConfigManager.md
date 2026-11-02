@@ -2,7 +2,7 @@
 title: 配置读取与ConfigManager
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-21
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/系统基础模块/Day6 配置读取与ConfigManager
 
 # 配置读取与ConfigManager
 
-> 记录「配置读取与ConfigManager」当天的任务、实现过程与结论。
+> 建立统一配置入口，集中读取数据库、日志、队列等参数，避免各模块硬编码。
 
 [[项目实战/计划/优化版详细实施计划]]
 配置读取、IniHelper、ConfigManager、数据库配置装配

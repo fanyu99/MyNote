@@ -20,7 +20,7 @@ canvas: 白板/RTSP协议.canvas
 
 # RTSP 协议
 
-> 梳理「RTSP 协议」的核心概念、原理与工程实践要点。
+> RTSP 会话模型、OPTIONS/DESCRIBE/SETUP/PLAY 流程，以及 ffmpeg 推拉流与联调排错。
 
 > [!abstract] 一句话
 > RTSP 是流媒体的「遥控器」：它只负责 **控制**（描述、建立、播放、暂停、拆除），真正的音视频数据由 **RTP** 承载，**RTCP** 负责质量反馈与音画同步，**SDP** 负责描述「有哪些流、用什么编码、参数是什么」。

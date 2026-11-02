@@ -2,7 +2,7 @@
 title: ONNX 导出与 ONNXRuntime
 type: 课程笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-23
 tags:
   - yolo
@@ -15,7 +15,7 @@ canvas: 白板/YOLO.canvas
 
 # ONNX 导出与 ONNXRuntime
 
-> 本课围绕「ONNX 导出与 ONNXRuntime」展开：核心概念、关键操作与易错点整理。
+> YOLO 模型通过 ultralytics 与 PyTorch 两条路径导出 ONNX，并用 ONNXRuntime 推理。
 
 ## 1- 使用YOLO`ultralytics`导出
 ```python

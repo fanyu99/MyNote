@@ -2,7 +2,7 @@
 title: MySQL ProductRepository
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-26
 tags:
   - wms
@@ -16,7 +16,7 @@ canvas: 实施记录/白板/数据库相关模块/Day11 MySQL ProductRepository.
 
 # MySQL ProductRepository
 
-> 记录「MySQL ProductRepository」当天的任务、实现过程与结论。
+> 实现 IProductRepository 的 MySQL 版本，让 ProductService 使用真实数据库查询与写入。
 
 [[项目实战/计划/优化版详细实施计划]]
 ## MySQL ProductRepository 与数据库结果映射（当前任务）

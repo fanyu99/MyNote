@@ -2,7 +2,7 @@
 title: QT 连接 MySQL
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-11-02
 tags:
   - wms
@@ -15,7 +15,7 @@ series: WMS UI 开发
 
 # QT 连接 MySQL
 
-> 梳理「QT 连接 MySQL」的核心概念、原理与工程实践要点。
+> Qt 连接 MySQL 的驱动配置、连接建立、查询执行与连接池设计要点。
 
 #相关: [[项目实战/计划/优化版详细实施计划#Step 2 启动 MySQL 并创建数据库]]
 [[项目实战/计划/优化版详细实施计划#2.1 数据库连接池设计 (Day 4, ~4h) ⭐]]
@@ -23,7 +23,7 @@ series: WMS UI 开发
 [[Worker初始化与ODBC连接]]
 ## 相关API
 ### 头文件
-```C++
+```cpp
 <QSqlDatabase> // 数据库连接
 <QSqlQuery> // SQL语句
 <QSqlError> // 错误信息
@@ -31,7 +31,7 @@ series: WMS UI 开发
 <QSqlResult> // 底层结果集
 ```
 ### 代码示例
-```C++
+```cpp
 
 // 连接数据库
 bool openDatabase()

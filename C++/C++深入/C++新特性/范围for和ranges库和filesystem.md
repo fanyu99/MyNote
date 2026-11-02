@@ -2,7 +2,7 @@
 title: 范围 for、ranges 库与 filesystem
 type: 主题笔记
 topic: C++
-status: 学习中
+status: 已完成
 created: 2026-10-13
 tags:
   - cpp
@@ -14,7 +14,7 @@ series: C++ 深入
 
 # 范围 for、ranges 库与 filesystem
 
-> 梳理「范围 for、ranges 库与 filesystem」的核心概念、原理与工程实践要点。
+> 范围 for 的展开与四种写法、ranges 库的视图组合，以及 filesystem 常用操作。
 
 承接 [[optional、string_view、variant、span|optional、string_view、variant、span]] 中"类型可以不拥有数据"的思路，本篇把 A7 的三块实用特性串起来：**范围 for** 是迭代器循环的语法糖（讲清它展开成什么，以及代理对象带来的坑）；**ranges** 用管道把算法与视图组合成惰性数据流，`view` 与 `string_view`/`span` 一样**不拥有数据**；**filesystem** 用 `path` 统一跨平台路径操作。
 

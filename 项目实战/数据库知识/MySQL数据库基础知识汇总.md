@@ -2,7 +2,7 @@
 title: MySQL 数据库基础知识汇总
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-11-02
 tags:
   - wms
@@ -15,7 +15,7 @@ series: WMS 数据库知识
 
 # MySQL 数据库基础知识汇总
 
-> 梳理「MySQL 数据库基础知识汇总」的核心概念、原理与工程实践要点。
+> 汇总 InnoDB、索引优化、SQL 优化、锁、视图与存储过程的 MySQL 知识入口。
 
 [[MySQL/MySQL数据库/索引优化]]
 [[MySQL/MySQL数据库/视图]]

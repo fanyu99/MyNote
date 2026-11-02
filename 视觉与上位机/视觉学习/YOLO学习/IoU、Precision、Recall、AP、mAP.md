@@ -2,7 +2,7 @@
 title: IoU、Precision、Recall、AP、mAP
 type: 课程笔记
 topic: 视觉与上位机
-status: 学习中
+status: 已完成
 created: 2026-09-18
 updated: 2026-09-19
 tags:
@@ -18,7 +18,7 @@ canvas: 白板/YOLO.canvas
 
 # IoU、Precision、Recall、AP、mAP
 
-> 本课围绕「IoU、Precision、Recall、AP、mAP」展开：核心概念、关键操作与易错点整理。
+> IoU、TP/FP/FN、Precision/Recall、置信度阈值，以及 AP 与 mAP 的计算与含义。
 
 > [!abstract] 本课目标
 > 理解模型预测框如何与真实框匹配，以及如何评价检测结果的好坏。

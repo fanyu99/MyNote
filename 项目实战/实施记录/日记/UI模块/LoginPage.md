@@ -2,7 +2,7 @@
 title: LoginPage
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-08-18
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/UI模块/Day22 LoginPage基础功能.canvas
 
 # LoginPage
 
-> 记录「LoginPage」当天的任务、实现过程与结论。
+> 用 AuthService 按用户名取用户信息并发出登录信号，接入 ini 配置与登录页控件。
 
 1. 使用authservice通过用户名进行获取用户信息并emit登录信号
 2. 登录成功信号传递登录用户信息,交给后续页面进行获取

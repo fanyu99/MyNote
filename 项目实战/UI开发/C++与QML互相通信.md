@@ -2,7 +2,7 @@
 title: C++ 与 QML 互相通信
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-09-12
 tags:
   - wms
@@ -15,13 +15,13 @@ series: WMS UI 开发
 
 # C++ 与 QML 互相通信
 
-> 梳理「C++ 与 QML 互相通信」的核心概念、原理与工程实践要点。
+> Q_PROPERTY 暴露 C++ 属性，以及 QML_ELEMENT 与 setContextProperty 两种注册方式的取舍。
 
 ## 1. Q_PROPERTY是什么?
 `Q_PROPERTY`是Qt元对象系统中的属性声明宏,当你在C++类中写了`Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)`,QML引擎就能识别到这个属性,将其作为QML属性使用,包括绑定追踪
 
 ## 2.定义一个可暴露的C++类
-```C++
+```cpp
 // app_controller.h
 #ifndef APP_CONTROLLER_H
 #define APP_CONTROLLER_H
@@ -83,7 +83,7 @@ private:
 `Q_INVOKABLE`。被这个宏修饰的成员函数，QML 引擎可以通过元对象系统调用它。参数和返回值会自动在 C++ 类型与 JavaScript 类型之间转换——`QString` 变成 JS 字符串，`int` 变成 JS 数字(注意计算时会变为real类型)，`QVariantMap` 变成 JS 对象，以此类推。
 
 ## 3. C++实现文件
-```C++
+```cpp
 // app_controller.cpp
 #include "app_controller.h"
 
@@ -155,7 +155,7 @@ QString AppController::greeting() const
 ## 1. 可复用组件用QML_ELEMENT: 类型注册,QML端实例化
 当你用 `QML_ELEMENT` 注册一个 C++ 类型后，QML 可以像使用原生类型一样直接声明这个类型的实例：
 
-```text
+```qml
 AppController {
     id: controller
     userName: "Charlie"
@@ -166,15 +166,16 @@ AppController {
 ## 2. 全局实例用setContextProperty: 对象注入,C++管理生命周期
 `QQmlContext::setContextProperty()` 的思路完全不同。你不是注册一个「类型」，而是直接把一个已经构造好的 C++ 对象实例塞进 QML 的全局上下文。QML 里通过一个字符串名字来引用它，不需要 import 任何模块：
 
-```text
+```cpp
 QQmlApplicationEngine engine;
 auto *controller = new AppController(&app);
 engine.rootContext()->setContextProperty("appController", controller);
 ```
-```text
+```qml
 // QML 中直接用 appController 这个名字
 Text {
     text: appController.userName
 }
+```
 
 这种方式适合「全局唯一的后端对象」场景——比如应用级别的配置管理器、网络客户端、数据源。整个应用只需要一个实例，所有 QML 文件共享同一个对象。

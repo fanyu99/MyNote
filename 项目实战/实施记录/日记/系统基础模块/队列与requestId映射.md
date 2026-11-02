@@ -2,7 +2,7 @@
 title: 队列与requestId映射
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-19
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/系统基础模块/Day4 队列与requestId映射.can
 
 # 队列与requestId映射
 
-> 记录「队列与requestId映射」当天的任务、实现过程与结论。
+> 队列容量、requestId、队列满、无效任务与 taskFinished 映射的确定性行为。
 
 #超前完成
 

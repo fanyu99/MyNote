@@ -2,7 +2,7 @@
 title: 物资CRUD UI纵向切片
 type: 通用笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-07-30
 tags:
   - wms
@@ -15,7 +15,7 @@ canvas: 实施记录/白板/UI模块/Day13 物资CRUD UI纵向切片.canvas
 
 # 物资CRUD UI纵向切片
 
-> 记录「物资CRUD UI纵向切片」当天的任务、实现过程与结论。
+> 在 Product 页面完成物资主数据 CRUD，形成权限校验到 Repository 刷新的可演示闭环。
 
 [[项目实战/计划/优化版详细实施计划]]
 

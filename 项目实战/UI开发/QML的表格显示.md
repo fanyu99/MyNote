@@ -2,7 +2,7 @@
 title: QML 的表格显示
 type: 主题笔记
 topic: 项目实战
-status: 学习中
+status: 已完成
 created: 2026-09-12
 tags:
   - wms
@@ -15,7 +15,7 @@ series: WMS UI 开发
 
 # QML 的表格显示
 
-> 梳理「QML 的表格显示」的核心概念、原理与工程实践要点。
+> ListModel/ListView、delegate 复用、Repeater/GridView，以及 C++ QAbstractListModel 驱动表格。
 
 ## ListModel
 
@@ -222,7 +222,7 @@ Qt 提供的解决方案是 `QAbstractListModel`。你在 C++ 端继承这个�
 
 ## 在QML中使用C++模型Model
 在main.cpp中创建模型实例后通过setContextProperty进行注入
-```C++
+```cpp
 // main.cpp
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>

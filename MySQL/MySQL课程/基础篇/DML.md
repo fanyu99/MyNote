@@ -32,7 +32,7 @@ canvas: 白板/MySQL课程基础.canvas
 
 ### 1.1 基本语法
 
-```sql
+```text
 -- 方式 1：给指定字段添加数据（推荐）
 INSERT INTO 表名 (字段1, 字段2, ...) VALUES (值1, 值2, ...);
 
@@ -123,11 +123,11 @@ INSERT INTO employee (name) VALUES ('O''Brien');
 
 ## 二、修改数据（UPDATE）
 
-![DML（数据操作语言） 图示 1](../../图片/Pasted image 20260804102644.png)
+![DML（数据操作语言） 图示 1](<../../图片/Pasted image 20260804102644.png>)
 
 ### 2.1 基本语法
 
-```sql
+```text
 UPDATE 表名 SET 字段1 = 值1, 字段2 = 值2, ... [WHERE 条件];
 ```
 
@@ -196,11 +196,11 @@ UPDATE employee SET name = '张三丰' WHERE id = 1;
 
 ## 三、删除数据（DELETE）
 
-![DML（数据操作语言） 图示 3](../../图片/Pasted image 20260804103716.png)
+![DML（数据操作语言） 图示 3](<../../图片/Pasted image 20260804103716.png>)
 
 ### 3.1 基本语法
 
-```sql
+```text
 DELETE FROM 表名 [WHERE 条件];
 ```
 
@@ -330,7 +330,7 @@ SELECT * FROM student ORDER BY score DESC;
 
 ### 练习 1：INSERT 操作
 
-```sql
+```text
 -- 在 employee 表中再插入 3 条数据（要求分别用指定字段、全字段、批量三种方式）
 -- ① 用"指定字段"方式插入一条：id=7, work_no='B001', name='吴九', gender='女'
 -- ② 用"全字段"方式插入一条：id=8, work_no='B002', name='郑十', gender='男'
@@ -339,7 +339,7 @@ SELECT * FROM student ORDER BY score DESC;
 
 ### 练习 2：UPDATE 操作
 
-```sql
+```text
 -- 在 employee 表上完成以下修改：
 -- ① 将 id=1 的员工的年龄修改为 26
 -- ② 将所有女员工的年龄 +1
@@ -348,7 +348,7 @@ SELECT * FROM student ORDER BY score DESC;
 
 ### 练习 3：DELETE 操作
 
-```sql
+```text
 -- 在 employee 表上完成以下删除：
 -- ① 删除 id=7 的员工
 -- ② 删除所有女员工（先 SELECT 看看会删几条）
@@ -357,7 +357,7 @@ SELECT * FROM student ORDER BY score DESC;
 
 ### 练习 4：综合挑战
 
-```sql
+```text
 -- ① 创建一张"商品表" product（至少包含：id, name, price, stock）
 -- ② 插入 5 条商品数据
 -- ③ 将库存 < 10 的商品价格打 8 折 (price = price * 0.8)

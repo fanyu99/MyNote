@@ -1,143 +1,23 @@
 {
-  "nodes": [
-    {
-      "id": "633ef0f46dae53a2",
-      "type": "text",
-      "text": "# 视觉与上位机知识库总览\n\n主题总览 · 点击节点进入子白板",
-      "x": 0,
-      "y": -260,
-      "width": 700,
-      "height": 150
-    },
-    {
-      "id": "2f69c01dc0be76dc",
-      "type": "file",
-      "file": "视觉与上位机/白板/视觉学习.canvas",
-      "x": 0,
-      "y": 0,
-      "width": 420,
-      "height": 300
-    },
-    {
-      "id": "0653641e1e462ad6",
-      "type": "file",
-      "file": "视觉与上位机/白板/OpenCV.canvas",
-      "x": 460,
-      "y": 0,
-      "width": 420,
-      "height": 300
-    },
-    {
-      "id": "af968013b8b8e146",
-      "type": "file",
-      "file": "视觉与上位机/白板/YOLO.canvas",
-      "x": 920,
-      "y": 0,
-      "width": 420,
-      "height": 300
-    },
-    {
-      "id": "1856acd361337836",
-      "type": "file",
-      "file": "视觉与上位机/白板/海康SDK.canvas",
-      "x": 0,
-      "y": 380,
-      "width": 420,
-      "height": 300
-    },
-    {
-      "id": "265735bacff2ff06",
-      "type": "file",
-      "file": "视觉与上位机/白板/协议.canvas",
-      "x": 460,
-      "y": 380,
-      "width": 420,
-      "height": 300
-    },
-    {
-      "id": "b3a450ad74493805",
-      "type": "file",
-      "file": "视觉与上位机/白板/视觉标定.canvas",
-      "x": 920,
-      "y": 380,
-      "width": 420,
-      "height": 300
-    },
-    {
-      "id": "122cca6957eaa5c7",
-      "type": "file",
-      "file": "视觉与上位机/白板/QT底层原理深入.canvas",
-      "x": 0,
-      "y": 760,
-      "width": 420,
-      "height": 300
-    },
-    {
-      "id": "c6a8452769784288",
-      "type": "file",
-      "file": "视觉与上位机/白板/QT+ONNXRuntime项目.canvas",
-      "x": 460,
-      "y": 760,
-      "width": 420,
-      "height": 300
-    }
-  ],
-  "edges": [
-    {
-      "id": "1682b6e8ecaa13c7",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "2f69c01dc0be76dc",
-      "toSide": "top"
-    },
-    {
-      "id": "466a539923f912c8",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "0653641e1e462ad6",
-      "toSide": "top"
-    },
-    {
-      "id": "62d2ca009f0c6f06",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "af968013b8b8e146",
-      "toSide": "top"
-    },
-    {
-      "id": "8789a4da546e7f5a",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "1856acd361337836",
-      "toSide": "top"
-    },
-    {
-      "id": "5c9f32cf05fed009",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "265735bacff2ff06",
-      "toSide": "top"
-    },
-    {
-      "id": "59d584222f81858d",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "b3a450ad74493805",
-      "toSide": "top"
-    },
-    {
-      "id": "ea9b2e40dcf14339",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "122cca6957eaa5c7",
-      "toSide": "top"
-    },
-    {
-      "id": "035964a444dd7822",
-      "fromNode": "633ef0f46dae53a2",
-      "fromSide": "bottom",
-      "toNode": "c6a8452769784288",
-      "toSide": "top"
-    }
-  ]
+	"nodes":[
+		{"id":"633ef0f46dae53a2","type":"text","text":"# 视觉与上位机知识库总览\n\n主题总览 · 点击节点进入子白板","x":0,"y":-260,"width":700,"height":150},
+		{"id":"2f69c01dc0be76dc","type":"file","file":"视觉与上位机/白板/视觉学习.canvas","x":0,"y":0,"width":420,"height":300},
+		{"id":"0653641e1e462ad6","type":"file","file":"视觉与上位机/白板/OpenCV.canvas","x":460,"y":0,"width":420,"height":300},
+		{"id":"af968013b8b8e146","type":"file","file":"视觉与上位机/白板/YOLO.canvas","x":920,"y":0,"width":420,"height":300},
+		{"id":"1856acd361337836","type":"file","file":"视觉与上位机/白板/海康SDK.canvas","x":0,"y":380,"width":420,"height":300},
+		{"id":"265735bacff2ff06","type":"file","file":"视觉与上位机/白板/协议.canvas","x":460,"y":380,"width":420,"height":300},
+		{"id":"b3a450ad74493805","type":"file","file":"视觉与上位机/白板/视觉标定.canvas","x":920,"y":380,"width":420,"height":300},
+		{"id":"122cca6957eaa5c7","type":"file","file":"视觉与上位机/白板/QT底层原理深入.canvas","x":0,"y":760,"width":420,"height":300},
+		{"id":"c6a8452769784288","type":"file","file":"视觉与上位机/白板/QT+ONNXRuntime项目.canvas","x":460,"y":760,"width":420,"height":300}
+	],
+	"edges":[
+		{"id":"1682b6e8ecaa13c7","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"2f69c01dc0be76dc","toSide":"top"},
+		{"id":"466a539923f912c8","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"0653641e1e462ad6","toSide":"top"},
+		{"id":"62d2ca009f0c6f06","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"af968013b8b8e146","toSide":"top"},
+		{"id":"8789a4da546e7f5a","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"1856acd361337836","toSide":"top"},
+		{"id":"5c9f32cf05fed009","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"265735bacff2ff06","toSide":"top"},
+		{"id":"59d584222f81858d","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"b3a450ad74493805","toSide":"top"},
+		{"id":"ea9b2e40dcf14339","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"122cca6957eaa5c7","toSide":"top"},
+		{"id":"035964a444dd7822","fromNode":"633ef0f46dae53a2","fromSide":"bottom","toNode":"c6a8452769784288","toSide":"top"}
+	]
 }
